@@ -22,7 +22,7 @@ const works = [
     title: "Módulo Social de Recetas",
     category: "Backend",
     description: "Red social de recetas con publicaciones moderadas, destacados y funciones de interacción para fomentar la participación de la comunidad.",
-    tags: ["Python", "Django", "ORM", "Moderación", "Social"],
+    tags: ["Python", "Django", "ORM", "Moderación", "Social", "Responsive"],
     link: "https://fedo.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas.png"
   },
@@ -40,7 +40,7 @@ const works = [
   title: "Landing Page Personal – Fernando Arriaza",
   category: "Frontend",
   description: "Landing page interactiva que muestra mi portafolio profesional, proyectos y enlaces de contacto, desarrollada con HTML, CSS y JavaScript.",
-  tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Landing Page"],
+  tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
   link: "/portafolio",
   cover: "https://raw.githubusercontent.com/Farriaza/img/main/lardigPage.png"
 },
@@ -49,7 +49,7 @@ const works = [
     title: "Rutina de gym en casa",
     category: "frontend",
     description: "Gestión de rutinas de ejercicio en casa, con seguimiento de progreso y recomendaciones personalizadas.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
     link: "/gym",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
   }
@@ -337,4 +337,5 @@ function typeCode() {
 }
 
 typeCode();
+
 
