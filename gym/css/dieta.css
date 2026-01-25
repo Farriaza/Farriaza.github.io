@@ -1,0 +1,335 @@
+/* ==========================================================================
+   REINGENIERÍA CORPORAL - SISTEMA UNIFICADO (DIETA)
+   Consistencia de UI: Rutina <=> Dieta
+   ========================================================================== */
+
+:root {
+  --bg: #050505;
+  --bg-gradient: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+  --panel: #0e0e0e;
+  --card: #141414;
+  --card-hover: #1a1a1a;
+  --accent: #d15c1e;
+  --accent-hover: #ff6b35;
+  --accent-glow: rgba(209, 92, 30, 0.3);
+  --text: #ffffff;
+  --text-secondary: #e5e5e5;
+  --muted: #9a9a9a;
+  --border: rgba(255,255,255,.08);
+  --shadow-lg: 0 25px 50px rgba(0,0,0,.6);
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= NAV (UNIFICADO CON RUTINA) ================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  background: rgba(5,5,5,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+/* ===== MOBILE MENU BUTTON ===== */
+.mobile-menu-btn{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:8px;
+  z-index:1001;
+}
+
+.mobile-menu-btn span{
+  width:25px;
+  height:3px;
+  background:var(--text);
+  border-radius:3px;
+  transition:all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1){
+  transform:rotate(45deg) translateY(8px);
+}
+
+.mobile-menu-btn.active span:nth-child(2){
+  opacity:0;
+}
+
+.mobile-menu-btn.active span:nth-child(3){
+  transform:rotate(-45deg) translateY(-8px);
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--accent), #ff8c42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a.active::after { width: 100%; }
+.nav a.active, .nav a:hover { color: var(--text); }
+
+/* ================= APP STRUCTURE ================= */
+.app {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 70px; /* Espacio para el Nav fijo */
+}
+
+/* ================= SIDEBAR (ESTILO RUTINA) ================= */
+.sidebar {
+  width: 300px;
+  background: var(--panel);
+  padding: 35px 25px;
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.info-btn {
+  width: 100%;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.info-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+  transform: translateX(6px);
+}
+
+/* ================= CONTENT AREA ================= */
+.content {
+  flex: 1;
+  padding: 50px 70px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* ================= WEEK SELECTOR (MANTENIDO) ================= */
+.week-selector {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.day-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.day-btn.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(209, 92, 30, 0.1);
+}
+
+/* ================= DIET HEADER ================= */
+.diet-header {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-lg);
+}
+
+.diet-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(209, 92, 30, 0.1);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* ================= GRID DE TARJETAS (CONTROL HORIZONTAL) ================= */
+.diet-grid, .info-grid {
+  display: flex;
+  flex-wrap: wrap; /* Salto de línea automático */
+  gap: 25px;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* ================= TARJETAS (ESTILO MEJORADO) ================= */
+.meal-card, .info-card {
+  flex: 1 1 350px; /* Ancho base profesional */
+  max-width: 450px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.meal-card:hover, .info-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  background: var(--card-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Detalle visual de esquina */
+.meal-card::after, .info-card::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 50px; height: 50px;
+  background: linear-gradient(45deg, transparent 50%, rgba(209, 92, 30, 0.1) 50%);
+}
+
+.meal-time {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.meal-title, .info-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.meal-card ul, .info-card ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.meal-card li, .info-card li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.meal-card li::before, .info-card li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.meal-note {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .nav { padding: 0 30px; }
+  .content { padding: 40px 30px; }
+  .app { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    gap: 15px;
+    padding: 20px;
+  }
+  .sidebar h3 { display: none; }
+  .info-btn { width: auto; white-space: nowrap; margin-bottom: 0; }
+}
+
+@media (max-width: 600px) {
+  .diet-header { padding: 25px; }
+  .meal-card, .info-card { flex: 1 1 100%; }
+}

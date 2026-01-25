@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dieta | Reingeniería Corporal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/dieta.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="logo">REINGENIERÍA</div>
+
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="rutina.html">Rutina</a></li>
+    <li><a href="dieta.html" class="active">Dieta</a></li>
+  </ul>
+
+  <button
+    id="mobileMenuBtn"
+    class="mobile-menu-btn"
+    onclick="toggleMobileMenu()"
+    aria-label="Abrir menú"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- ================= APP ================= -->
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+
+    <h3>INFORMACIÓN</h3>
+
+    <button class="info-btn active" onclick="loadInfo('reglas')">
+      📋 Reglas Básicas
+    </button>
+
+    <button class="info-btn" onclick="loadInfo('evitar')">
+      🚫 Qué Evitar
+    </button>
+
+    <button class="info-btn" onclick="loadInfo('preferir')">
+      ✅ Qué Preferir
+    </button>
+
+    <button class="info-btn" onclick="loadInfo('habitos')">
+      💡 Hábitos Clave
+    </button>
+
+  </aside>
+
+  <!-- ================= CONTENT ================= -->
+  <main class="content">
+
+    <!-- ===== SELECTOR DE DÍAS ===== -->
+    <section class="week-selector">
+
+      <button class="day-btn active" onclick="loadDay('lunes')">Lunes</button>
+      <button class="day-btn" onclick="loadDay('martes')">Martes</button>
+      <button class="day-btn" onclick="loadDay('miercoles')">Miércoles</button>
+      <button class="day-btn" onclick="loadDay('jueves')">Jueves</button>
+      <button class="day-btn" onclick="loadDay('viernes')">Viernes</button>
+      <button class="day-btn" onclick="loadDay('sabado')">Sábado</button>
+      <button class="day-btn" onclick="loadDay('domingo')">Domingo</button>
+
+    </section>
+
+    <!-- ===== CONTENIDO DINÁMICO ===== -->
+    <!-- 🔑 ESTE ES EL ANCLA DEL JS -->
+    <section class="diet-section" id="dietContent">
+  <div class="loading-state" style="text-align: center; padding: 50px; color: var(--accent);">
+   
+  </div>
+</section>
+
+  </main>
+</div>
+
+<!-- ================= JS ================= -->
+<script src="js/dieta.js"></script>
+
+</body>
+</html>

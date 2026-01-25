@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Rutina · Plan 6 Meses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/rutina.css">
+</head>
+
+<body>
+
+<nav class="nav">
+  <strong class="logo">REINGENIERÍA</strong>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="rutina.html" class="active">Rutina</a></li>
+    <li><a href="dieta.html">Dieta</a></li>
+  </ul>
+</nav>
+
+<div class="app">
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <button class="close-sidebar" onclick="toggleMobileMenu()">✕</button>
+  <h3>Plan de Entrenamiento</h3>
+  
+  <button class="month-btn" onclick="toggleMonth(1)">Mes 1–2 · Adaptación</button>
+  <div class="days" id="month1">
+    <button onclick="loadRoutine('m1_fuerza')">Lunes · Miércoles · Viernes</button>
+    <button onclick="loadRoutine('m1_cardio')">Martes · Jueves</button>
+  </div>
+
+  <button class="month-btn" onclick="toggleMonth(2)">Mes 3–4 · Progreso</button>
+  <div class="days" id="month2">
+    <button onclick="loadRoutine('m2_fuerza')">Fuerza</button>
+    <button onclick="loadRoutine('m2_hiit')">HIIT</button>
+  </div>
+
+  <button class="month-btn" onclick="toggleMonth(3)">Mes 5–6 · Definición</button>
+  <div class="days" id="month3">
+    <button onclick="loadRoutine('m3_A')">Día A · Piernas</button>
+    <button onclick="loadRoutine('m3_B')">Día B · Tren Superior</button>
+    <button onclick="loadRoutine('m3_C')">Día C · Core</button>
+  </div>
+</aside>
+
+<!-- ===== CONTENT ===== -->
+<main class="content">
+  
+  <!-- TRANSFORMATION GALLERY -->
+  <section class="transformation-section" id="gallerySection">
+    <div class="section-header">
+      <h2>Tu Transformación Comienza Aquí</h2>
+      <p>Resultados reales con dedicación y el plan correcto</p>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="startRoutine(1)">
+        <img src="https://raw.githubusercontent.com/Farriaza/img/main/yo3.png" alt="Progreso Inicio">
+        <div class="gallery-overlay">
+          <div class="gallery-label">INICIO</div>
+          <div class="gallery-cta">Mes 1-2 · Click para comenzar →</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="startRoutine(2)">
+        <img src="https://raw.githubusercontent.com/Farriaza/img/main/short.png" alt="Progreso 3 Meses">
+        <div class="gallery-overlay">
+          <div class="gallery-label">3 MESES</div>
+          <div class="gallery-cta">Mes 3-4 · Click para comenzar →</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="startRoutine(3)">
+        <img src="https://raw.githubusercontent.com/Farriaza/img/main/yo2.png" alt="Resultado 6 Meses">
+        <div class="gallery-overlay">
+          <div class="gallery-label">6 MESES</div>
+          <div class="gallery-cta">Mes 5-6 · Click para comenzar →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTINE CONTENT - SE CARGA DINÁMICAMENTE -->
+  <section class="routine-section" id="routineContent">
+    <div class="empty-state">
+      <div class="empty-icon">💪</div>
+      <h3>Selecciona una Rutina</h3>
+      <p>Elige un mes y un día del menú lateral para ver los ejercicios</p>
+    </div>
+  </section>
+  
+</main>
+
+</div>
+
+<script>
+// Toggle menú móvil
+function toggleMobileMenu(){
+  const sidebar = document.getElementById('sidebar');
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  
+  sidebar.classList.toggle('mobile-open');
+  menuBtn.classList.toggle('active');
+  
+  // Prevenir scroll cuando está abierto
+  if(sidebar.classList.contains('mobile-open')){
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+
+// Función para iniciar rutina desde las fotos
+function startRoutine(monthNumber){
+  // Ocultar galería
+  document.getElementById('gallerySection').style.display = 'none';
+  
+  // Abrir el mes correspondiente
+  toggleMonth(monthNumber);
+  
+  // Cargar primera rutina según el mes
+  let firstRoutine;
+  switch(monthNumber) {
+    case 1:
+      firstRoutine = 'm1_fuerza';
+      break;
+    case 2:
+      firstRoutine = 'm2_fuerza';
+      break;
+    case 3:
+      firstRoutine = 'm3_A';
+      break;
+  }
+  
+  loadRoutine(firstRoutine);
+  
+  // Marcar primer botón del mes como activo
+  const firstDayBtn = document.querySelector(`#month${monthNumber} button`);
+  if(firstDayBtn) firstDayBtn.classList.add('active');
+  
+  // Cerrar menú móvil si está abierto
+  const sidebar = document.getElementById('sidebar');
+  if(sidebar.classList.contains('mobile-open')){
+    toggleMobileMenu();
+  }
+}
+
+function toggleMonth(n){
+  const currentMonth = document.getElementById("month"+n);
+  const allMonths = document.querySelectorAll(".days");
+  const allBtns = document.querySelectorAll(".month-btn");
+  
+  if(currentMonth.style.display === "block"){
+    currentMonth.style.display = "none";
+    allBtns[n-1].classList.remove("active");
+    return;
+  }
+  
+  allMonths.forEach(d => d.style.display = "none");
+  allBtns.forEach(b => b.classList.remove("active"));
+  
+  currentMonth.style.display = "block";
+  allBtns[n-1].classList.add("active");
+}
+
+function ex(nombre, reps, video){
+  return `
+    <div class="exercise">
+      <div class="exercise-video">
+        <iframe src="${video}" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="exercise-info">
+        <h4>${nombre}</h4>
+        <span>${reps}</span>
+      </div>
+    </div>`;
+}
+
+const routines = {
+  m1_fuerza: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Adaptación</div>
+      <h2>Mes 1–2 · Fuerza Base</h2>
+      <p>Ejercicios fundamentales para crear una base sólida. Enfócate en la técnica correcta.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Sentadillas", "3 series × 15 reps", "https://www.youtube.com/embed/aclHkVaku9U")}
+      ${ex("Flexiones", "3 series × 12 reps", "https://www.youtube.com/embed/IODxDxX7oi4")}
+      ${ex("Remo con Banda", "3 series × 12 reps", "https://www.youtube.com/embed/GZbfZ033f74")}
+      ${ex("Plancha Abdominal", "3 series × 30 seg", "https://www.youtube.com/embed/pSHjTRCQxIw")}
+      ${ex("Peso Muerto", "3 series × 12 reps", "https://www.youtube.com/embed/op9kVnSso6Q")}
+      ${ex("Press de Pecho", "3 series × 12 reps", "https://www.youtube.com/embed/rT7DgCr-3pg")}
+    </div>`,
+
+  m1_cardio: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Adaptación</div>
+      <h2>Mes 1–2 · Cardio Moderado</h2>
+      <p>Acondicionamiento cardiovascular básico para mejorar resistencia.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Caminata Rápida", "30–40 minutos", "https://www.youtube.com/embed/1BZM8V5KqWk")}
+      ${ex("Bicicleta Estática", "20–30 minutos", "https://www.youtube.com/embed/jox1rb5krQI")}
+      ${ex("Elíptica", "25–35 minutos", "https://www.youtube.com/embed/TKV2dTuRiME")}
+    </div>`,
+
+  m2_fuerza: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Progreso</div>
+      <h2>Mes 3–4 · Fuerza Intensiva</h2>
+      <p>Incrementamos intensidad y volumen para desarrollar músculo y fuerza.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Zancadas Alternas", "4 series × 12 reps", "https://www.youtube.com/embed/QOVaHwm-Q6U")}
+      ${ex("Fondos en Paralelas", "4 series × 10 reps", "https://www.youtube.com/embed/jox1rb5krQI")}
+      ${ex("Peso Muerto Rumano", "4 series × 10 reps", "https://www.youtube.com/embed/2SHsk9AzdjA")}
+      ${ex("Press de Hombro", "4 series × 12 reps", "https://www.youtube.com/embed/qEwKCR5JCog")}
+      ${ex("Dominadas", "4 series × 8 reps", "https://www.youtube.com/embed/eGo4IYlbE5g")}
+      ${ex("Curl de Bíceps", "4 series × 12 reps", "https://www.youtube.com/embed/ykJmrZ5v0Oo")}
+    </div>`,
+
+  m2_hiit: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Progreso</div>
+      <h2>Mes 3–4 · HIIT Quema Grasa</h2>
+      <p>Entrenamientos de alta intensidad por intervalos. 30 segundos trabajo, 15 segundos descanso.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Jumping Jacks", "30 seg × 4 rondas", "https://www.youtube.com/embed/c4DAnQ6DtF8")}
+      ${ex("Mountain Climbers", "30 seg × 4 rondas", "https://www.youtube.com/embed/nmwgirgXLYM")}
+      ${ex("Burpees", "30 seg × 4 rondas", "https://www.youtube.com/embed/TU8QYVW0gDU")}
+      ${ex("High Knees", "30 seg × 4 rondas", "https://www.youtube.com/embed/8opcQdC-V-U")}
+      ${ex("Skaters", "30 seg × 4 rondas", "https://www.youtube.com/embed/qgsKPYZwcCc")}
+      ${ex("Plank Jacks", "30 seg × 4 rondas", "https://www.youtube.com/embed/51k_rLDQPII")}
+    </div>`,
+
+  m3_A: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Definición</div>
+      <h2>Mes 5–6 · Día A - Piernas</h2>
+      <p>Entrenamiento enfocado en tren inferior y glúteos con alta intensidad.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Sentadilla Profunda", "4 series × 10 reps", "https://www.youtube.com/embed/aclHkVaku9U")}
+      ${ex("Elevación de Pantorrillas", "4 series × 15 reps", "https://www.youtube.com/embed/-M4-G8p8fmc")}
+      ${ex("Hip Thrust", "4 series × 12 reps", "https://www.youtube.com/embed/Zp26q4BY5HE")}
+      ${ex("Extensiones de Cuádriceps", "3 series × 15 reps", "https://www.youtube.com/embed/YyvSfVjQeL0")}
+      ${ex("Curl de Femorales", "3 series × 12 reps", "https://www.youtube.com/embed/1Tq3QdYUuHs")}
+      ${ex("Prensa de Piernas", "4 series × 12 reps", "https://www.youtube.com/embed/IZxyjW7MPJQ")}
+    </div>`,
+
+  m3_B: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Definición</div>
+      <h2>Mes 5–6 · Día B - Tren Superior</h2>
+      <p>Desarrollo de pecho, espalda y hombros para definición muscular.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Press de Hombro", "4 series × 10 reps", "https://www.youtube.com/embed/qEwKCR5JCog")}
+      ${ex("Remo con Mancuernas", "4 series × 10 reps", "https://www.youtube.com/embed/GZbfZ033f74")}
+      ${ex("Press de Banca", "4 series × 12 reps", "https://www.youtube.com/embed/rT7DgCr-3pg")}
+      ${ex("Elevaciones Laterales", "3 series × 15 reps", "https://www.youtube.com/embed/3VcKaXpzqRo")}
+      ${ex("Aperturas con Mancuernas", "3 series × 12 reps", "https://www.youtube.com/embed/eozdVDA78K0")}
+      ${ex("Face Pulls", "3 series × 15 reps", "https://www.youtube.com/embed/rep-qVOkqgk")}
+    </div>`,
+
+  m3_C: `
+    <div class="routine-header">
+      <div class="routine-badge">Fase de Definición</div>
+      <h2>Mes 5–6 · Día C - Core</h2>
+      <p>Fortalecimiento del core para definición abdominal y estabilidad.</p>
+    </div>
+    <div class="routine-grid">
+      ${ex("Plancha Lateral", "3 series × 30 seg", "https://www.youtube.com/embed/wqzrb67Dwf8")}
+      ${ex("Russian Twist", "3 series × 20 reps", "https://www.youtube.com/embed/wkD8rjkodUI")}
+      ${ex("Dead Bug", "3 series × 12 reps", "https://www.youtube.com/embed/g_BYB0R-4Ws")}
+      ${ex("Bicicleta Abdominal", "3 series × 20 reps", "https://www.youtube.com/embed/9FGilxCbdz8")}
+      ${ex("Plancha con Toque de Hombro", "3 series × 16 reps", "https://www.youtube.com/embed/zF_yUVIeIk4")}
+      ${ex("Elevación de Piernas", "3 series × 15 reps", "https://www.youtube.com/embed/JB2oyawG9KI")}
+    </div>`
+};
+
+function loadRoutine(k){
+  const routineContent = document.getElementById("routineContent");
+  const gallerySection = document.getElementById("gallerySection");
+  
+  // Ocultar galería cuando se carga una rutina
+  if(gallerySection){
+    gallerySection.style.display = 'none';
+  }
+  
+  // Añadir animación de salida
+  routineContent.style.opacity = '0';
+  routineContent.style.transform = 'translateY(20px)';
+  
+  setTimeout(() => {
+    routineContent.innerHTML = routines[k];
+    
+    // Animación de entrada
+    setTimeout(() => {
+      routineContent.style.opacity = '1';
+      routineContent.style.transform = 'translateY(0)';
+    }, 50);
+  }, 300);
+  
+  // Marcar día activo
+  document.querySelectorAll('.days button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Cerrar menú móvil si está abierto
+  const sidebar = document.getElementById('sidebar');
+  if(sidebar.classList.contains('mobile-open')){
+    toggleMobileMenu();
+  }
+}
+</script>
+
+</body>
+</html>
