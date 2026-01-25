@@ -4,7 +4,7 @@ const works = [
     title: "Intranet Institucional",
     category: "Backend",
     description: "Plataforma interna para la gestión de roles, proyectos, clientes, noticias y documentos, con paneles personalizados según el perfil de usuario.",
-    tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional"],
+    tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional", "Modo Escritorio"],
     link: "https://kento01.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/mds.png"
   },
@@ -13,7 +13,7 @@ const works = [
     title: "ERP de Inventario y Ventas",
     category: "Backend",
     description: "Sistema ERP completo que optimiza el control de stock, la gestión de ventas y el picking, con trazabilidad total de productos.",
-    tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL"],
+    tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL", "Modo Escritorio"],
     link: "https://atlasdevs.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/Kento.png"
   },
@@ -31,7 +31,7 @@ const works = [
     title: "Restaurante Chino Beifong",
     category: "Backend",
     description: "Aplicación web completa para un restaurante\nSitio web interactivo con menú de platos, carrito, reseñas y contacto, junto con una sección administrativa para gestionar contenidos y pedidos.",
-    tags: ["Python", "FastAPI", "JWT", "Docker", "API"],
+    tags: ["Python", "FastAPI", "JWT", "Docker", "API", "Modo Escritorio"],
     link: "https://ferbeifong.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/restBeifong.png"
   },
@@ -337,3 +337,4 @@ function typeCode() {
 }
 
 typeCode();
+
