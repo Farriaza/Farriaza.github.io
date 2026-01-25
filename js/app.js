@@ -245,14 +245,46 @@ $$(".nav-links a").forEach(a => {
 // =========================
 // Form contacto (demo)
 // =========================
-const form = $("#contactForm");
-const formStatus = $("#formStatus");
+const contactForm = document.getElementById("contactForm");
+const statusMessage = document.getElementById("formStatus");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  formStatus.textContent = "Enviado (demo). Conecta esto a tu backend o a un servicio de formularios.";
-  form.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener("submit", async function(e) {
+    e.preventDefault(); // Detiene el envío normal y el mensaje demo
+    
+    // 1. Preparamos los datos
+    const formData = new FormData(this);
+    
+    // 2. Feedback visual inmediato
+    statusMessage.textContent = "Enviando mensaje...";
+    statusMessage.style.color = "orange";
+
+    try {
+      // 3. Petición real al servidor de Formspree
+      const response = await fetch("https://formspree.io/f/maqowbwd", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      // 4. Manejo de la respuesta
+      if (response.ok) {
+        statusMessage.textContent = "¡Mensaje enviado con éxito! Te responderé pronto.";
+        statusMessage.style.color = "#28a745"; // Verde éxito
+        contactForm.reset(); // Limpia el formulario
+      } else {
+        const data = await response.json();
+        statusMessage.textContent = data.errors ? data.errors[0].message : "Error al enviar.";
+        statusMessage.style.color = "#dc3545"; // Rojo error
+      }
+    } catch (error) {
+      statusMessage.textContent = "Error de red. Revisa tu conexión.";
+      statusMessage.style.color = "#dc3545";
+    }
+  });
+}
 
 // =========================
 // Botón CV (demo)
@@ -307,3 +339,4 @@ function typeCode() {
 }
 
 typeCode();
+
