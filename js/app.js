@@ -48,7 +48,7 @@ const works = [
     id: "w6",
     title: "Rutina de gym en casa",
     category: "frontend",
-    description: "Sistema de gestión de rutinas de ejercicio en casa, con seguimiento de progreso y recomendaciones personalizadas.",
+    description: "Gestión de rutinas de ejercicio en casa, con seguimiento de progreso y recomendaciones personalizadas.",
     tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive"],
     link: "/gym",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
@@ -245,6 +245,7 @@ $$(".nav-links a").forEach(a => {
 // =========================
 // Form contacto (demo)
 // =========================
+// Usamos JavaScript puro para evitar dependencias innecesarias
 const contactForm = document.getElementById("contactForm");
 const statusMessage = document.getElementById("formStatus");
 
@@ -289,10 +290,7 @@ if (contactForm) {
 // =========================
 // Botón CV (demo)
 // =========================
-$("#downloadCvBtn").addEventListener("click", (e) => {
-  e.preventDefault();
-  alert("Demo: aquí puedes enlazar tu PDF (por ejemplo: ./cv.pdf).");
-});
+
 
 // =========================
 // Año footer
@@ -339,4 +337,3 @@ function typeCode() {
 }
 
 typeCode();
-
