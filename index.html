@@ -103,9 +103,10 @@
 
       <div class="actions">
         <a class="btn btn-ghost" href="#contacto">Conversemos</a>
-<a class="btn" href="/media/fernando_arriaza.pdf" download="Fernando_Arriaza_CV.pdf" id="downloadCvBtn">
+<a class="btn btn-ghost" href="/media/fernando_arriaza.pdf" download="Fernando_Arriaza_CV.pdf">
     Descargar CV
 </a>
+
 
       </div>
     </div>
@@ -199,33 +200,38 @@
     <section class="section" id="contacto">
       <div class="contact">
         <div class="card">
-          <h2>Contacto</h2>
-          <p class="muted">Cuéntame qué necesitas y te respondo con una propuesta clara.</p>
+  <h2>Contacto</h2>
+  <p class="muted">Cuéntame qué necesitas y te respondo con una propuesta clara.</p>
 
-          <form class="form" id="contactForm">
-            <div class="row">
-              <label>
-                Nombre
-                <input name="name" required placeholder="Tu nombre" />
-              </label>
+  <form 
+    class="form" 
+    id="contactForm" 
+    action="https://formspree.io/f/maqowbwd" 
+    method="POST"
+  >
+    <div class="row">
+      <label>
+        Nombre
+        <input name="name" required placeholder="Tu nombre" />
+      </label>
 
-              <label>
-                Email
-                <input name="email" type="email" required placeholder="tu@email.com" />
-              </label>
-            </div>
+      <label>
+        Email
+        <input name="email" type="email" required placeholder="tu@email.com" />
+      </label>
+    </div>
 
-            <label>
-              Mensaje
-              <textarea name="message" required rows="5" placeholder="¿Qué quieres diseñar?"></textarea>
-            </label>
+    <label>
+      Mensaje
+      <textarea name="message" required rows="5" placeholder="¿Qué quieres diseñar?"></textarea>
+    </label>
 
-            <div class="form-actions">
-              <button class="btn" type="submit">Enviar</button>
-              <p class="muted small" id="formStatus" role="status" aria-live="polite"></p>
-            </div>
-          </form>
-        </div>
+    <div class="form-actions">
+      <button class="btn" type="submit">Enviar</button>
+      <p class="muted small" id="formStatus" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+</div>
 
         <div class="card highlight">
           <h3>Datos rápidos</h3>
@@ -236,7 +242,7 @@
             </div>
             <div class="info-row">
               <span class="info-k">Disponibilidad</span>
-              <span class="info-v">Proyectos y retainer</span>
+              <span class="info-v">Impacto & Resultados</span>
             </div>
             <div class="info-row">
               <span class="info-k">Email</span>
@@ -286,5 +292,7 @@
   </div>
 
   <script src="js/app.js"></script>
+  <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+
 </body>
 </html>
