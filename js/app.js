@@ -3,7 +3,7 @@ const works = [
     id: "w1",
     title: "Intranet Institucional",
     category: "Backend",
-    description: "Plataforma interna para la gestión de roles, proyectos, clientes, noticias y documentos, con paneles personalizados según el perfil de usuario.",
+    description: "Plataforma interna para la gestión de roles, proyectos, clientes, noticias y documentos, con paneles personalizados según el perfil de usuario. Usuario:Fernando ; Password:Fer30Edu50",
     tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional", "Modo Escritorio"],
     link: "https://kento01.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/mds.png"
@@ -337,5 +337,6 @@ function typeCode() {
 }
 
 typeCode();
+
 
 
