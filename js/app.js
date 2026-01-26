@@ -12,7 +12,7 @@ const works = [
     id: "w2",
     title: "ERP de Inventario y Ventas",
     category: "Backend",
-    description: "Sistema ERP completo que optimiza el control de stock, la gestión de ventas y el picking, con trazabilidad total de productos. Usuario:kento ; Password:Fedo3049+"",
+    description: "Sistema ERP completo que optimiza el control de stock, la gestión de ventas y el picking, con trazabilidad total de productos. Usuario:kento ; Password:Fedo3049+",
     tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL", "Modo Escritorio"],
     link: "https://atlasdevs.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/Kento.png"
@@ -337,6 +337,7 @@ function typeCode() {
 }
 
 typeCode();
+
 
 
 
