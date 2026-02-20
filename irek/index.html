@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IREK — Agencia de Marketing Digital, Automatización de Mensajes y Creación de Páginas Web.">
+  <meta property="og:title" content="IREK — Marketing Digital & Automatización">
+  <meta property="og:type" content="website">
+  <title>IREK</title>
+  <link rel="icon" type="image/png" href="/img/simbolo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@800&family=Bebas+Neue&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="navbar" role="navigation" aria-label="Navegación principal">
+  <div class="container">
+    <a href="#" class="nav-logo" aria-label="IREK — Inicio">
+      <img src="img/logo.png" alt="IREK" class="logo-img">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#quienes">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#beneficios">¿Por qué IREK?</a></li>
+      <li><a href="#cta" class="nav-cta-link">Contáctanos</a></li>
+    </ul>
+    <div class="nav-hamburger" role="button" tabindex="0" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<nav class="nav-mobile" aria-label="Menú móvil">
+  <a href="#quienes">Nosotros</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#beneficios">¿Por qué IREK?</a>
+  <a href="#cta" class="nav-cta-mobile">Contáctanos →</a>
+</nav>
+
+<section id="hero" aria-label="Presentación IREK">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Agencia Digital · Disponible ahora
+      </div>
+      <h1 class="hero-title">
+        Tu marca,<br>
+        <span class="accent">visible</span> y<br>
+        <span class="stroke-text">programada.</span>
+      </h1>
+      <div class="hero-collage">
+      <img src="img/Camisa-2-2.png" alt="Proyecto 1" class="collage-img collage-1">
+      <img src="img/Tarjeta.png" alt="Proyecto 2" class="collage-img collage-2">
+      <img src="img/Gorra.png" alt="Proyecto 3" class="collage-img collage-3">
+    </div>
+      <p class="hero-sub">
+        En IREK transformamos negocios con estrategias de marketing digital, automatización de comunicaciones y sitios web que convierten. Más resultados, menos esfuerzo manual.
+      </p>
+      <div class="hero-actions">
+        <a href="#servicios" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+          Nuestros Servicios
+        </a>
+        <a href="https://wa.me/56974493441" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          Consulta gratis
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-target="50" data-suffix="+">50+</div>
+          <div class="hero-stat-label">Clientes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-target="3" data-suffix="x">3x</div>
+          <div class="hero-stat-label">Más alcance</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-target="98" data-suffix="%">98%</div>
+          <div class="hero-stat-label">Satisfacción</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-card-stack">
+      <div class="hero-card hero-card-main">
+        <div class="card-bar"><div class="card-dot"></div><div class="card-dot"></div><div class="card-dot"></div></div>
+        <div class="card-row"></div>
+        <div class="card-row card-row-80"></div>
+        <div class="card-metric-row">
+          <div class="card-metric"><div class="card-metric-num">↑62%</div><div class="card-metric-l"></div><div class="card-metric-l-s"></div></div>
+          <div class="card-metric"><div class="card-metric-num">↑89%</div><div class="card-metric-l"></div><div class="card-metric-l-s"></div></div>
+        </div>
+        <div style="height:.6rem"></div>
+        <div class="card-row card-row-60"></div>
+        <div class="card-row"></div>
+      </div>
+      <div class="hero-card hero-card-float">
+        <div class="card-float-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.65 3.4 2 2 0 013.62 1.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.91a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="card-float-title">Mensajes enviados</div>
+        <div class="card-float-val">1.2K</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quienes" class="section section--surface" aria-labelledby="quienes-title">
+  <div class="container">
+    <div class="quienes-grid">
+      <div class="quienes-visual reveal-left" aria-hidden="true">
+        <div class="q-outer-ring"></div>
+        <div class="q-inner-ring"></div>
+        <div class="q-center-bg"></div>
+        <div class="q-k-letter">K</div>
+        <div class="q-floating-cards">
+          <div class="q-card">
+            <div class="q-card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div><h4>Resultados medibles</h4><p>Cada acción digital tiene métricas claras y reportes transparentes.</p></div>
+          </div>
+          <div class="q-card">
+            <div class="q-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><h4>Confianza garantizada</h4><p>Procesos transparentes y comunicación constante con cada cliente.</p></div>
+          </div>
+          <div class="q-card">
+            <div class="q-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg></div>
+            <div><h4>Equipo comprometido</h4><p>Un equipo humano que trata tu negocio como propio.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="quienes-text reveal-right">
+        <div class="section-eyebrow">¿Quiénes somos?</div>
+        <h2 class="section-title" id="quienes-title">Nacimos para hacer crecer tu negocio</h2>
+        <div class="irek-pill">
+          <div class="irek-pill-word">IREK</div>
+          <p>Del turco antiguo, <em>"irek"</em> significa <strong>libertad, apertura y conexión</strong>. Nuestra agencia nació de esta filosofía: construir tecnología y estrategia digital que libere el potencial real de cada negocio.</p>
+        </div>
+        <p class="quienes-body">Somos una agencia digital en expansión, con raíces en marketing digital y un presente que abraza la automatización de comunicaciones y el desarrollo web. Creemos que las pequeñas y medianas empresas merecen herramientas de alto nivel, sin complejidad ni costos desproporcionados.</p>
+        <a href="#cta" class="btn btn-outline-dark">Conversemos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS — 12 TARJETAS FLIP -->
+<section id="servicios" class="section" aria-labelledby="servicios-title">
+  <div class="container">
+    <div class="services-intro">
+      <div class="reveal">
+        <div class="section-eyebrow">Lo que hacemos</div>
+        <h2 class="section-title" id="servicios-title">Servicios diseñados<br>para tu crecimiento</h2>
+      </div>
+      <p class="section-subtitle reveal reveal-delay-2">Pasa el cursor sobre cada tarjeta para descubrir cómo podemos ayudarte.</p>
+    </div>
+
+    <div class="flip-grid reveal">
+
+      <!-- 01 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/asesoria_pyme.png" alt="Marketing Digital" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+            <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h3>Asesoría Empresarial</h3>
+            <p>Asesoramiento estratégico para que tu negocio crezca de forma sostenible y rentable.</p>
+         <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/dise_web.png" alt="Automatización de Mensajes" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+               <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <h3>Diseño web</h3>
+            <p>Sitios modernos, rápidos y orientados a convertir. Diseño profesional, SEO desde el día uno y experiencia mobile-first incluida.</p>
+         <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/dise_flyer.png" alt="Páginas Web" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4M7 8l3 3-3 3M13 14h4"/></svg></div>
+            <h3>Diseño de Flyer</h3>
+            <p>Creación de flyers profesionales que destacan en redes sociales y en eventos presenciales.</p>
+          <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/social_media.png" alt="Redes Sociales" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+            
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49"/></svg></div>
+            <h3>Redes sociales</h3>
+            <p>Instagram, Facebook y TikTok a cargo nuestro. Contenido, calendario editorial, publicaciones diarias y análisis semanal de resultados.</p>
+          <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/capacitacion.png" alt="Publicidad Meta y Google" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+             
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <h3>Capacitación</h3>
+            <p>Formación especializada en marketing digital, diseño web y estrategias de crecimiento para emprendedores y profesionales.</p>
+          <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/dise_linktree.png" alt="Email y WhatsApp Marketing" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+        
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <h3>Diseño Linktree</h3>
+            <p>Diseño de perfiles Linktree profesionales que conectan con tu audiencia y guían hacia tus productos o servicios.</p>
+          <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/identidad.png" alt="Consultoría Digital" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+   
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+            <h3>Identidad Visual</h3>
+            <p>Identidad visual que comunica quién eres antes de decir una palabra. Logos, paletas, tipografía y manual de marca profesional y consistente.</p>
+          <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/paquetes.png" alt="SEO" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+            
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+            <h3>Paquetes de Flayer para campañas publicitarias</h3>
+            <p>Creación de flyers profesionales que destacan en redes sociales y en eventos presenciales.</p>
+            <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>     
+               </div>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/traffiker.png" alt="Diseño y Branding" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+           
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+            <h3>Tracffiker digital</h3>
+            <p>Creación de estrategias digitales efectivas para maximizar el impacto de tus campañas y alcanzar tu audiencia objetivo</p>
+             <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/social_media.png" alt="Creación de Contenido" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+           
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <h3>Social media manager por meta</h3>
+            <p>Administración de tus redes sociales en Meta (Facebook e Instagram) con estrategias personalizadas para aumentar tu audiencia y engagement.</p>
+        <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/analisis.png" alt="E-commerce" loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+              
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+            <h3>Análisis evolución de empresa</h3>
+            <p>Estudio exhaustivo de tu empresa para identificar oportunidades de crecimiento, optimizar procesos y mejorar la eficiencia operativa.</p>
+           <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-img-wrap">
+              <img src="img/cliente.jpg" alt="Analítica y Reportes" loading="lazy"
+             style="object-position: center center;">
+              <div class="flip-img-overlay"></div>
+            </div>
+            <div class="flip-front-content">
+           
+              <div class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>Ver más</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h3>Atención al cliente</h3>
+            <p>Atención personalizada y eficiente a tus clientes, garantizando su satisfacción y fidelización mediante un servicio de calidad.</p>
+             <p class="flip-cta-text"> Si quieres este servicio, presiona esta tarjeta </p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="flip-mobile-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M18 11V6a2 2 0 00-2-2v0a2 2 0 00-2 2v0M14 10V4a2 2 0 00-2-2v0a2 2 0 00-2 2v2M10 10.5V6a2 2 0 00-2-2v0a2 2 0 00-2 2v8"/><path d="M18 11a2 2 0 114 0v3a8 8 0 01-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 012.83-2.82L7 15"/></svg>
+      Toca cada tarjeta para ver el detalle
+    </p>
+  </div>
+</section>
+
+<section id="beneficios" class="section section--dark" aria-labelledby="beneficios-title">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="section-eyebrow">¿Por qué IREK?</div>
+      <h2 class="section-title section-title--white" id="beneficios-title">Lo que nos hace diferentes</h2>
+      <p class="section-subtitle section-subtitle--light">No somos una agencia más. Somos tu socio estratégico con foco en resultados concretos y crecimiento sostenible.</p>
+    </div>
+    <div class="beneficios-grid">
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Innovación constante</h3>
+        <p>Adoptamos las últimas herramientas y tendencias digitales para que tu negocio siempre tenga ventaja competitiva.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Experiencia técnica real</h3>
+        <p>Años ejecutando campañas, construyendo automatizaciones y desarrollando webs que convierten, no solo teoría.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Procesos optimizados</h3>
+        <p>Metodologías ágiles que garantizan entregas a tiempo, sin sorpresas y con resultados medibles desde el primer mes.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-4">
+        <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg></div>
+        <h3>Acompañamiento estratégico</h3>
+        <p>No entregamos y desaparecemos. Somos tu aliado a largo plazo, siempre disponibles para ajustar y mejorar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="section" aria-labelledby="cta-title" style="background: var(--c-dark-bg); padding: 130px 0; text-align: center; position: relative; overflow: hidden;">
+  <div class="cta-rings" aria-hidden="true">
+    <div class="cta-ring cta-ring-1"></div>
+    <div class="cta-ring cta-ring-2"></div>
+    <div class="cta-ring cta-ring-3"></div>
+  </div>
+  <div class="container cta-content reveal">
+    <div class="cta-eyebrow">¿Listo para crecer?</div>
+    <h2 class="cta-title" id="cta-title">Empecemos a construir tu<br><span class="accent">presencia digital</span> hoy</h2>
+    <p class="cta-sub">Una consulta gratuita, sin compromiso. Te mostramos cómo IREK puede impulsar tu negocio en los próximos 90 días.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/56974493441" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hablar por WhatsApp
+      </a>
+      <a href="mailto:irekpublicidadcomercial@gmail.com?subject=Consulta%20desde%20la%20web" class="btn btn-outline">Enviar un email</a>
+
+
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" aria-label="IREK — Inicio">
+          <img src="img/logo.png" alt="IREK" class="footer-brand-logo">
+        </a>
+        <p>Construimos experiencias digitales con libertad, propósito y conexiones significativas. Tu aliado estratégico en marketing digital y automatización.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/irek.cl/reels/" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61578181813509" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://wa.me/56974493441" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#quienes">Quiénes somos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#beneficios">¿Por qué IREK?</a></li>
+          <li><a href="#cta">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Marketing Digital</a></li>
+          <li><a href="#servicios">Automatización</a></li>
+          <li><a href="#servicios">Páginas Web</a></li>
+          <li><a href="#servicios">Redes Sociales</a></li>
+          <li><a href="#servicios">Publicidad Digital</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contacto</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.65 3.4 2 2 0 013.62 1.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.91a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="https://wa.me/56974493441" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+       <div class="footer-contact-item">
+  <svg viewBox="0 0 24 24">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+  <a href="mailto:irekpublicidadcomercial@gmail.com">
+    irekpublicidadcomercial@gmail.com
+  </a>
+</div>
+
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Lun–Vie, 9:00–18:00
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 IREK. Todos los derechos reservados.</span>
+      <div style="display:flex; gap: 1.5rem;">
+        <a href="#">Creado por:</a>
+        <a href="#">Fernando Arriaza de IREK</a>
+      </div>
+      <span>Hecho con <span style="color: var(--c-accent);">♥</span> y propósito.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-container">
+  <div class="wa-tooltip" role="tooltip">¿Hablamos?</div>
+  <a href="https://wa.me/56974493441" class="wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
