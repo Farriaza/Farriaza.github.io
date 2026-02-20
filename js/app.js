@@ -1,4 +1,4 @@
-const works = [
+naconst works = [
   {
     id: "w1",
     title: "Intranet Institucional",
@@ -39,7 +39,7 @@ const works = [
   id: "w5",
   title: "Landing Page IREK",
   category: "Frontend",
-  description: "Landing page interactiva que muestra mi portafolio profesional, proyectos y enlaces de contacto, desarrollada con HTML, CSS y JavaScript.",
+  description: "Landing page interactiva de una agencia de publicidad, desarrollada con HTML, CSS y JavaScript.",
   tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
    link: "/irek",
   cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek.png"
@@ -337,6 +337,7 @@ function typeCode() {
 }
 
 typeCode();
+
 
 
 
