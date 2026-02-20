@@ -136,7 +136,7 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
 .section-title {
   font-family: 'Mukta', sans-serif; font-weight: 800;
   font-size: clamp(2rem, 4vw, 3.2rem);
-  color: var(--c-text); line-height: 1.08; margin-bottom: .8rem;
+  color: var(--c-dark); line-height: 1.08; margin-bottom: .8rem;
 }
 .section-title--white  { color: var(--c-white); }
 
@@ -210,7 +210,7 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
 .nav-links a {
   font-weight: 600; font-size: .82rem;
   letter-spacing: .07em; text-transform: uppercase;
-  color: var(--c-light-80);
+  color: var(--c-white);
   transition: color var(--transition);
   position: relative;
 }
@@ -228,7 +228,7 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 2px 24px var(--c-dark-07);
 }
-#navbar.scrolled .nav-links a        { color: var(--c-text); }
+#navbar.scrolled .nav-links a        { color: var( --c-accent); }
 #navbar.scrolled .nav-links a:hover  { color: var(--c-accent); }
 
 .nav-cta-link {
@@ -848,7 +848,7 @@ footer {
    LOGO IMG (cuando se usa imagen en lugar de SVG inline)
 ══════════════════════════════════════════════════════════════ */
 .logo-img {
-  height: 96px;
+  height: 66px;
   width: auto;
   display: block;
   object-fit: contain;
