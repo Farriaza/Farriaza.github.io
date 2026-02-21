@@ -3,8 +3,8 @@ const works = [
     id: "w1",
     title: "Intranet Institucional",
     category: "Backend",
-    description: "Plataforma interna para la gestión de roles, proyectos, clientes, noticias y documentos, con paneles personalizados según el perfil de usuario. Usuario:Fernando ; Password:Fer30Edu50",
-    tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional", "Modo Escritorio"],
+    description: "El sistema centraliza proyectos, clientes, noticias y documentos, permitiendo trazabilidad, auditoría y administración eficiente de la información institucional.",
+    tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional"],
     link: "https://kento01.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/mds.png"
   },
@@ -12,8 +12,8 @@ const works = [
     id: "w2",
     title: "ERP de Inventario y Ventas",
     category: "Backend",
-    description: "Sistema ERP completo que optimiza el control de stock, la gestión de ventas y el picking, con trazabilidad total de productos. Usuario:kento ; Password:Fedo3049+",
-    tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL", "Modo Escritorio"],
+    description: "Se implementó lógica de negocio para movimientos de productos, picking, control de existencias y registro histórico de operaciones.",
+    tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL"],
     link: "https://atlasdevs.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/Kento.png"
   },
@@ -21,8 +21,8 @@ const works = [
     id: "w3",
     title: "Módulo Social de Recetas",
     category: "Backend",
-    description: "Red social de recetas con publicaciones moderadas, destacados y funciones de interacción para fomentar la participación de la comunidad.",
-    tags: ["Python", "Django", "ORM", "Moderación", "Social", "Responsive"],
+    description: "Se implementaron funcionalidades como publicaciones, interacción entre usuarios, sistema de destacados y control administrativo.",
+    tags: ["Python", "Django", "ORM", "Moderación", "Social"],
     link: "https://fedo.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas.png"
   },
@@ -30,16 +30,16 @@ const works = [
     id: "w4",
     title: "Restaurante Chino Beifong",
     category: "Backend",
-    description: "Aplicación web completa para un restaurante\nSitio web interactivo con menú de platos, carrito, reseñas y contacto, junto con una sección administrativa para gestionar contenidos y pedidos.",
-    tags: ["Python", "FastAPI", "JWT", "Docker", "API", "Modo Escritorio"],
+    description: "El sistema incluye menú dinámico, carrito de compras, gestión de pedidos y panel administrativo para actualizar contenidos y administrar operaciones comerciales.",
+    tags: ["Python", "FastAPI", "JWT", "Docker", "API"],
     link: "https://ferbeifong.pythonanywhere.com/",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/restBeifong.png"
   },
- {
-  id: "w5",
+  {
+   id: "w5",
   title: "Landing Page IREK",
   category: "Frontend",
-  description: "Landing page interactiva de una agencia de publicidad, desarrollada con HTML, CSS y JavaScript.",
+  description: "El proyecto permitió profundizar en diseño UI, jerarquía visual y optimización para dispositivos móviles.",
   tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
    link: "/irek",
   cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek.png"
@@ -48,8 +48,8 @@ const works = [
     id: "w6",
     title: "Rutina de gym en casa",
     category: "frontend",
-    description: "Gestión de rutinas de ejercicio en casa, con seguimiento de progreso y recomendaciones personalizadas.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
+    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive"],
     link: "/gym",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
   }
@@ -337,11 +337,3 @@ function typeCode() {
 }
 
 typeCode();
-
-
-
-
-
-
-
-
