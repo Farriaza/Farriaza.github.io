@@ -42,7 +42,7 @@ const works = [
   description: "El proyecto permitió profundizar en diseño UI, jerarquía visual y optimización para dispositivos móviles.",
   tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
    link: "/irek",
-  cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek.png"
+  cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek1.png"
 },
   {
     id: "w6",
@@ -337,3 +337,4 @@ function typeCode() {
 }
 
 typeCode();
+
