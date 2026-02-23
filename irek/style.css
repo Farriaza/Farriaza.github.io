@@ -393,14 +393,22 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
 }
 
 .hero-title {
-  font-family: 'Mukta', sans-serif; font-weight: 800;
-  font-size: clamp(3rem, 6.5vw, 5.2rem);
-  color: var(--c-white); line-height: 1.04;
-  margin-bottom: 1.5rem; letter-spacing: -.01em;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
 }
-.hero-title .accent       { color: var(--c-accent); }
-.hero-title .stroke-text  {
-  color: var(--c-accent);
+.accent {
+  color: #05B3E2; /* tu celeste */
+  font-weight: 700;
+}
+
+.stroke-text {
+  display: block;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  color: #05B3E2;
+  line-height: 1;
 }
 
 .hero-sub {
@@ -1164,4 +1172,3 @@ footer {
   .flip-back-icon svg { width: 18px; height: 18px; }
   .flip-back p { font-size: .72rem; }
 }
-
