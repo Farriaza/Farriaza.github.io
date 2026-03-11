@@ -5,16 +5,16 @@ const works = [
     category: "Backend",
     description: "El sistema centraliza proyectos, clientes, noticias y documentos, permitiendo trazabilidad, auditoría y administración eficiente de la información institucional.",
     tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional"],
-    link: "https://kento01.pythonanywhere.com/",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/mds.png"
+    link: "/mds",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/mds1.png"
   },
   {
     id: "w2",
     title: "ERP de Inventario y Ventas",
     category: "Backend",
     description: "Se implementó lógica de negocio para movimientos de productos, picking, control de existencias y registro histórico de operaciones.",
-    tags: ["Python", "Django", "ERP", "Inventario", "PostgreSQL"],
-    link: "https://atlasdevs.pythonanywhere.com/",
+    tags: ["Laravel", "PHP", "ERP", "Inventario", "Mysql"],
+    link: "/inventario",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/Kento.png"
   },
   {
@@ -22,9 +22,9 @@ const works = [
     title: "Módulo Social de Recetas",
     category: "Backend",
     description: "Se implementaron funcionalidades como publicaciones, interacción entre usuarios, sistema de destacados y control administrativo.",
-    tags: ["Python", "Django", "ORM", "Moderación", "Social"],
-    link: "https://fedo.pythonanywhere.com/",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas.png"
+    tags: ["Laravel", "PHP", "ERP", "Inventario", "Mysql"],
+    link: "/recetas",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas1.png"
   },
   {
     id: "w4",
@@ -49,7 +49,34 @@ const works = [
     title: "Rutina de gym en casa",
     category: "frontend",
     description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    link: "/gym",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
+  },
+   {
+    id: "w7",
+    title: "Agencia de viajes",
+    category: "frontend",
+    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    link: "/viajes",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/viajes.png"
+  },
+   {
+    id: "w8",
+    title: "Sistema de reserva",
+    category: "frontend",
+    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    link: "/reserva",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/reserva.jpg"
+  },
+   {
+    id: "w9",
+    title: "Rutina de gym en casa",
+    category: "frontend",
+    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
     link: "/gym",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
   }
@@ -337,4 +364,3 @@ function typeCode() {
 }
 
 typeCode();
-
