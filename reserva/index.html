@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Restaurante Sabor del Mar - Deliciosa gastronomía marina y platos internacionales">
+    <meta name="keywords" content="restaurante, comida, mariscos, reservas, Santiago">
+    <meta name="author" content="Sabor del Mar">
+    <title>Sabor del Mar</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="mostrarMensaje('Bienvenido a Sabor del Mar')">
+                <i class="bi bi-cup-hot-fill"></i> Sabor del Mar
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero" onclick="cambiarColorNav(this)">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu" onclick="cambiarColorNav(this)">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservas" onclick="cambiarColorNav(this)">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto" onclick="cambiarColorNav(this)">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">Sabor del Mar</h1>
+            <p class="hero-subtitle">Donde cada plato cuenta una historia de sabor y tradición</p>
+            <button class="btn btn-primary btn-lg hero-btn" onclick="scrollToReservas()">
+                <i class="bi bi-calendar-check"></i> Reserva Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- MENÚ SECTION -->
+    <section id="menu" class="menu-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nuestro Menú</h2>
+                <p class="section-subtitle">Descubre nuestros platos más populares</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500" class="card-img-top"
+                            alt="Ceviche" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Ceviche Clásico</h5>
+                            <p class="card-text">Pescado fresco marinado en limón con cebolla morada, cilantro y ají.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$15.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=500"
+                            class="card-img-top" alt="Paella" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Paella de Mariscos</h5>
+                            <p class="card-text">Arroz tradicional con camarones, mejillones, calamares y azafrán.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$24.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=500"
+                            class="card-img-top" alt="Salmón" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Salmón Grillado</h5>
+                            <p class="card-text">Filete de salmón a la parrilla con vegetales asados y salsa de limón.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$18.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500"
+                            class="card-img-top" alt="Pasta" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Pasta Marinera</h5>
+                            <p class="card-text">Linguini con mariscos frescos en salsa de tomate y vino blanco.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$16.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=500"
+                            class="card-img-top" alt="Hamburguesa" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Hamburguesa Premium</h5>
+                            <p class="card-text">Carne angus, queso cheddar, tocino ahumado y papas fritas.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$13.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" class="card-img-top"
+                            alt="Postre" onclick="ampliarImagen(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Tiramisú Casero</h5>
+                            <p class="card-text">Postre italiano tradicional con café, mascarpone y cacao.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$7.990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVAS SECTION -->
+    <section id="reservas" class="reservas-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card reserva-card">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Haz tu Reserva</h2>
+                            <p class="text-center text-muted mb-4">Completa el formulario y te confirmaremos tu
+                                reservación</p>
+
+                            <form id="reservaForm" onsubmit="procesarReserva(event)">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label">Nombre Completo *</label>
+                                        <input type="text" class="form-control" id="nombre" required
+                                            placeholder="Ingresa tu nombre">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" required
+                                            placeholder="tu@email.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label">Teléfono *</label>
+                                        <input type="tel" class="form-control" id="telefono" required
+                                            placeholder="+56 9 1234 5678">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="personas" class="form-label">Número de Personas *</label>
+                                        <select class="form-select" id="personas" required
+                                            onchange="actualizarPersonas()">
+                                            <option value="">Selecciona...</option>
+                                            <option value="1">1 persona</option>
+                                            <option value="2">2 personas</option>
+                                            <option value="3">3 personas</option>
+                                            <option value="4">4 personas</option>
+                                            <option value="5">5 personas</option>
+                                            <option value="6+">6 o más</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="fecha" class="form-label">Fecha *</label>
+                                        <input type="date" class="form-control" id="fecha" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="hora" class="form-label">Hora *</label>
+                                        <input type="time" class="form-control" id="hora" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="comentarios" class="form-label">Comentarios Adicionales</label>
+                                        <textarea class="form-control" id="comentarios" rows="3"
+                                            placeholder="Alergias, ocasión especial, etc."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                                            <label class="form-check-label" for="terminos">
+                                                Acepto los términos y condiciones *
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                                            <i class="bi bi-check-circle"></i> Confirmar Reserva
+                                        </button>
+                                        <button type="button" class="btn btn-secondary btn-lg px-5 ms-2"
+                                            onclick="limpiarFormulario()">
+                                            <i class="bi bi-x-circle"></i> Limpiar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer id="contacto" class="footer-section">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="footer-title">
+                        <i class="bi bi-cup-hot-fill"></i> Sabor del Mar
+                    </h5>
+                    <p class="footer-text">
+                        Restaurante especializado en gastronomía marina y platos internacionales.
+                        Más de 15 años deleitando paladares exigentes.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="list-unstyled footer-text">
+                        <li><i class="bi bi-geo-alt-fill"></i> Av. Principal 123, Santiago</li>
+                        <li><i class="bi bi-telephone-fill"></i> +56 2 2345 6789</li>
+                        <li><i class="bi bi-envelope-fill"></i> contacto@sabordelmar.cl</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-title">Horario</h5>
+                    <ul class="list-unstyled footer-text">
+                        <li><i class="bi bi-clock-fill"></i> <strong>Lun-Jue:</strong> 12:00 - 23:00</li>
+                        <li><i class="bi bi-clock-fill"></i> <strong>Vie-Sáb:</strong> 12:00 - 01:00</li>
+                        <li><i class="bi bi-clock-fill"></i> <strong>Domingo:</strong> 12:00 - 22:00</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" class="social-icon"
+                            onclick="abrirRedSocial('Facebook')">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon"
+                            onclick="abrirRedSocial('Instagram')">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon"
+                            onclick="abrirRedSocial('Twitter')">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon"
+                            onclick="abrirRedSocial('YouTube')">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://whatsapp.com" target="_blank" class="social-icon"
+                            onclick="abrirRedSocial('WhatsApp')">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center py-3">
+                <p class="mb-0">&copy; 2026 Sabor del Mar. Todos los derechos reservados. |
+                    <a href="#" class="footer-link" onclick="mostrarPrivacidad()">Política de Privacidad</a> |
+                    <a href="#" class="footer-link" onclick="mostrarTerminos()">Términos de Uso</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

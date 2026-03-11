@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS — Mirai Digital Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══════════════════ PORTADA ══════════════════ -->
+<div id="landingScreen">
+  <canvas id="particleCanvas"></canvas>
+  <div class="landing-grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <nav class="landing-nav">
+    <div class="landing-logo">
+      <div class="logo-hex"><i class="bi bi-hexagon-fill"></i></div>
+      <span class="logo-text">MDS</span>
+      <span class="logo-sub">Mirai Digital Solutions</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features" onclick="scrollToSection('features')">Módulos</a>
+      <a href="#stats" onclick="scrollToSection('stats')">Métricas</a>
+      <a href="#team-preview" onclick="scrollToSection('team-preview')">Equipo</a>
+    </div>
+    <button class="btn-nav-login" id="navLoginBtn">
+      <i class="bi bi-box-arrow-in-right"></i> Acceso Corporativo
+    </button>
+  </nav>
+
+  <section class="landing-hero" id="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="badge-dot-pulse"></span>
+        Plataforma activa &nbsp;·&nbsp; v2.6 &nbsp;·&nbsp; 2026
+      </div>
+      <h1 class="hero-title">
+        Gestión digital<br>
+        <span class="title-gradient">sin fricción.</span>
+      </h1>
+      <p class="hero-desc">
+        Centraliza proyectos, equipos y clientes en una sola plataforma.
+        Flujos ágiles, colaboración en tiempo real y analítica integrada
+        para organizaciones que van en serio.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-hero-primary" id="heroLoginBtn">
+          <i class="bi bi-box-arrow-in-right"></i>
+          Ingresar al sistema
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-hero-ghost" onclick="scrollToSection('features')">
+          Ver módulos <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+      <div class="hero-trusted">
+        <span>Usado por:</span>
+        <div class="trusted-logos">
+          <div class="trusted-pill">Fiscalía Sur</div>
+          <div class="trusted-pill">Mun. Maipú</div>
+          <div class="trusted-pill">Banco Sur</div>
+          <div class="trusted-pill">SEREMI Educ.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-mockup">
+        <div class="mockup-bar">
+          <span></span><span></span><span></span>
+          <div class="mockup-url">portal.mds.cl/dashboard</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mock-kpis">
+            <div class="mock-kpi blue"><span class="mk-val">24</span><span class="mk-lab">Proyectos</span></div>
+            <div class="mock-kpi teal"><span class="mk-val">18</span><span class="mk-lab">Equipo</span></div>
+            <div class="mock-kpi amber"><span class="mk-val">87%</span><span class="mk-lab">Eficiencia</span></div>
+          </div>
+          <div class="mock-chart">
+            <div class="mock-chart-label">Actividad semanal</div>
+            <div class="mock-bars">
+              <div class="mock-bar" style="height:40%"><span>L</span></div>
+              <div class="mock-bar" style="height:65%"><span>M</span></div>
+              <div class="mock-bar" style="height:50%"><span>X</span></div>
+              <div class="mock-bar" style="height:90%"><span>J</span></div>
+              <div class="mock-bar" style="height:75%"><span>V</span></div>
+              <div class="mock-bar active" style="height:95%"><span>S</span></div>
+              <div class="mock-bar" style="height:30%"><span>D</span></div>
+            </div>
+          </div>
+          <div class="mock-list">
+            <div class="mock-item"><span class="mdot blue"></span> Portal Fiscalía Sur <span class="mpct">78%</span></div>
+            <div class="mock-item"><span class="mdot teal"></span> App RRHH <span class="mpct">45%</span></div>
+            <div class="mock-item"><span class="mdot amber"></span> Dashboard Analytics <span class="mpct">92%</span></div>
+          </div>
+          <div class="float-badge f1"><i class="bi bi-check-circle-fill"></i> Sprint 12 completado</div>
+          <div class="float-badge f2"><i class="bi bi-people-fill"></i> 3 online ahora</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip" id="stats">
+    <div class="stat-item"><strong class="count-up" data-target="240">0</strong><span>Proyectos entregados</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><strong class="count-up" data-target="18">0</strong><span>Profesionales</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><strong class="count-up" data-target="12">0</strong><span>Clientes activos</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><strong class="count-up" data-target="99">0</strong><strong>%</strong><span>Uptime garantizado</span></div>
+  </section>
+
+  <section class="features-section" id="features">
+    <div class="section-label">MÓDULOS DEL SISTEMA</div>
+    <h2 class="section-title">Todo lo que necesitas,<br><span class="title-gradient">en un solo lugar.</span></h2>
+    <div class="features-grid">
+      <div class="feat-card" onclick="loginAndGoTo('dashboard')"><div class="feat-icon blue"><i class="bi bi-grid-1x2-fill"></i></div><h4>Dashboard</h4><p>Vista 360° de tu organización. KPIs, actividad reciente y tareas del día en tiempo real.</p><span class="feat-arrow">→</span></div>
+      <div class="feat-card" onclick="loginAndGoTo('proyectos')"><div class="feat-icon teal"><i class="bi bi-kanban-fill"></i></div><h4>Proyectos</h4><p>Tablero Kanban drag & drop. Gestiona tareas, plazos y equipos con visibilidad total.</p><span class="feat-arrow">→</span></div>
+      <div class="feat-card" onclick="loginAndGoTo('equipo')"><div class="feat-icon amber"><i class="bi bi-people-fill"></i></div><h4>Equipo</h4><p>Directorio completo de colaboradores. Perfiles, roles y gestión de usuarios integrada.</p><span class="feat-arrow">→</span></div>
+      <div class="feat-card" onclick="loginAndGoTo('clientes')"><div class="feat-icon rose"><i class="bi bi-building"></i></div><h4>Clientes</h4><p>CRM ligero con historial, proyectos asociados y métricas por cliente en un clic.</p><span class="feat-arrow">→</span></div>
+      <div class="feat-card" onclick="loginAndGoTo('comunidad')"><div class="feat-icon purple"><i class="bi bi-images"></i></div><h4>Comunidad</h4><p>Red social interna. Publicaciones, likes, comentarios y colaboración en equipo.</p><span class="feat-arrow">→</span></div>
+      <div class="feat-card" onclick="loginAndGoTo('documentos')"><div class="feat-icon green"><i class="bi bi-folder2-open"></i></div><h4>Documentos</h4><p>Repositorio centralizado. Contratos, informes y archivos técnicos siempre disponibles.</p><span class="feat-arrow">→</span></div>
+    </div>
+  </section>
+
+  <section class="team-preview-section" id="team-preview">
+    <div class="section-label">NUESTRO EQUIPO</div>
+    <h2 class="section-title">Profesionales que<br><span class="title-gradient">hacen la diferencia.</span></h2>
+    <div class="team-preview-grid">
+      <div class="tp-card"><img src="https://i.pravatar.cc/120?img=5" alt=""><h5>Ana Torres</h5><small>Senior Frontend Dev</small></div>
+      <div class="tp-card"><img src="https://i.pravatar.cc/120?img=8" alt=""><h5>Marco Silva</h5><small>Backend Engineer</small></div>
+      <div class="tp-card"><img src="https://i.pravatar.cc/120?img=15" alt=""><h5>Valeria López</h5><small>UX/UI Designer</small></div>
+      <div class="tp-card"><img src="https://i.pravatar.cc/120?img=22" alt=""><h5>Diego Muñoz</h5><small>Project Manager</small></div>
+      <div class="tp-card"><img src="https://i.pravatar.cc/120?img=3" alt=""><h5>Sofía Reyes</h5><small>Full Stack Dev</small></div>
+      <div class="tp-card"><img src="https://raw.githubusercontent.com/Farriaza/img/main/yo1.jpg" alt=""><h5>Fernando Arriaza</h5><small>Administrador</small></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-content">
+      <h2>¿Listo para optimizar<br>tu organización?</h2>
+      <p>Accede ahora y experimenta la diferencia de una plataforma diseñada para equipos de alto rendimiento.</p>
+      <button class="btn-hero-primary lg" id="ctaLoginBtn">
+        <i class="bi bi-box-arrow-in-right"></i> Ingresar al sistema <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <div class="lf-brand">
+      <div class="logo-hex sm"><i class="bi bi-hexagon-fill"></i></div>
+      <span>MDS — Mirai Digital Solutions</span>
+    </div>
+    <p>© 2026 Todos los derechos reservados.</p>
+  </footer>
+</div>
+
+<!-- ══════════════════ MODAL LOGIN ══════════════════ -->
+<div id="loginModal" class="login-modal-overlay hidden">
+  <div class="login-modal-card">
+    <button class="lm-close" id="loginModalClose"><i class="bi bi-x-lg"></i></button>
+    <div class="lm-brand">
+      <div class="logo-hex"><i class="bi bi-hexagon-fill"></i></div>
+      <h2>Bienvenido</h2>
+      <p>Ingresa tus credenciales corporativas</p>
+    </div>
+    <form id="loginForm" class="lm-form">
+      <div class="lm-input-wrap"><i class="bi bi-person"></i><input type="text" placeholder="Usuario institucional" id="loginUser" value="admin"></div>
+      <div class="lm-input-wrap"><i class="bi bi-lock"></i><input type="password" placeholder="Contraseña" id="loginPass" value="admin123"></div>
+      <div class="lm-remember">
+        <label><input type="checkbox" checked> Mantener sesión</label>
+        <a href="#">¿Olvidaste tu clave?</a>
+      </div>
+      <button type="submit" class="btn-lm-submit" id="loginSubmitBtn">
+        <span id="loginBtnText"><i class="bi bi-box-arrow-in-right"></i> Ingresar</span>
+      </button>
+      <p class="lm-hint">Demo: cualquier usuario / contraseña funciona</p>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════ APP DASHBOARD ══════════════════ -->
+<div id="appShell" class="app-shell hidden">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="brand-icon sm"><i class="bi bi-hexagon-fill"></i></div>
+      <span>MDS</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-view="dashboard"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+      <a href="#" class="nav-item" data-view="proyectos"><i class="bi bi-kanban-fill"></i><span>Proyectos</span></a>
+      <a href="#" class="nav-item" data-view="equipo"><i class="bi bi-people-fill"></i><span>Equipo</span></a>
+      <a href="#" class="nav-item" data-view="clientes"><i class="bi bi-building"></i><span>Clientes</span></a>
+      <a href="#" class="nav-item" data-view="comunidad"><i class="bi bi-images"></i><span>Comunidad</span></a>
+      <a href="#" class="nav-item" data-view="documentos"><i class="bi bi-folder2-open"></i><span>Documentos</span></a>
+      <div class="nav-divider"></div>
+      <a href="#" class="nav-item" data-view="panel"><i class="bi bi-speedometer2"></i><span>Panel Admin</span></a>
+    </nav>
+    <div class="sidebar-user">
+      <img src="https://raw.githubusercontent.com/Farriaza/img/main/yo1.jpg" alt="avatar" id="sidebarUserImg">
+      <div><strong id="sidebarUserName">Fernando Arriaza</strong><small>Administrador</small></div>
+      <button id="logoutBtn" title="Cerrar sesión"><i class="bi bi-box-arrow-right"></i></button>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+      <div class="topbar-pills">
+        <button class="pill" onclick="openQuickPanel('capacitaciones')"><i class="bi bi-mortarboard"></i> Capacitaciones</button>
+        <button class="pill" onclick="openQuickPanel('liquidaciones')"><i class="bi bi-receipt"></i> Liquidaciones</button>
+        <button class="pill" onclick="openQuickPanel('permisos')"><i class="bi bi-calendar-check"></i> Permisos</button>
+        <button class="pill" onclick="openQuickPanel('noticias')"><i class="bi bi-newspaper"></i> Noticias</button>
+        <button class="pill" onclick="openQuickPanel('inventario')"><i class="bi bi-boxes"></i> Inventario</button>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" id="notifBtn"><i class="bi bi-bell"></i><span class="badge-dot"></span></button>
+        <img src="https://raw.githubusercontent.com/Farriaza/img/main/yo1.jpg" class="topbar-avatar" alt="avatar" id="topbarAvatar">
+      </div>
+    </header>
+
+    <main class="view-container">
+
+      <!-- DASHBOARD -->
+      <section class="view active" id="view-dashboard">
+        <div class="view-header">
+          <div><h2>Bienvenido, <span id="welcomeName">Fernando</span> <span class="wave">👋</span></h2><p>Martes 11 de marzo, 2026 — Todo en orden hoy</p></div>
+          <button class="btn-primary" onclick="switchView('proyectos')"><i class="bi bi-plus-lg"></i> Nuevo Proyecto</button>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card accent-blue"><div class="kpi-icon"><i class="bi bi-folder-fill"></i></div><div class="kpi-data"><span class="kpi-val" data-target="24">0</span><span class="kpi-label">Proyectos Activos</span></div><div class="kpi-trend up">+3 <i class="bi bi-arrow-up-short"></i></div></div>
+          <div class="kpi-card accent-teal"><div class="kpi-icon"><i class="bi bi-people-fill"></i></div><div class="kpi-data"><span class="kpi-val" data-target="18">0</span><span class="kpi-label">Miembros Equipo</span></div><div class="kpi-trend up">+2 <i class="bi bi-arrow-up-short"></i></div></div>
+          <div class="kpi-card accent-amber"><div class="kpi-icon"><i class="bi bi-check2-all"></i></div><div class="kpi-data"><span class="kpi-val" data-target="87">0</span><span style="font-size:1rem;color:#888">%</span><span class="kpi-label">Tareas Completadas</span></div><div class="kpi-trend up">+5% <i class="bi bi-arrow-up-short"></i></div></div>
+          <div class="kpi-card accent-rose"><div class="kpi-icon"><i class="bi bi-building"></i></div><div class="kpi-data"><span class="kpi-val" data-target="12">0</span><span class="kpi-label">Clientes Activos</span></div><div class="kpi-trend down">-1 <i class="bi bi-arrow-down-short"></i></div></div>
+        </div>
+        <div class="dash-mid">
+          <div class="card"><div class="card-head"><h4>Proyectos Recientes</h4><button class="link-btn" onclick="switchView('proyectos')">Ver todos →</button></div><div class="project-list">
+            <div class="proj-item"><span class="proj-dot blue"></span><div class="proj-info"><strong>Portal Fiscalía Sur</strong><small>Desarrollo Web</small></div><div class="proj-meta"><div class="progress-wrap"><div class="progress-bar" style="width:78%"></div></div><span class="proj-pct">78%</span></div><span class="status-badge ongoing">En curso</span></div>
+            <div class="proj-item"><span class="proj-dot teal"></span><div class="proj-info"><strong>App Gestión RRHH</strong><small>Aplicación Móvil</small></div><div class="proj-meta"><div class="progress-wrap"><div class="progress-bar" style="width:45%"></div></div><span class="proj-pct">45%</span></div><span class="status-badge ongoing">En curso</span></div>
+            <div class="proj-item"><span class="proj-dot amber"></span><div class="proj-info"><strong>Dashboard Analytics</strong><small>Business Intelligence</small></div><div class="proj-meta"><div class="progress-wrap"><div class="progress-bar" style="width:92%"></div></div><span class="proj-pct">92%</span></div><span class="status-badge review">Revisión</span></div>
+            <div class="proj-item"><span class="proj-dot rose"></span><div class="proj-info"><strong>ERP Municipal Peñalolén</strong><small>Sistemas Internos</small></div><div class="proj-meta"><div class="progress-wrap"><div class="progress-bar" style="width:100%"></div></div><span class="proj-pct">100%</span></div><span class="status-badge done">Finalizado</span></div>
+          </div></div>
+          <div class="card"><div class="card-head"><h4>Actividad Reciente</h4></div><ul class="activity-feed">
+            <li><img src="https://i.pravatar.cc/30?img=5" alt=""><div><p><strong>Ana Torres</strong> subió <em>Contrato_Fiscalía.pdf</em></p><small>Hace 15 min</small></div></li>
+            <li><img src="https://i.pravatar.cc/30?img=8" alt=""><div><p><strong>Marco Silva</strong> completó <em>Diseño UI Home</em></p><small>Hace 1 hora</small></div></li>
+            <li><img src="https://i.pravatar.cc/30?img=15" alt=""><div><p><strong>Valeria López</strong> comentó en <em>Portal Fiscalía Sur</em></p><small>Hace 2 horas</small></div></li>
+            <li><img src="https://i.pravatar.cc/30?img=22" alt=""><div><p><strong>Diego Muñoz</strong> agregó cliente <em>Municipalidad Maipú</em></p><small>Hace 3 horas</small></div></li>
+            <li><img src="https://i.pravatar.cc/30?img=3" alt=""><div><p><strong>Sofía Reyes</strong> publicó en <em>Comunidad</em></p><small>Ayer 18:30</small></div></li>
+          </ul></div>
+          <div class="card"><div class="card-head"><h4>Tareas de Hoy</h4></div><ul class="today-tasks">
+            <li class="done-task"><i class="bi bi-check-circle-fill"></i> Reunión con cliente Fiscalía</li>
+            <li class="done-task"><i class="bi bi-check-circle-fill"></i> Deploy Portal v2.1</li>
+            <li><i class="bi bi-circle"></i> Revisar mockups App RRHH</li>
+            <li><i class="bi bi-circle"></i> Actualizar contrato Peñalolén</li>
+            <li class="urgent"><i class="bi bi-exclamation-circle-fill"></i> Entrega Dashboard Cliente</li>
+          </ul></div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section class="view" id="view-proyectos">
+        <div class="view-header"><div><h2>Tablero de Proyectos</h2><p>Gestión visual tipo Kanban</p></div><button class="btn-primary" onclick="openModal('modalNuevoProyecto')"><i class="bi bi-plus-lg"></i> Agregar Tarea</button></div>
+        <div class="kanban-board">
+          <div class="kanban-col"><div class="kanban-col-header"><span class="col-dot blue"></span><h5>Pendiente</h5><span class="col-count">3</span></div><div class="kanban-cards" id="col-pendiente">
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag blue">Frontend</span></div><h6>Rediseño Home Portal</h6><p>Actualizar hero section y navegación responsive.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=5"><img src="https://i.pravatar.cc/24?img=8"></div><span class="k-date"><i class="bi bi-calendar3"></i> 15 Mar</span></div></div>
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag amber">Backend</span></div><h6>API Reportes PDF</h6><p>Endpoint para generar informes automáticos en PDF.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=15"></div><span class="k-date"><i class="bi bi-calendar3"></i> 20 Mar</span></div></div>
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag rose">Diseño</span></div><h6>Identidad Visual Cliente</h6><p>Manual de marca para Municipalidad Maipú.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=22"><img src="https://i.pravatar.cc/24?img=3"></div><span class="k-date"><i class="bi bi-calendar3"></i> 18 Mar</span></div></div>
+          </div></div>
+          <div class="kanban-col"><div class="kanban-col-header"><span class="col-dot amber"></span><h5>En Progreso</h5><span class="col-count">4</span></div><div class="kanban-cards" id="col-progreso">
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag blue">Frontend</span><span class="tag teal">UX</span></div><h6>Dashboard Analytics v2</h6><p>Integrar gráficos con datos reales.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=8"><img src="https://i.pravatar.cc/24?img=5"><img src="https://i.pravatar.cc/24?img=12"></div><span class="k-date"><i class="bi bi-calendar3"></i> 12 Mar</span></div></div>
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag amber">Backend</span></div><h6>Módulo de Permisos RRHH</h6><p>CRUD completo con flujo de aprobación.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=15"><img src="https://i.pravatar.cc/24?img=22"></div><span class="k-date"><i class="bi bi-calendar3"></i> 14 Mar</span></div></div>
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag rose">QA</span></div><h6>Testing Portal Fiscalía</h6><p>Pruebas E2E con Cypress en staging.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=3"></div><span class="k-date"><i class="bi bi-calendar3"></i> 11 Mar</span></div></div>
+            <div class="k-card urgent-card" draggable="true"><div class="k-tags"><span class="tag rose">Urgente</span></div><h6>Fix Autenticación SSO</h6><p>Token JWT expira prematuramente en producción.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=12"></div><span class="k-date urgent-date"><i class="bi bi-exclamation-triangle"></i> HOY</span></div></div>
+          </div></div>
+          <div class="kanban-col"><div class="kanban-col-header"><span class="col-dot teal"></span><h5>Revisión</h5><span class="col-count">2</span></div><div class="kanban-cards" id="col-revision">
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag teal">DevOps</span></div><h6>Config CI/CD Pipeline</h6><p>GitHub Actions con deploy automático a VPS.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=12"></div><span class="k-date"><i class="bi bi-calendar3"></i> 10 Mar</span></div></div>
+            <div class="k-card" draggable="true"><div class="k-tags"><span class="tag blue">Docs</span></div><h6>Documentación API REST</h6><p>Swagger UI con todos los endpoints.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=5"><img src="https://i.pravatar.cc/24?img=22"></div><span class="k-date"><i class="bi bi-calendar3"></i> 09 Mar</span></div></div>
+          </div></div>
+          <div class="kanban-col"><div class="kanban-col-header"><span class="col-dot green"></span><h5>Completado</h5><span class="col-count">5</span></div><div class="kanban-cards" id="col-completado">
+            <div class="k-card done-card" draggable="true"><div class="k-tags"><span class="tag green">✓ Listo</span></div><h6>Landing Page MDS</h6><p>Nuevo sitio corporativo publicado.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=3"><img src="https://i.pravatar.cc/24?img=8"></div><span class="k-date">5 Mar</span></div></div>
+            <div class="k-card done-card" draggable="true"><div class="k-tags"><span class="tag green">✓ Listo</span></div><h6>Migración Base de Datos</h6><p>PostgreSQL 15 en producción sin downtime.</p><div class="k-foot"><div class="k-avatars"><img src="https://i.pravatar.cc/24?img=15"></div><span class="k-date">3 Mar</span></div></div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- EQUIPO -->
+      <section class="view" id="view-equipo">
+        <div class="view-header"><div><h2>Equipo de Trabajo</h2><p>18 miembros activos · 3 áreas</p></div><button class="btn-primary" onclick="openModal('modalNuevoMiembro')"><i class="bi bi-person-plus-fill"></i> Agregar Miembro</button></div>
+        <div class="team-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="dev">Desarrollo</button>
+          <button class="filter-btn" data-filter="design">Diseño</button>
+          <button class="filter-btn" data-filter="pm">Gestión</button>
+        </div>
+        <div class="team-grid" id="teamGrid"></div>
+      </section>
+
+      <!-- CLIENTES -->
+      <section class="view" id="view-clientes">
+        <div class="view-header"><div><h2>Gestión de Clientes</h2><p>12 clientes activos</p></div><button class="btn-primary" onclick="openModal('modalNuevoCliente')"><i class="bi bi-building-add"></i> Nuevo Cliente</button></div>
+        <div class="clients-layout">
+          <div class="clients-list-panel"><div class="search-box"><i class="bi bi-search"></i><input type="text" placeholder="Buscar cliente..." id="clientSearch"></div><ul class="client-list" id="clientList"></ul></div>
+          <div class="client-detail-panel" id="clientDetail"><div class="empty-state"><i class="bi bi-building opacity-25" style="font-size:3rem"></i><p>Selecciona un cliente para ver su detalle</p></div></div>
+        </div>
+      </section>
+
+      <!-- COMUNIDAD -->
+      <section class="view" id="view-comunidad">
+        <div class="view-header"><div><h2>Comunidad MDS</h2><p>Red interna de colaboración</p></div></div>
+        <div class="social-layout">
+          <div class="social-feed" id="socialFeed">
+            <div class="create-post-card">
+              <img src="https://i.pravatar.cc/44?img=12" alt="" id="postAvatar">
+              <div class="post-input-wrap">
+                <input type="text" placeholder="¿Qué está pasando en el equipo?" id="postInput">
+                <div class="post-actions">
+                  <button class="icon-btn" onclick="addEmoji()"><i class="bi bi-emoji-smile"></i></button>
+                  <button class="btn-primary sm" onclick="createPost()">Publicar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="social-sidebar">
+            <div class="card"><div class="card-head"><h4>Cumpleaños 🎂</h4></div><ul class="bday-list"><li><img src="https://i.pravatar.cc/30?img=3">Sofía Reyes — <strong>Hoy</strong></li><li><img src="https://i.pravatar.cc/30?img=8">Marco Silva — <strong>14 Mar</strong></li></ul></div>
+            <div class="card"><div class="card-head"><h4>Trending</h4></div><div class="tag-cloud"><span class="htag">#MDS2026</span><span class="htag">#AgileTeam</span><span class="htag">#FiscalíaSur</span><span class="htag">#DevOps</span><span class="htag">#UIDesign</span><span class="htag">#Sprint12</span></div></div>
+            <div class="card"><div class="card-head"><h4>Sugerencias</h4></div><ul class="suggest-list"><li><img src="https://i.pravatar.cc/32?img=20"><span>Roberto Díaz</span><button class="btn-follow">+</button></li><li><img src="https://i.pravatar.cc/32?img=25"><span>Isabel Cruz</span><button class="btn-follow">+</button></li></ul></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DOCUMENTOS -->
+      <section class="view" id="view-documentos">
+        <div class="view-header"><div><h2>Gestión Documental</h2><p>Repositorio centralizado</p></div><button class="btn-primary"><i class="bi bi-upload"></i> Subir Documento</button></div>
+        <div class="docs-layout">
+          <div class="docs-categories">
+            <button class="doc-cat active" data-cat="all"><i class="bi bi-grid"></i> Todos</button>
+            <button class="doc-cat" data-cat="contratos"><i class="bi bi-file-earmark-text"></i> Contratos</button>
+            <button class="doc-cat" data-cat="informes"><i class="bi bi-file-earmark-bar-graph"></i> Informes</button>
+            <button class="doc-cat" data-cat="rrhh"><i class="bi bi-file-earmark-person"></i> RRHH</button>
+            <button class="doc-cat" data-cat="tecnicos"><i class="bi bi-file-earmark-code"></i> Técnicos</button>
+          </div>
+          <div class="docs-grid" id="docsGrid"></div>
+        </div>
+      </section>
+
+      <!-- PANEL ADMIN -->
+      <section class="view" id="view-panel">
+        <div class="view-header"><div><h2>Panel de Administración</h2><p>Control de usuarios y sistema</p></div><button class="btn-primary" onclick="openModal('modalNuevoUsuario')"><i class="bi bi-person-plus-fill"></i> Nuevo Usuario</button></div>
+        <div class="admin-grid">
+          <div class="card"><div class="card-head"><h4>Estado del Sistema</h4></div>
+            <div class="system-stats">
+              <div class="sys-stat"><span class="sys-label">CPU</span><div class="sys-bar"><div class="sys-fill" style="width:34%;background:#3b82f6"></div></div><span>34%</span></div>
+              <div class="sys-stat"><span class="sys-label">RAM</span><div class="sys-bar"><div class="sys-fill" style="width:61%;background:#f59e0b"></div></div><span>61%</span></div>
+              <div class="sys-stat"><span class="sys-label">Disco</span><div class="sys-bar"><div class="sys-fill" style="width:48%;background:#10b981"></div></div><span>48%</span></div>
+              <div class="sys-stat"><span class="sys-label">Red</span><div class="sys-bar"><div class="sys-fill" style="width:22%;background:#8b5cf6"></div></div><span>22%</span></div>
+            </div>
+          </div>
+          <div class="card"><div class="card-head"><h4>Usuarios del Sistema</h4><input type="text" placeholder="Buscar..." class="mini-search" id="userSearch"></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Usuario</th><th>Nombre</th><th>Cargo</th><th>Área</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="usersTableBody"></tbody></table></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK PANEL -->
+      <section class="view" id="view-quick">
+        <div class="view-header">
+          <div><h2 id="quickPanelTitle">Módulo</h2><p id="quickPanelSub">Información del módulo</p></div>
+          <button class="btn-primary" onclick="switchView('dashboard')"><i class="bi bi-arrow-left"></i> Volver al Dashboard</button>
+        </div>
+        <div id="quickPanelContent"></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- MODALES -->
+<div class="modal-overlay hidden" id="modalNuevoProyecto">
+  <div class="modal-box"><div class="modal-head"><h5>Nueva Tarea</h5><button onclick="closeModal('modalNuevoProyecto')"><i class="bi bi-x-lg"></i></button></div>
+    <div class="modal-body"><div class="form-row"><label>Título</label><input type="text" placeholder="Nombre de la tarea"></div><div class="form-row"><label>Descripción</label><textarea rows="3" placeholder="Describe la tarea..."></textarea></div><div class="form-grid2"><div class="form-row"><label>Columna</label><select><option>Pendiente</option><option>En Progreso</option><option>Revisión</option><option>Completado</option></select></div><div class="form-row"><label>Fecha Límite</label><input type="date"></div></div><div class="form-row"><label>Asignar a</label><select><option>Ana Torres</option><option>Marco Silva</option><option>Valeria López</option><option>Fernando Arriaza</option></select></div></div>
+    <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('modalNuevoProyecto')">Cancelar</button><button class="btn-primary" onclick="closeModal('modalNuevoProyecto');showToast('Tarea creada ✓')">Crear Tarea</button></div>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="modalNuevoMiembro">
+  <div class="modal-box"><div class="modal-head"><h5>Agregar Miembro</h5><button onclick="closeModal('modalNuevoMiembro')"><i class="bi bi-x-lg"></i></button></div>
+    <div class="modal-body"><div class="form-grid2"><div class="form-row"><label>Nombre</label><input type="text" placeholder="Primer nombre"></div><div class="form-row"><label>Apellido</label><input type="text" placeholder="Apellido"></div></div><div class="form-row"><label>Email</label><input type="email" placeholder="usuario@mds.cl"></div><div class="form-grid2"><div class="form-row"><label>Cargo</label><input type="text" placeholder="Frontend Developer"></div><div class="form-row"><label>Área</label><select><option>Desarrollo</option><option>Diseño</option><option>Gestión</option></select></div></div></div>
+    <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('modalNuevoMiembro')">Cancelar</button><button class="btn-primary" onclick="closeModal('modalNuevoMiembro');showToast('Miembro agregado ✓')">Agregar</button></div>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="modalNuevoCliente">
+  <div class="modal-box"><div class="modal-head"><h5>Nuevo Cliente</h5><button onclick="closeModal('modalNuevoCliente')"><i class="bi bi-x-lg"></i></button></div>
+    <div class="modal-body"><div class="form-row"><label>Razón Social</label><input type="text" placeholder="Nombre empresa o institución"></div><div class="form-grid2"><div class="form-row"><label>RUT</label><input type="text" placeholder="12.345.678-9"></div><div class="form-row"><label>Tipo</label><select><option>Público</option><option>Privado</option><option>Municipal</option></select></div></div><div class="form-row"><label>Email de Contacto</label><input type="email" placeholder="contacto@cliente.cl"></div></div>
+    <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('modalNuevoCliente')">Cancelar</button><button class="btn-primary" onclick="closeModal('modalNuevoCliente');showToast('Cliente guardado ✓')">Guardar</button></div>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="modalNuevoUsuario">
+  <div class="modal-box"><div class="modal-head"><h5>Crear Usuario</h5><button onclick="closeModal('modalNuevoUsuario')"><i class="bi bi-x-lg"></i></button></div>
+    <div class="modal-body"><div class="form-row"><label>Username</label><input type="text" placeholder="usuario.nombre"></div><div class="form-grid2"><div class="form-row"><label>Nombres</label><input type="text" placeholder="Primer nombre"></div><div class="form-row"><label>Apellidos</label><input type="text" placeholder="Apellido"></div></div><div class="form-row"><label>Email</label><input type="email" placeholder="usuario@mds.cl"></div><div class="form-grid2"><div class="form-row"><label>Cargo</label><input type="text" placeholder="Cargo laboral"></div><div class="form-row"><label>Área</label><select><option>Desarrollo</option><option>Diseño</option><option>Gestión</option><option>Administración</option></select></div></div><div class="form-row"><label>Rol</label><select><option>Usuario</option><option>Editor</option><option>Administrador</option></select></div></div>
+    <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('modalNuevoUsuario')">Cancelar</button><button class="btn-primary" onclick="closeModal('modalNuevoUsuario');showToast('Usuario creado ✓')">Crear</button></div>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="modalEditarUsuario">
+  <div class="modal-box"><div class="modal-head"><h5>Editar Usuario</h5><button onclick="closeModal('modalEditarUsuario')"><i class="bi bi-x-lg"></i></button></div>
+    <div class="modal-body" id="editUserBody"></div>
+    <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('modalEditarUsuario')">Cancelar</button><button class="btn-primary" onclick="saveEditUser()">Guardar cambios</button></div>
+  </div>
+</div>
+
+<div class="notif-panel hidden" id="notifPanel">
+  <div class="notif-head"><strong>Notificaciones</strong><span class="notif-count">3 nuevas</span></div>
+  <ul class="notif-list">
+    <li class="notif-item new"><i class="bi bi-check2-circle text-teal"></i><div><p>Tarea <strong>Fix SSO</strong> asignada a ti</p><small>Hace 5 min</small></div></li>
+    <li class="notif-item new"><i class="bi bi-chat-dots text-blue"></i><div><p><strong>Ana Torres</strong> comentó en tu tarea</p><small>Hace 30 min</small></div></li>
+    <li class="notif-item new"><i class="bi bi-building text-amber"></i><div><p>Nuevo cliente: <strong>Municipalidad Maipú</strong></p><small>Hace 1 hora</small></div></li>
+    <li class="notif-item"><i class="bi bi-upload text-rose"></i><div><p>Documento subido por <strong>Marco Silva</strong></p><small>Ayer</small></div></li>
+  </ul>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

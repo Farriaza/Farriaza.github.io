@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wa no Ryōri · 和の料理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Shippori+Mincho:wght@400;600;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- INDEX PAGE -->
+<div id="indexPage">
+  <div class="idx-header">
+    <div class="kbg">和</div>
+    <div class="idx-actions">
+      <button class="btn-h" id="openLogin">Iniciar sesión</button>
+      <button class="btn-h pri" id="openRegister">Registrarse</button>
+    </div>
+    <h1>Wa no Ryōri</h1>
+    <p>和の料理 · La esencia de la cocina del mundo</p>
+  </div>
+
+  <div class="idx-main">
+    
+    <div class="hint-box">
+      <!-- HINT BOX -->
+      <div>
+        <h3> Acceso rápido — haz clic en un usuario para entrar y ver diferentes usarios y sus recetas</h3>
+        <p style="font-size:.8rem;color:#777;margin-bottom:.7rem">Contraseña de todos: <strong style="color:#fff">1234</strong></p>
+        <div class="hint-users" id="hintUsers"></div>
+      </div>
+    </div>
+
+    <div class="idx-st">
+      <h2>Recetas de la comunidad</h2>
+      <span>Crea una cuenta y accede a todas las recetas exclusivas</span>
+    </div>
+    <div class="idx-cards" id="indexCards"></div>
+  </div>
+
+  <footer class="idx-footer">© 2026 <span>Wa no Ryōri</span> · Tradición · Minimalismo · Respeto</footer>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="mo" id="loginOv">
+  <div class="am">
+    <button class="bc" id="closeLogin">×</button>
+    <div class="ml">和</div>
+    <h3>Iniciar sesión</h3>
+    <p class="prefill">💡 Usuario: <strong>mi_usuario</strong> · Contraseña: <strong>1234</strong></p>
+    <input type="text" id="liU" placeholder="Usuario" value="mi_usuario">
+    <input type="password" id="liP" placeholder="Contraseña" value="1234">
+    <button class="btn-main" id="doLogin">Entrar</button>
+    <div class="mfl">¿No tienes cuenta? <button class="la" id="goReg">Regístrate</button></div>
+    <p id="liErr" style="color:var(--rojo);font-size:.8rem;margin-top:.7rem;display:none">Usuario o contraseña incorrectos</p>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="mo" id="regOv">
+  <div class="am">
+    <button class="bc" id="closeReg">×</button>
+    <div class="ml">和</div>
+    <h3>Crear cuenta</h3>
+    <input type="text" id="rusr" placeholder="Nombre de usuario">
+    <input type="text" id="rnom" placeholder="Nombre completo">
+    <input type="email" id="reml" placeholder="Correo electrónico">
+    <input type="password" id="rp1" placeholder="Contraseña">
+    <input type="password" id="rp2" placeholder="Confirmar contraseña">
+    <button class="btn-main" id="doReg">Registrarse</button>
+    <div class="mfl">¿Ya tienes cuenta? <button class="la" id="goLi">Iniciar sesión</button></div>
+    <p id="rErr" style="color:var(--rojo);font-size:.8rem;margin-top:.7rem;display:none"></p>
+  </div>
+</div>
+
+<!-- APP LAYOUT -->
+<div id="appLayout" style="display:none">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sb-logo">
+        <span class="kanji">和</span>
+        <span class="name">Wa no Ryōri</span>
+        <span class="sub">和の料理</span>
+      </div>
+      <nav class="sb-menu">
+        <button class="sb-btn active" data-view="inicio">🏠 Inicio</button>
+        <button class="sb-btn" data-view="recetas">🍽 Recetas</button>
+        <button class="sb-btn" data-view="subir">⬆ Subir</button>
+        <button class="sb-btn" data-view="panel">📋 Panel</button>
+        <button class="sb-btn" data-view="perfil">👤 Perfil</button>
+      </nav>
+      <div class="sb-foot">
+        <div class="sb-user" data-view="perfil">
+          <img id="sbAv" class="sb-av" src="" alt="">
+          <div class="sb-ui"><div class="n" id="sbName"></div><div class="r" id="sbRole"></div></div>
+        </div>
+        <button class="logout-btn" id="doLogout">⬅ Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="ham" id="hamBtn" aria-label="Menú"><span></span><span></span><span></span></button>
+        <div class="tb-search">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="gSearch" placeholder="Buscar recetas, categorías...">
+        </div>
+        <div class="tb-right">
+          <button class="prof-btn" data-view="perfil">
+            <span class="pname" id="tbName"></span>
+            <img id="tbAv" src="" alt="">
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <!-- INICIO -->
+        <div id="view-inicio" class="view active">
+          <div class="sec-title"><h2>Mis Recetas</h2><span>TU COLECCIÓN PERSONAL</span></div>
+          <div class="stats-bar" id="statsBar"></div>
+          <div class="rec-grid" id="inicioGrid"></div>
+        </div>
+
+        <!-- RECETAS -->
+        <div id="view-recetas" class="view">
+          <div class="sec-title"><h2>Todas las Recetas</h2><span>EXPLORA LA COMUNIDAD</span></div>
+          <div class="filtros-bar" id="filtrosBar"></div>
+          <div class="rec-grid" id="recGrid"></div>
+        </div>
+
+        <!-- SUBIR -->
+        <div id="view-subir" class="view">
+          <div class="sec-title"><h2>Subir Receta</h2><span>COMPARTE TU CREACIÓN</span></div>
+          <div class="subir-wrap">
+            <div class="subir-card">
+              <div class="prev-card" id="prevCard">
+                <img id="prevImg" src="https://images.unsplash.com/photo-1546549039-49b9a2c09b1a?w=400" alt="Preview">
+                <div class="prev-text">
+                  <h3 id="prevT">Título de la receta</h3>
+                  <p id="prevD">Descripción breve de tu receta...</p>
+                </div>
+              </div>
+              <div class="ig"><label>Título *</label><input type="text" id="sT" placeholder="Nombre de tu receta"></div>
+              <div class="ig"><label>Descripción *</label><textarea id="sD" rows="3" placeholder="Describe tu receta..."></textarea></div>
+              <div class="img-grid">
+                <div class="ig"><label>URL de imagen</label><input type="url" id="sImg" placeholder="https://..."></div>
+                <div class="ig"><label>Categoría *</label>
+                  <select id="sCat">
+                    <option value="">Selecciona una categoría</option>
+                    <option>Sopas y Ramen</option><option>Sushi y Sashimi</option>
+                    <option>Tempura y Frituras</option><option>Platos de Arroz</option>
+                    <option>Fideos</option><option>Yakitori y Parrilla</option>
+                    <option>Postres</option><option>Bebidas</option>
+                    <option>Cocina Italiana</option><option>Cocina Mexicana</option>
+                    <option>Cocina Española</option><option>Cocina Peruana</option>
+                    <option>Cocina Francesa</option><option>Vegetariano</option>
+                  </select>
+                </div>
+              </div>
+              <div class="ig"><label>Ingredientes (uno por línea) *</label><textarea id="sIng" rows="5" placeholder="200g de tofu&#10;2 cucharadas de salsa de soja"></textarea></div>
+              <div class="ig"><label>Instrucciones (una por línea) *</label><textarea id="sPas" rows="6" placeholder="Paso 1...&#10;Paso 2..."></textarea></div>
+              <div class="ok-banner" id="okBanner">✅ ¡Receta publicada con éxito!</div>
+              <div class="form-acts">
+                <button class="sb-btn" id="pubBtn" style="width:auto;padding:.88rem 2.5rem">Publicar receta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL -->
+        <div id="view-panel" class="view">
+          <div class="sec-title"><h2>Panel de Recetas</h2><span>GESTIONA TU CONTENIDO</span></div>
+          <div class="ptable">
+            <table>
+              <thead>
+                <tr>
+                  <th>Imagen</th><th>Título</th><th>Categoría</th>
+                  <th>Estado</th><th>Fecha</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="panelBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PERFIL -->
+        <div id="view-perfil" class="view">
+          <div class="sec-title"><h2>Mi Perfil</h2><span>GESTIÓN DE IDENTIDAD GASTRONÓMICA</span></div>
+          <div class="perf-wrap">
+            <div class="perf-card">
+              <div class="photo-sec">
+                <div class="av-wrap"><img id="perfPrev" src="" alt=""></div>
+                <div class="ig" style="width:100%">
+                  <label>URL de foto de perfil</label>
+                  <input type="url" id="perfFoto" placeholder="https://...">
+                </div>
+              </div>
+              <div>
+                <div class="inp-grid">
+                  <div class="ig"><label>Usuario</label><input type="text" id="pUsr"></div>
+                  <div class="ig"><label>Email</label><input type="email" id="pEml"></div>
+                  <div class="ig full"><label>Biografía</label><textarea id="pBio" rows="4"></textarea></div>
+                  <div class="ig">
+                    <label>Especialidad</label>
+                    <select id="pEsp">
+                      <option>Aficionado</option><option>Estudiante</option>
+                      <option>Chef</option><option>Itamae</option>
+                    </select>
+                  </div>
+                  <div class="ig"><label>Instagram</label><input type="text" id="pInsta" placeholder="@usuario"></div>
+                </div>
+                <div class="perf-acts">
+                  <button onclick="guardarPerfil()" class="sb-btn" style="width:auto;padding:.88rem 2rem">Guardar cambios</button>
+                  <button onclick="cancelarPerfil()" class="logout-btn" style="width:auto;padding:.88rem 1.5rem">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+<!-- SIDEBAR OVERLAY (mobile) -->
+<div class="sb-overlay" id="sbOverlay"></div>
+
+<!-- BOTTOM NAV (mobile) -->
+<div class="bottom-nav">
+  <nav>
+    <button class="bn-btn active" data-view="inicio" id="bn-inicio"><span class="bn-icon">🏠</span>Inicio</button>
+    <button class="bn-btn" data-view="recetas" id="bn-recetas"><span class="bn-icon">🍽</span>Recetas</button>
+    <button class="bn-btn" data-view="subir" id="bn-subir"><span class="bn-icon">⬆</span>Subir</button>
+    <button class="bn-btn" data-view="panel" id="bn-panel"><span class="bn-icon">📋</span>Panel</button>
+    <button class="bn-btn" data-view="perfil" id="bn-perfil"><span class="bn-icon">👤</span>Perfil</button>
+  </nav>
+</div>
+
+</div>
+
+<!-- RECETA MODAL -->
+<div class="rm-ov" id="rmOv">
+  <div class="rm">
+    <button class="rm-close" onclick="cRM()">×</button>
+    <img class="rm-img" id="rmImg" src="" alt="">
+    <div class="rm-body">
+      <h2 id="rmT"></h2>
+      <div class="rm-meta" id="rmMeta"></div>
+      <div class="ms"><h4>Ingredientes</h4><ul id="rmIng"></ul></div>
+      <div class="ms"><h4>Instrucciones</h4><ol id="rmPas"></ol></div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="em-ov" id="emOv">
+  <div class="em">
+    <h2>✏️ Editar Receta</h2>
+    <div class="ig"><label>Título</label><input type="text" id="eT"></div>
+    <div class="ig"><label>Descripción</label><textarea id="eD" rows="3"></textarea></div>
+    <div class="ig"><label>URL de imagen</label><input type="url" id="eImg"></div>
+    <div class="ig"><label>Categoría</label>
+      <select id="eCat">
+        <option>Sopas y Ramen</option><option>Sushi y Sashimi</option>
+        <option>Tempura y Frituras</option><option>Platos de Arroz</option>
+        <option>Fideos</option><option>Yakitori y Parrilla</option>
+        <option>Postres</option><option>Bebidas</option>
+        <option>Cocina Italiana</option><option>Cocina Mexicana</option>
+        <option>Cocina Española</option><option>Cocina Peruana</option>
+        <option>Cocina Francesa</option><option>Vegetariano</option>
+      </select>
+    </div>
+    <div class="ig"><label>Ingredientes (uno por línea)</label><textarea id="eIng" rows="5"></textarea></div>
+    <div class="ig"><label>Instrucciones (una por línea)</label><textarea id="ePas" rows="5"></textarea></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="logout-btn" style="width:auto;padding:.8rem 1.4rem" onclick="cEM()">Cancelar</button>
+      <button class="sb-btn" style="width:auto;padding:.8rem 1.7rem" onclick="saveEdit()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE -->
+<div class="conf-ov" id="confOv">
+  <div class="conf-box">
+    <h3>¿Eliminar receta?</h3>
+    <p>Esta acción no se puede deshacer.</p>
+    <div class="conf-btns">
+      <button class="cc" onclick="cConf()">Cancelar</button>
+      <button class="cd" id="confDel">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

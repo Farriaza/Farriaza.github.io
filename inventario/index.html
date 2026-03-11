@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kento ERP</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ==================== LANDING PAGE ==================== -->
+<div id="pageLogin">
+
+
+  <div class="land-hero">
+    <div class="land-hero-inner">
+      <div class="land-left">
+        <div class="land-title">
+          Gestión Logística<br><span>Inteligente y Escalable</span>
+        </div>
+        <p class="land-sub">
+          Potencia tu empresa con <strong>Kento ERP</strong>: la plataforma integral que revoluciona la administración de inventario, órdenes, ventas y toda tu operación logística.
+        </p>
+        <div class="land-btns">
+          <button class="kento-btn kento-btn-primary" style="padding:16px 32px;font-size:1.05rem;" onclick="openLoginModal()">
+            <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+          </button>
+          <button class="kento-btn kento-btn-secondary" style="padding:16px 32px;font-size:1.05rem;border:2px solid var(--primary);background:transparent;color:var(--primary);" onclick="openRegModal()">
+            <i class="bi bi-rocket-takeoff"></i> Comenzar Gratis
+          </button>
+        </div>
+      </div>
+      <div class="land-right">
+        <div class="land-orbs">
+          <div class="orb orb1"></div>
+          <div class="orb orb2"></div>
+          <div class="orb orb3"><i class="bi bi-box-seam"></i></div>
+          <div class="land-badges">
+            <div class="land-badge"><i class="bi bi-stars"></i>ERP de Nueva Generación</div>
+            <div class="land-badge"><i class="bi bi-cloud-check"></i>100% Cloud</div>
+            <div class="land-badge"><i class="bi bi-shield-check"></i>Sin instalación</div>
+            <div class="land-badge"><i class="bi bi-headset"></i>Soporte 24/7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="land-footer">Kento ERP — © 2025. Todos los derechos reservados.</footer>
+</div>
+
+<!-- ==================== MODAL LOGIN ==================== -->
+<div class="lm-overlay" id="loginModal">
+  <div class="lm-box">
+    <div class="lm-head">
+      <div class="lm-logo">Kento ERP</div>
+      <h2>Inicio de Sesión</h2>
+    </div>
+    <div class="lm-body">
+      <div id="loginAlert"></div>
+      <div class="lm-field">
+        <i class="bi bi-person"></i>
+        <input type="text" id="loginUser" placeholder="Usuario" value="admin">
+      </div>
+      <div class="lm-field">
+        <i class="bi bi-lock"></i>
+        <input type="password" id="loginPass" placeholder="Contraseña" value="1234">
+      </div>
+      <button class="lm-btn-submit" onclick="doLogin()">
+        <i class="bi bi-box-arrow-in-right" style="margin-right:6px;"></i>Ingresar
+      </button>
+      <div class="lm-footer-links">
+        <span style="color:#999">¿No tienes cuenta?</span> <a href="#" onclick="switchModal()">Regístrate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL REGISTRO ==================== -->
+<div class="lm-overlay" id="regModal">
+  <div class="lm-box">
+    <div class="lm-head">
+      <div class="lm-logo">Kento ERP</div>
+      <h2>Registro de Usuario</h2>
+    </div>
+    <div class="lm-body">
+      <div id="regAlert"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <input type="text" id="regNombre" class="erp-input" placeholder="Nombre" style="padding:13px 14px;">
+        <input type="text" id="regApellido" class="erp-input" placeholder="Apellido" style="padding:13px 14px;">
+      </div>
+      <div class="lm-field">
+        <i class="bi bi-person"></i>
+        <input type="text" id="regUser" placeholder="Usuario">
+      </div>
+      <div class="lm-field">
+        <i class="bi bi-envelope"></i>
+        <input type="email" id="regEmail" placeholder="Correo electrónico">
+      </div>
+      <div class="lm-field">
+        <i class="bi bi-lock"></i>
+        <input type="password" id="regPass" placeholder="Contraseña">
+      </div>
+      <div class="lm-field">
+        <i class="bi bi-lock-fill"></i>
+        <input type="password" id="regPass2" placeholder="Confirmar contraseña">
+      </div>
+      <button class="lm-btn-submit" style="background:linear-gradient(135deg,#1f8b4c,#27ae60);" onclick="doRegister()">
+        <i class="bi bi-person-plus" style="margin-right:6px;"></i>Registrar
+      </button>
+      <div class="lm-footer-links">
+        <span style="color:#999">¿Ya tienes cuenta?</span> <a href="#" onclick="switchModal()">Inicia sesión</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== APP ERP ==================== -->
+<div id="pageApp">
+<div class="app-container">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="mainSidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo-text">K</div>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item"><a onclick="navTo('dashboard')" id="nav-dashboard">
+        <i class="bi bi-bar-chart-line"></i><span>Reportes</span></a></li>
+      <li class="nav-item"><a onclick="navTo('control')" id="nav-control">
+        <i class="bi bi-speedometer2"></i><span>Control</span></a></li>
+      <li class="nav-item"><a onclick="navTo('ventas')" id="nav-ventas">
+        <i class="bi bi-graph-up"></i><span>Ventas</span></a></li>
+      <li class="nav-item"><a onclick="navTo('picking')" id="nav-picking">
+        <i class="bi bi-arrow-left-right"></i><span>Movimientos</span></a></li>
+      <li class="nav-item"><a onclick="navTo('inventario')" id="nav-inventario">
+        <i class="bi bi-clipboard-data"></i><span>Inventario</span></a></li>
+      <li class="nav-item"><a onclick="navTo('chatbot')" id="nav-chatbot">
+        <i class="bi bi-chat-dots-fill"></i><span>ChatBot</span></a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="doLogout()">
+        <i class="bi bi-box-arrow-right"></i><span>Salir</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <header class="content-header">
+      <div>
+        <div class="header-brand">Kento ERP</div>
+        <div class="header-title" id="headerTitle">Sistema de Gestión Logística</div>
+      </div>
+      <!-- HEADER USER — clickeable para abrir perfil -->
+      <div class="header-user" onclick="abrirPerfil()" title="Editar perfil">
+        <div class="user-avatar" id="userAvatar" style="overflow:hidden;padding:0;">A</div>
+        <div>
+          <div class="user-name" id="userName">Admin</div>
+          <div class="user-role" id="userRoleDisplay">Conectado</div>
+        </div>
+        <i class="bi bi-pencil-square" style="color:var(--text-soft);font-size:.85rem;margin-left:4px;"></i>
+      </div>
+    </header>
+
+    <div class="content-body">
+
+      <!-- ===== DASHBOARD ===== -->
+      <section id="sec-dashboard" class="page-section active">
+        <div class="page-header">
+          <div class="page-header-left">
+            <h1><i class="bi bi-bar-chart-line"></i> Panel Administrativo</h1>
+            <p>Resumen general de operaciones</p>
+          </div>
+          <button class="kento-btn kento-btn-secondary" onclick="cargarDashboard()">
+            <i class="bi bi-arrow-clockwise"></i> Actualizar
+          </button>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-card green"><div class="kpi-icon green"><i class="bi bi-box-seam"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Total Productos</span><span class="kpi-value" id="db-prod">—</span><div class="kpi-sub">SKUs activos</div></div></div>
+          <div class="kpi-card blue"><div class="kpi-icon blue"><i class="bi bi-cart-check"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Pickings Activos</span><span class="kpi-value" id="db-pick">—</span><div class="kpi-sub">En proceso</div></div></div>
+          <div class="kpi-card orange"><div class="kpi-icon orange"><i class="bi bi-exclamation-triangle"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Alertas Stock</span><span class="kpi-value" id="db-alert">—</span><div class="kpi-sub">Requieren atención</div></div></div>
+          <div class="kpi-card red"><div class="kpi-icon red"><i class="bi bi-graph-up-arrow"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Ventas del Mes</span><span class="kpi-value" id="db-ventas">—</span><div class="kpi-sub">Transacciones</div></div></div>
+        </div>
+        <div class="kd-main-grid">
+          <div class="kd-block">
+            <div class="kd-block-header"><h2>Alertas de Stock</h2></div>
+            <div class="kd-scroll" id="db-alertas-list"><p class="kd-muted">Cargando...</p></div>
+          </div>
+          <div class="kd-block">
+            <div class="kd-block-header"><h2>Gráfico de Movimientos</h2></div>
+            <canvas id="movChart" height="200"></canvas>
+          </div>
+          <div class="kd-block" style="grid-column:span 2">
+            <div class="kd-block-header"><h2>Pickings Activos</h2></div>
+            <div class="kento-table-wrapper">
+              <table class="kd-table">
+                <thead><tr><th>Producto</th><th>Cliente</th><th>Cantidad</th><th>Estado</th><th>Fecha</th></tr></thead>
+                <tbody id="db-pickings-table"><tr><td colspan="5" class="kd-muted">Cargando...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTROL ===== -->
+      <section id="sec-control" class="page-section">
+        <div class="page-header">
+          <div class="page-header-left">
+            <h1><i class="bi bi-speedometer2"></i> Panel de Control</h1>
+            <p>Administración de clientes, productos y personal</p>
+          </div>
+        </div>
+
+        <!-- KPIs del control -->
+        <div class="kpi-row" style="margin-bottom:16px">
+          <div class="kpi-card green"><div class="kpi-icon green"><i class="bi bi-database-check"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Base de Datos</span><span class="kpi-value">Online</span><div class="kpi-sub">Sin errores</div></div></div>
+          <div class="kpi-card blue"><div class="kpi-icon blue"><i class="bi bi-people"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Usuarios del Sistema</span><span class="kpi-value" id="ctrl-users">—</span><div class="kpi-sub">Registrados</div></div></div>
+          <div class="kpi-card orange"><div class="kpi-icon orange"><i class="bi bi-person-lines-fill"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Clientes Activos</span><span class="kpi-value" id="ctrl-kpi-clientes">—</span><div class="kpi-sub">Habilitados</div></div></div>
+          <div class="kpi-card purple"><div class="kpi-icon purple"><i class="bi bi-person-badge"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Personal Activo</span><span class="kpi-value" id="ctrl-kpi-personal">—</span><div class="kpi-sub">En nómina</div></div></div>
+        </div>
+        <div class="kpi-row" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:18px">
+          <div class="kpi-card green"><div class="kpi-icon green"><i class="bi bi-box-seam"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Productos Registrados</span><span class="kpi-value" id="ctrl-kpi-productos">—</span><div class="kpi-sub">En sistema</div></div></div>
+          <div class="kpi-card blue"><div class="kpi-icon blue"><i class="bi bi-clock-history"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Último Backup</span><span class="kpi-value">Hoy</span><div class="kpi-sub">03:00 AM</div></div></div>
+          <div class="kpi-card orange"><div class="kpi-icon orange"><i class="bi bi-shield-check"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Integridad</span><span class="kpi-value">100%</span><div class="kpi-sub">Sin errores</div></div></div>
+        </div>
+
+        <!-- Tabs control -->
+        <div class="ctrl-tabs">
+          <div class="ctrl-tab active" onclick="mostrarTabControl('herramientas')"><i class="bi bi-tools"></i> Herramientas</div>
+          <div class="ctrl-tab" onclick="mostrarTabControl('clientes')"><i class="bi bi-people"></i> Clientes</div>
+          <div class="ctrl-tab" onclick="mostrarTabControl('productos')"><i class="bi bi-box-seam"></i> Productos</div>
+          <div class="ctrl-tab" onclick="mostrarTabControl('personal')"><i class="bi bi-person-badge"></i> Personal</div>
+        </div>
+
+        <!-- Herramientas -->
+        <div id="ctrl-herramientas" class="ctrl-section active erp-card-solo">
+          <div class="erp-header">Herramientas de Administración</div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <button class="kento-btn kento-btn-primary" onclick="kentoAlert('Integridad validada correctamente.','success')"><i class="bi bi-check2-circle"></i> Validar Integridad</button>
+            <button class="kento-btn kento-btn-success" onclick="kentoAlert('Sistema inicializado.','success')"><i class="bi bi-lightning-charge-fill"></i> Inicializar</button>
+            <button class="kento-btn kento-btn-warning" onclick="kentoAlert('Formularios limpiados.','warning')"><i class="bi bi-eraser-fill"></i> Limpiar Todo</button>
+            <button class="kento-btn kento-btn-danger" onclick="if(confirm('¿Resetear el sistema?')){kentoAlert('Sistema reseteado.','error')}"><i class="bi bi-exclamation-triangle-fill"></i> Reset Sistema</button>
+          </div>
+        </div>
+
+        <!-- Clientes -->
+        <div id="ctrl-clientes" class="ctrl-section erp-card-solo" style="display:none">
+          <div class="kento-list-header">
+            <h4><i class="bi bi-people"></i> Gestión de Clientes</h4>
+            <div class="kento-list-actions">
+              <input class="kento-search" id="buscarCliente" placeholder="🔍 Buscar..." oninput="renderCtrlClientes()">
+              <select class="kento-filter" id="filtroCliente" onchange="renderCtrlClientes()">
+                <option value="">Todos</option>
+                <option value="activo">Activos</option>
+                <option value="inactivo">Inactivos</option>
+              </select>
+              <button class="kento-btn kento-btn-primary" onclick="abrirNuevoCliente()"><i class="bi bi-person-plus"></i> Nuevo</button>
+            </div>
+          </div>
+          <div class="kento-table-wrapper">
+            <table class="kento-table">
+              <thead><tr><th>RUT</th><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Dirección</th><th>Estado</th><th>Acciones</th></tr></thead>
+              <tbody id="tbodyCtrlClientes"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Productos Control -->
+        <div id="ctrl-productos" class="ctrl-section erp-card-solo" style="display:none">
+          <div class="kento-list-header">
+            <h4><i class="bi bi-box-seam"></i> Gestión de Productos</h4>
+            <div class="kento-list-actions">
+              <input class="kento-search" id="buscarCtrlProd" placeholder="🔍 Buscar..." oninput="renderCtrlProductos()">
+              <select class="kento-filter" id="filtroCtrlProd" onchange="renderCtrlProductos()">
+                <option value="">Todos</option>
+                <option value="ok">OK</option>
+                <option value="bajo">Stock Bajo</option>
+                <option value="sobre">Sobre Stock</option>
+                <option value="sin">Sin Stock</option>
+              </select>
+              <button class="kento-btn kento-btn-primary" onclick="abrirModalProducto();navTo('inventario')"><i class="bi bi-plus-lg"></i> Nuevo</button>
+            </div>
+          </div>
+          <div class="kento-table-wrapper">
+            <table class="kento-table">
+              <thead><tr><th>EAN</th><th>Nombre</th><th>Ubicación</th><th>Stock / Mín</th><th>Precio</th><th>Estado</th><th>Acciones</th></tr></thead>
+              <tbody id="tbodyCtrlProductos"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Personal -->
+        <div id="ctrl-personal" class="ctrl-section erp-card-solo" style="display:none">
+          <div class="kento-list-header">
+            <h4><i class="bi bi-person-badge"></i> Gestión de Personal</h4>
+            <div class="kento-list-actions">
+              <input class="kento-search" id="buscarPersonal" placeholder="🔍 Buscar..." oninput="renderCtrlPersonal()">
+              <select class="kento-filter" id="filtroPersonal" onchange="renderCtrlPersonal()">
+                <option value="">Todos</option>
+                <option value="activo">Activos</option>
+                <option value="inactivo">Inactivos</option>
+              </select>
+              <button class="kento-btn kento-btn-primary" onclick="abrirNuevoPersonal()"><i class="bi bi-person-plus"></i> Nuevo</button>
+            </div>
+          </div>
+          <div class="kento-table-wrapper">
+            <table class="kento-table">
+              <thead><tr><th>RUT</th><th>Nombre</th><th>Cargo</th><th>Email</th><th>Turno</th><th>Estado</th><th>Acciones</th></tr></thead>
+              <tbody id="tbodyCtrlPersonal"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== VENTAS ===== -->
+      <section id="sec-ventas" class="page-section">
+        <div class="kento-list-header">
+          <h4><i class="bi bi-cart-check"></i> Gestión de Ventas</h4>
+          <div class="kento-list-actions">
+            <input class="kento-search" id="buscarVenta" placeholder="🔍 Buscar venta..." oninput="filtrarVentas()">
+            <button class="kento-btn kento-btn-primary" onclick="abrirModal('modalNuevaVenta')">
+              <i class="bi bi-plus-circle"></i> Registrar Venta
+            </button>
+          </div>
+        </div>
+        <div class="kento-panel">
+          <div class="kento-panel-header">
+            <div class="kento-panel-title">Ventas Registradas</div>
+            <div class="kento-panel-subtitle">Historial general de ventas</div>
+          </div>
+          <div class="kento-panel-body">
+            <div class="kento-table-wrapper">
+              <table class="kento-table">
+                <thead><tr><th>ID</th><th>Cliente</th><th>Total</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr></thead>
+                <tbody id="tbodyVentas"><tr><td class="empty-row" colspan="6" style="display:table-cell;">Cargando...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PICKING / MOVIMIENTOS ===== -->
+      <section id="sec-picking" class="page-section">
+        <div class="page-header">
+          <div class="page-header-left">
+            <h1><i class="bi bi-box-seam"></i> Historial de Picking</h1>
+            <p>Ventas en proceso de despacho</p>
+          </div>
+        </div>
+        <div class="erp-card-solo">
+          <div class="kento-table-wrapper">
+            <table class="kento-table">
+              <thead><tr><th>N° Venta</th><th>Cliente</th><th>Items</th><th>Total</th><th>Estado</th><th>Acciones</th></tr></thead>
+              <tbody id="tbodyPicking"><tr><td class="empty-row" colspan="6" style="display:table-cell;">Cargando...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== INVENTARIO ===== -->
+      <section id="sec-inventario" class="page-section">
+        <div class="page-header">
+          <div class="page-header-left">
+            <h1><i class="bi bi-clipboard-data"></i> Gestión de Inventario</h1>
+            <p>Control de stock, ubicaciones y movimientos</p>
+          </div>
+          <button class="kento-btn kento-btn-primary" onclick="abrirModalProducto()">
+            <i class="bi bi-plus-lg"></i> Nuevo Producto
+          </button>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-card green"><div class="kpi-icon green"><i class="bi bi-box-seam"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Total Productos</span><span class="kpi-value" id="kpiTotal">—</span><div class="kpi-sub">SKUs registrados</div></div></div>
+          <div class="kpi-card blue"><div class="kpi-icon blue"><i class="bi bi-layers"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Unidades en Stock</span><span class="kpi-value" id="kpiUnidades">—</span><div class="kpi-sub">Unidades totales</div></div></div>
+          <div class="kpi-card orange"><div class="kpi-icon orange"><i class="bi bi-exclamation-triangle"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Stock Bajo</span><span class="kpi-value" id="kpiBajo">—</span><div class="kpi-sub">Requieren reposición</div></div></div>
+          <div class="kpi-card red"><div class="kpi-icon red"><i class="bi bi-slash-circle"></i></div>
+            <div class="kpi-body"><span class="kpi-label">Sin Stock</span><span class="kpi-value" id="kpiSinStock">—</span><div class="kpi-sub">Agotados</div></div></div>
+        </div>
+
+        <div class="erp-tabs">
+          <div class="erp-tab active" onclick="mostrarTabInv('tabLista')"><i class="bi bi-table"></i> Lista de Productos</div>
+          <div class="erp-tab" onclick="mostrarTabInv('tabAlertas')"><i class="bi bi-bell"></i> Alertas de Stock</div>
+          <div class="erp-tab" onclick="mostrarTabInv('tabMovInv')"><i class="bi bi-arrow-left-right"></i> Ajustar Stock</div>
+        </div>
+
+        <!-- TAB: Lista -->
+        <div id="tabLista" class="erp-card">
+          <!-- Modo de visualización: Producto / Ubicación -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+            <div style="display:flex;gap:8px;align-items:center">
+              <div class="inv-search-mode">
+                <button class="inv-mode-btn active" data-mode="producto" onclick="setInvMode('producto')">
+                  <i class="bi bi-list-ul"></i> Por Producto
+                </button>
+                <button class="inv-mode-btn" data-mode="ubicacion" onclick="setInvMode('ubicacion')">
+                  <i class="bi bi-geo-alt"></i> Por Ubicación
+                </button>
+              </div>
+            </div>
+            <div class="kento-list-actions">
+              <input type="text" id="buscadorInv" class="kento-search" placeholder="🔍 Buscar..." oninput="filtrarInv()">
+              <select id="filtroEstado" class="kento-filter" onchange="filtrarInv()">
+                <option value="">Todos los estados</option>
+                <option value="ok">OK</option>
+                <option value="bajo">Bajo</option>
+                <option value="sobre">Sobre Stock</option>
+                <option value="sin">Sin Stock</option>
+              </select>
+              <button class="kento-btn kento-btn-secondary" onclick="exportarCSV()"><i class="bi bi-download"></i> CSV</button>
+            </div>
+          </div>
+
+          <!-- Vista tabla por producto -->
+          <div id="inv-table-area" class="kento-table-wrapper">
+            <table class="kento-table" id="tablaInv">
+              <thead><tr><th>EAN</th><th>Nombre</th><th>Ubicación</th><th>Stock</th><th>Mín</th><th>Máx</th><th>Estado</th><th>Precio</th><th>Acciones</th></tr></thead>
+              <tbody id="tbodyInv"></tbody>
+            </table>
+          </div>
+
+          <!-- Vista por ubicación -->
+          <div id="ubicacion-view" style="display:none"></div>
+        </div>
+
+        <!-- TAB: Alertas -->
+        <div id="tabAlertas" class="erp-card" style="display:none">
+          <h4 style="color:var(--primary);margin-bottom:18px;display:flex;align-items:center;gap:8px;"><i class="bi bi-bell-fill"></i> Alertas de Stock</h4>
+          <div id="alertasContainer"></div>
+        </div>
+
+        <!-- TAB: Ajuste de Stock -->
+        <div id="tabMovInv" class="erp-card" style="display:none">
+          <h4 style="color:var(--primary);margin-bottom:18px;display:flex;align-items:center;gap:8px;"><i class="bi bi-arrow-left-right"></i> Ajuste Rápido de Stock</h4>
+          <div class="erp-form-grid" style="max-width:600px">
+            <div class="kento-field kento-full"><label>Producto</label>
+              <select id="movProducto" class="erp-input"><option value="">Seleccione...</option></select></div>
+            <div class="kento-field"><label>Tipo</label>
+              <select id="movTipo" class="erp-input">
+                <option value="entrada">Entrada (+)</option>
+                <option value="salida">Salida (−)</option>
+                <option value="ajuste">Ajuste (=)</option>
+              </select></div>
+            <div class="kento-field"><label>Cantidad</label>
+              <input type="number" id="movCantidad" class="erp-input" min="1" value="1"></div>
+            <div class="kento-field kento-full"><label>Motivo</label>
+              <input type="text" id="movMotivo" class="erp-input" placeholder="Ej: Compra proveedor..."></div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px">
+            <button class="kento-btn kento-btn-primary" onclick="aplicarMovimiento()"><i class="bi bi-check-lg"></i> Aplicar</button>
+            <button class="kento-btn kento-btn-secondary" onclick="limpiarMovimiento()"><i class="bi bi-x-lg"></i> Limpiar</button>
+          </div>
+          <div style="margin-top:24px">
+            <h5 style="color:var(--primary);margin-bottom:12px;font-size:.93rem;"><i class="bi bi-clock-history"></i> Historial Reciente</h5>
+            <div class="kento-table-wrapper">
+              <table class="kento-table">
+                <thead><tr><th>Hora</th><th>Producto</th><th>Tipo</th><th>Cantidad</th><th>Stock Result.</th><th>Motivo</th></tr></thead>
+                <tbody id="tbodyHistorial"><tr><td class="empty-row" colspan="6" style="display:table-cell;">Sin movimientos.</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CHATBOT ===== -->
+      <section id="sec-chatbot" class="page-section">
+        <div class="chat-wrapper">
+          <div class="chat-header">
+            <div class="chat-bot-icon"><i class="bi bi-robot"></i></div>
+            <div class="chat-header-info">
+              <h3>Kento Assistant</h3>
+              <span>IA integrada • Siempre disponible</span>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg bot">
+              <div class="msg-bubble">¡Hola! 👋 Soy <strong>Kento Assistant</strong>. Puedo ayudarte con consultas sobre el inventario, ventas, clientes, personal y más. ¿En qué te puedo ayudar hoy?</div>
+              <div class="msg-time">Ahora</div>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu consulta...">
+            <button class="chat-send-btn" onclick="sendChat()"><i class="bi bi-send-fill"></i></button>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /content-body -->
+  </div><!-- /main-content -->
+
+  <footer class="main-footer">Kento ERP — © 2025. Todos los derechos reservados.</footer>
+</div>
+</div><!-- /app-container / pageApp -->
+
+<!-- ==================== MODALES ==================== -->
+
+<!-- Modal: Perfil de Usuario -->
+<div class="kento-modal-overlay" id="modalPerfil" onclick="cerrarModalOut(event,'modalPerfil')">
+  <div class="kento-modal-box modal-sm">
+    <div class="kento-modal-header">
+      <span><i class="bi bi-person-circle"></i> Mi Perfil</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalPerfil')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <!-- Avatar con upload -->
+      <div style="text-align:center;margin-bottom:18px;">
+        <div id="perfilAvatarPreview" style="display:inline-block;cursor:pointer;" onclick="document.getElementById('avatarInput').click()" title="Haz click para cambiar la foto">
+          <div class="profile-avatar-circle">A</div>
+        </div>
+        <div style="margin-top:8px;">
+          <label for="avatarInput" style="cursor:pointer;font-size:.82rem;color:var(--primary);font-weight:600;display:inline-flex;align-items:center;gap:5px;">
+            <i class="bi bi-camera"></i> Cambiar foto de perfil
+          </label>
+          <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="cargarImagenPerfil(this)">
+        </div>
+        <p style="font-size:.75rem;color:var(--text-soft);margin-top:4px">PNG, JPG, WebP · Máx 5MB</p>
+      </div>
+      <div class="erp-form-grid">
+        <div class="kento-field"><label>Nombre *</label>
+          <input type="text" id="perfil_nombre" class="erp-input" placeholder="Tu nombre"></div>
+        <div class="kento-field"><label>Apellido</label>
+          <input type="text" id="perfil_apellido" class="erp-input" placeholder="Tu apellido"></div>
+        <div class="kento-field"><label>Email</label>
+          <input type="email" id="perfil_email" class="erp-input" placeholder="correo@ejemplo.cl"></div>
+        <div class="kento-field"><label>Teléfono</label>
+          <input type="text" id="perfil_telefono" class="erp-input" placeholder="+56 9..."></div>
+        <div class="kento-field kento-full"><label>Cargo</label>
+          <input type="text" id="perfil_cargo" class="erp-input" placeholder="Tu cargo en la empresa"></div>
+        <div class="kento-field kento-full" style="border-top:1px dashed var(--border);padding-top:14px;margin-top:4px">
+          <p style="font-size:.82rem;color:var(--text-soft);margin-bottom:10px"><i class="bi bi-shield-lock"></i> Cambiar contraseña (opcional)</p>
+        </div>
+        <div class="kento-field"><label>Usuario</label>
+          <input type="text" id="perfil_username" class="erp-input" readonly style="background:#f0f0f0;color:#888"></div>
+        <div class="kento-field"><label></label></div>
+        <div class="kento-field"><label>Nueva Contraseña</label>
+          <input type="password" id="perfil_pass" class="erp-input" placeholder="Dejar en blanco = sin cambio"></div>
+        <div class="kento-field"><label>Confirmar</label>
+          <input type="password" id="perfil_pass2" class="erp-input" placeholder="Repetir contraseña"></div>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalPerfil')">Cancelar</button>
+      <button class="btn-guardar" onclick="guardarPerfil()"><i class="bi bi-floppy"></i> Guardar Cambios</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Nuevo Producto -->
+<div class="kento-modal-overlay" id="modalProducto" onclick="cerrarModalOut(event,'modalProducto')">
+  <div class="kento-modal-box">
+    <div class="kento-modal-header">
+      <span id="modalProdTitulo"><i class="bi bi-plus-circle"></i> Nuevo Producto</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalProducto')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <input type="hidden" id="edit_id">
+      <div class="erp-form-grid">
+        <div class="kento-field"><label>EAN *</label><input type="text" id="f_ean" class="erp-input" placeholder="Código de barras"></div>
+        <div class="kento-field"><label>DUN</label><input type="text" id="f_dun" class="erp-input" placeholder="Código caja"></div>
+        <div class="kento-field kento-full"><label>Nombre *</label><input type="text" id="f_nombre" class="erp-input" placeholder="Nombre del producto"></div>
+        <div class="kento-field kento-full"><label>Descripción</label><textarea id="f_descripcion" class="erp-input" placeholder="Descripción..."></textarea></div>
+        <div class="kento-field"><label>Precio CLP</label><input type="number" id="f_precio" class="erp-input" min="0" placeholder="0"></div>
+        <div class="kento-field"><label>Ubicación *</label><input type="text" id="f_ubicacion" class="erp-input" placeholder="NV1-A-01-01"></div>
+        <div class="kento-field"><label>Stock Inicial *</label><input type="number" id="f_stock" class="erp-input" min="0" placeholder="0"></div>
+        <div class="kento-field"><label>Stock Mínimo</label><input type="number" id="f_stock_minimo" class="erp-input" min="0" placeholder="0"></div>
+        <div class="kento-field"><label>Stock Máximo</label><input type="number" id="f_stock_maximo" class="erp-input" min="0" placeholder="0"></div>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalProducto')">Cancelar</button>
+      <button class="btn-guardar" onclick="guardarProducto()"><i class="bi bi-floppy"></i> Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Nueva Venta -->
+<div class="kento-modal-overlay" id="modalNuevaVenta" onclick="cerrarModalOut(event,'modalNuevaVenta')">
+  <div class="kento-modal-box modal-lg">
+    <div class="kento-modal-header">
+      <span><i class="bi bi-plus-circle"></i> Registrar Venta</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalNuevaVenta')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <div class="kento-field kento-full" style="margin-bottom:18px">
+        <label>Cliente</label>
+        <select id="ventaCliente" class="erp-input"><option value="">Seleccione cliente...</option></select>
+      </div>
+      <h4 style="color:var(--primary);margin-bottom:14px;display:flex;align-items:center;gap:8px;"><i class="bi bi-box-seam"></i> Productos</h4>
+      <div id="ventaItems"></div>
+      <button class="kento-btn kento-btn-secondary" style="margin-top:8px;" onclick="agregarItemVenta()">
+        <i class="bi bi-plus"></i> Agregar Producto
+      </button>
+      <div class="kento-total-row">
+        <div class="kento-total-label">Total venta</div>
+        <div class="kento-total-value">$<span id="totalVenta">0</span></div>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalNuevaVenta')">Cancelar</button>
+      <button class="btn-guardar" onclick="registrarVenta()"><i class="bi bi-check-lg"></i> Registrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Anular Venta -->
+<div class="kento-modal-overlay" id="modalAnular" onclick="cerrarModalOut(event,'modalAnular')">
+  <div class="kento-modal-box modal-sm">
+    <div class="kento-modal-header">
+      <span><i class="bi bi-x-circle"></i> Anular Venta</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalAnular')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <input type="hidden" id="anularVentaId">
+      <div class="kento-field">
+        <label>Motivo de anulación</label>
+        <select id="motivoAnular" class="erp-input">
+          <option value="Cliente canceló la compra">Cliente canceló la compra</option>
+          <option value="Error en ingreso de datos">Error en ingreso de datos</option>
+          <option value="Producto sin stock real">Producto sin stock real</option>
+          <option value="Venta duplicada">Venta duplicada</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalAnular')">Cancelar</button>
+      <button class="btn-guardar" style="background:var(--danger);" onclick="confirmarAnular()"><i class="bi bi-x-circle"></i> Anular</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Cliente -->
+<div class="kento-modal-overlay" id="modalCliente" onclick="cerrarModalOut(event,'modalCliente')">
+  <div class="kento-modal-box">
+    <div class="kento-modal-header">
+      <span id="modalClienteTitulo"><i class="bi bi-person-plus"></i> Nuevo Cliente</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalCliente')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <input type="hidden" id="edit_cliente_id">
+      <div class="erp-form-grid">
+        <div class="kento-field"><label>RUT *</label><input type="text" id="c_rut" class="erp-input" placeholder="12.345.678-9"></div>
+        <div class="kento-field"><label>Nombre *</label><input type="text" id="c_nombre" class="erp-input" placeholder="Razón social o nombre"></div>
+        <div class="kento-field"><label>Email</label><input type="email" id="c_email" class="erp-input" placeholder="contacto@empresa.cl"></div>
+        <div class="kento-field"><label>Teléfono</label><input type="text" id="c_telefono" class="erp-input" placeholder="+56 2..."></div>
+        <div class="kento-field kento-full"><label>Dirección</label><input type="text" id="c_direccion" class="erp-input" placeholder="Dirección completa"></div>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalCliente')">Cancelar</button>
+      <button class="btn-guardar" onclick="guardarCliente()"><i class="bi bi-floppy"></i> Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Personal -->
+<div class="kento-modal-overlay" id="modalPersonal" onclick="cerrarModalOut(event,'modalPersonal')">
+  <div class="kento-modal-box">
+    <div class="kento-modal-header">
+      <span id="modalPersonalTitulo"><i class="bi bi-person-badge"></i> Nuevo Personal</span>
+      <button class="kento-close-btn" onclick="cerrarModal('modalPersonal')">×</button>
+    </div>
+    <div class="kento-modal-body">
+      <input type="hidden" id="edit_personal_id">
+      <div class="erp-form-grid">
+        <div class="kento-field"><label>RUT *</label><input type="text" id="p_rut" class="erp-input" placeholder="15.234.567-8"></div>
+        <div class="kento-field"><label>Cargo *</label><input type="text" id="p_cargo" class="erp-input" placeholder="Ej: Operador de Bodega"></div>
+        <div class="kento-field"><label>Nombre *</label><input type="text" id="p_nombre" class="erp-input" placeholder="Nombre"></div>
+        <div class="kento-field"><label>Apellido</label><input type="text" id="p_apellido" class="erp-input" placeholder="Apellido"></div>
+        <div class="kento-field"><label>Email</label><input type="email" id="p_email" class="erp-input" placeholder="persona@kento.cl"></div>
+        <div class="kento-field"><label>Teléfono</label><input type="text" id="p_telefono" class="erp-input" placeholder="+56 9..."></div>
+        <div class="kento-field"><label>Turno</label>
+          <select id="p_turno" class="erp-input">
+            <option value="Mañana">Mañana</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noche">Noche</option>
+            <option value="Completo">Completo</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="kento-modal-footer">
+      <button class="btn-cancelar" onclick="cerrarModal('modalPersonal')">Cancelar</button>
+      <button class="btn-guardar" onclick="guardarPersonal()"><i class="bi bi-floppy"></i> Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="kento-alert" class="kento-alert-toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
