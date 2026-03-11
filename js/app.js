@@ -71,14 +71,14 @@ const works = [
     link: "/reserva",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reserva.jpg"
   },
-   {
+    {
     id: "w9",
-    title: "Rutina de gym en casa",
+    title: "Poke API",
     category: "frontend",
-    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    description: "Uso de una api en este caso la poke api, el enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
     tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
-    link: "/gym",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
+    link: "/poke",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/poke.png"
   }
 ];
 
@@ -364,3 +364,4 @@ function typeCode() {
 }
 
 typeCode();
+
