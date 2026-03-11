@@ -57,7 +57,7 @@ const works = [
     id: "w7",
     title: "Agencia de viajes",
     category: "frontend",
-    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    description: "Landing page para una agencia de viajes, enfocada en diseño atractivo y experiencia de usuario, desarrollada con HTML, CSS y JavaScript y totalmente responsive.",
     tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
     link: "/viajes",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/viajes.png"
@@ -66,12 +66,12 @@ const works = [
     id: "w8",
     title: "Sistema de reserva",
     category: "frontend",
-    description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
+    description: "Sistema web de reservas en línea que permite consultar disponibilidad, agendar horarios y gestionar reservas mediante una interfaz moderna y responsive.",
     tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
     link: "/reserva",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reserva.jpg"
   },
-    {
+   {
     id: "w9",
     title: "Poke API",
     category: "frontend",
@@ -364,4 +364,3 @@ function typeCode() {
 }
 
 typeCode();
-
