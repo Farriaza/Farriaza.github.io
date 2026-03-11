@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PokéDex Ultra — Pokémon Interactive Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Animated background particles -->
+  <div class="bg-layer">
+    <div class="particle" style="--x:10%;--y:20%;--s:0.4;--d:6s;"></div>
+    <div class="particle" style="--x:30%;--y:60%;--s:0.6;--d:8s;"></div>
+    <div class="particle" style="--x:55%;--y:15%;--s:0.3;--d:5s;"></div>
+    <div class="particle" style="--x:75%;--y:75%;--s:0.5;--d:9s;"></div>
+    <div class="particle" style="--x:90%;--y:40%;--s:0.7;--d:7s;"></div>
+    <div class="particle" style="--x:20%;--y:85%;--s:0.4;--d:10s;"></div>
+    <div class="pokeball-bg pb1"></div>
+    <div class="pokeball-bg pb2"></div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar glass">
+    <div class="nav-brand">
+      <span class="nav-ball">⬤</span>
+      <span class="nav-title">PokéDex <em>Ultra</em></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#search-section">Buscar</a></li>
+      <li><a href="#random-section">Aleatorio</a></li>
+      <li><a href="#battle-section">Batalla</a></li>
+    </ul>
+    <button class="nav-cta" id="navRandomBtn">¡Sorpréndeme!</button>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="hero-badge">— Gen I-IX disponibles —</span>
+      <h1 class="hero-title">
+        Explora el<br>
+        <span class="gradient-text">Mundo Pokémon</span>
+      </h1>
+      <p class="hero-sub">Una Pokédex interactiva de última generación. Busca, descubre y combate con más de 1.000 Pokémon en tiempo real.</p>
+      <div class="hero-btns">
+        <a href="#search-section" class="btn btn-primary">Explorar Pokédex</a>
+        <a href="#battle-section" class="btn btn-ghost">Ir a Batalla</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">1008</span><span class="stat-label">Pokémon</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">18</span><span class="stat-label">Tipos</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Batallas</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-ring ring1"></div>
+      <div class="hero-ring ring2"></div>
+      <div class="hero-ring ring3"></div>
+      <div class="hero-poke-wrap" id="heroPokemon">
+        <div class="hero-poke-glow"></div>
+        <img id="heroImg" src="" alt="Hero Pokémon" class="hero-poke-img floating" />
+        <div class="hero-poke-name" id="heroName">Cargando...</div>
+        <div class="hero-poke-types" id="heroTypes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEARCH SECTION ========== -->
+  <section class="section" id="search-section">
+    <div class="section-header">
+      <h2 class="section-title">Buscar Pokémon</h2>
+      <p class="section-sub">Escribe un nombre o número de Pokémon</p>
+    </div>
+    <div class="search-bar-wrap">
+      <div class="search-bar glass">
+        <span class="search-icon">◎</span>
+        <input type="text" id="searchInput" placeholder="Ej: pikachu, charizard, 25..." autocomplete="off"/>
+        <button id="searchBtn" class="btn btn-primary search-submit">Buscar</button>
+      </div>
+    </div>
+
+    <!-- Result card -->
+    <div id="searchResult" class="search-result hidden"></div>
+
+    <!-- Type filter -->
+    <div class="type-filter-label">— O filtra por tipo —</div>
+    <div class="type-filters" id="typeFilters"></div>
+    <div class="cards-grid" id="cardsGrid">
+      <div class="cards-placeholder">
+        <div class="placeholder-ball"></div>
+        <p>Busca un Pokémon o selecciona un tipo para ver las cartas</p>
+      </div>
+    </div>
+    <div id="loadMoreWrap" class="load-more-wrap hidden">
+      <button class="btn btn-ghost" id="loadMoreBtn">Cargar más</button>
+    </div>
+  </section>
+
+  <!-- ========== RANDOM SECTION ========== -->
+  <section class="section alt-section" id="random-section">
+    <div class="section-header">
+      <h2 class="section-title">Pokémon Aleatorio</h2>
+      <p class="section-sub">¿Te atreves a descubrir quién aparece hoy?</p>
+    </div>
+    <div class="random-wrap">
+      <div class="random-card glass" id="randomCard">
+        <div class="random-spinner" id="randomSpinner">
+          <div class="pokeball-spin"></div>
+          <p>Preparando...</p>
+        </div>
+        <div class="random-content hidden" id="randomContent">
+          <div class="random-num" id="randomNum">#000</div>
+          <div class="random-img-wrap">
+            <div class="random-glow"></div>
+            <img id="randomImg" src="" alt="" class="random-img floating"/>
+          </div>
+          <h3 class="random-name" id="randomName">—</h3>
+          <div class="random-types" id="randomTypes"></div>
+          <div class="random-stats" id="randomStats"></div>
+          <div class="random-meta" id="randomMeta"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary random-btn" id="randomBtn">
+        <span class="btn-spin">↻</span> Nuevo Pokémon
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== BATTLE SECTION ========== -->
+  <section class="section" id="battle-section">
+    <div class="section-header">
+      <h2 class="section-title">Mini Batalla</h2>
+      <p class="section-sub">Elige o genera dos Pokémon y ¡que gane el mejor!</p>
+    </div>
+    <div class="battle-arena glass">
+      <!-- Fighter 1 -->
+      <div class="fighter" id="fighter1">
+        <div class="fighter-label">JUGADOR 1</div>
+        <div class="fighter-search">
+          <input type="text" class="fighter-input" id="f1Input" placeholder="Nombre o #..."/>
+          <button class="btn btn-sm" id="f1Search">Buscar</button>
+          <button class="btn btn-sm btn-ghost" id="f1Random">⚄</button>
+        </div>
+        <div class="fighter-card" id="f1Card">
+          <div class="fighter-placeholder">
+            <div class="pokeball-mini"></div>
+            <span>Sin Pokémon</span>
+          </div>
+        </div>
+        <div class="battle-bars hidden" id="f1Bars"></div>
+      </div>
+
+      <!-- VS center -->
+      <div class="battle-vs">
+        <div class="vs-circle">VS</div>
+        <button class="btn btn-primary battle-btn" id="battleBtn">¡BATALLA!</button>
+        <button class="btn btn-ghost battle-reset" id="resetBattle">Reiniciar</button>
+      </div>
+
+      <!-- Fighter 2 -->
+      <div class="fighter" id="fighter2">
+        <div class="fighter-label">JUGADOR 2</div>
+        <div class="fighter-search">
+          <input type="text" class="fighter-input" id="f2Input" placeholder="Nombre o #..."/>
+          <button class="btn btn-sm" id="f2Search">Buscar</button>
+          <button class="btn btn-sm btn-ghost" id="f2Random">⚄</button>
+        </div>
+        <div class="fighter-card" id="f2Card">
+          <div class="fighter-placeholder">
+            <div class="pokeball-mini"></div>
+            <span>Sin Pokémon</span>
+          </div>
+        </div>
+        <div class="battle-bars hidden" id="f2Bars"></div>
+      </div>
+    </div>
+
+    <!-- Battle result -->
+    <div class="battle-result hidden" id="battleResult">
+      <div class="result-overlay"></div>
+      <div class="result-box glass">
+        <div class="result-trophy" id="resultTrophy">🏆</div>
+        <h3 class="result-title" id="resultTitle">—</h3>
+        <p class="result-detail" id="resultDetail">—</p>
+        <button class="btn btn-primary" id="battleAgain">Revancha</button>
+      </div>
+    </div>
+
+    <!-- Battle log -->
+    <div class="battle-log glass hidden" id="battleLog">
+      <div class="log-title">⚔️ Registro de Batalla</div>
+      <div class="log-entries" id="logEntries"></div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-ball">
+      <div class="pokeball-footer"></div>
+    </div>
+    <p class="footer-text">PokéDex Ultra · Datos de <a href="https://pokeapi.co" target="_blank">PokéAPI</a> · Hecho con ❤️ y JavaScript puro</p>
+    <p class="footer-disclaimer">Pokémon y todos los nombres relacionados son marca registrada de Nintendo / Game Freak.</p>
+  </footer>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
