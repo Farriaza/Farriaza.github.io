@@ -338,7 +338,8 @@ const STAFF = [
   { id:7, name:'Andrés López', role:'Barman', dept:'Bar', schedule:'M-D 18:00-02:00', status:'active', phone:'+56 9 2109 8765', email:'andres@sakura.cl', photo:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80', weekHours:{ L:'OFF',Ma:'N',Mi:'N',J:'N',V:'N',S:'N',D:'N' } },
   { id:8, name:'Patricia Soto', role:'Limpieza', dept:'Operaciones', schedule:'L-V 08:00-16:00', status:'active', phone:'+56 9 1098 7654', email:'paty@sakura.cl', photo:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80', weekHours:{ L:'M',Ma:'M',Mi:'M',J:'M',V:'M',S:'OFF',D:'OFF' } },
   { id:9, name:'Diego Vega', role:'Coopera (Ayudante)', dept:'Cocina', schedule:'L-V 11:00-20:00', status:'off', phone:'+56 9 0987 6543', email:'diego@sakura.cl', photo:'https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&q=80', weekHours:{ L:'M',Ma:'M',Mi:'M',J:'M',V:'M',S:'OFF',D:'OFF' } },
-  { id:10, name:'Mariana Ortiz', role:'Administradora', dept:'Administración', schedule:'L-V 09:00-18:00', status:'active', phone:'+56 9 9876 5432', email:'mariana@sakura.cl', photo:'https://images.unsplash.com/photo-1491349174775-aaaefdd81942?w=200&q=80', weekHours:{ L:'M',Ma:'M',Mi:'M',J:'M',V:'M',S:'OFF',D:'OFF' } },
+  { id:10, name:'Fernando Arriaza', role:'Administradora', dept:'Administración', schedule:'L-V 09:00-18:00', status:'active', phone:'+56 9 9876 5432', email:'mariana@sakura.cl', photo:'https://raw.githubusercontent.com/Farriaza/img/main/yo1.jpg', weekHours:{ L:'M',Ma:'M',Mi:'M',J:'M',V:'M',S:'OFF',D:'OFF' } },
+
 ];
 
 /* ─────────────────────────────────────────
