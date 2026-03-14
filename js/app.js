@@ -64,12 +64,12 @@ const works = [
   },
    {
     id: "w8",
-    title: "Sistema de reserva",
+    title: "Sistema de restaurante",
     category: "frontend",
-    description: "Sistema web de reservas en línea que permite consultar disponibilidad, agendar horarios y gestionar reservas mediante una interfaz moderna y responsive.",
+    description: "Sistema completo de restaurante, reserva, toma de pedido, inventario entre otros.",
     tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
-    link: "/reserva",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/reserva.jpg"
+    link: "/restaurant",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/sakura.png"
   },
    {
     id: "w9",
