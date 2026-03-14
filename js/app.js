@@ -27,14 +27,14 @@ const works = [
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas1.png"
   },
   {
-    id: "w4",
-    title: "veloce",
-    category: "Backend",
-    description: "El sistema incluye de arriedno de vehiculo",
-    tags: ["Python", "Django", "RBAC", "PostgreSQL"],
-    link: "/card",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/veloce.png"
-  },
+  id: "w4",
+  title: "Veloce",
+  category: "Backend",
+  description: "Veloce es un sistema backend desarrollado para la gestión de arriendo de vehículos. Permite administrar clientes, vehículos disponibles, contratos de arriendo y control de disponibilidad en tiempo real. El sistema incorpora autenticación segura y control de acceso basado en roles (RBAC), permitiendo que administradores y operadores gestionen reservas, historial de arriendos y estado de los vehículos de forma eficiente. Está construido con Python y Django, utilizando PostgreSQL como base de datos para garantizar integridad, escalabilidad y alto rendimiento.",
+  tags: ["Python", "Django", "RBAC", "PostgreSQL"],
+  link: "/card",
+  cover: "https://raw.githubusercontent.com/Farriaza/img/main/veloce.png"
+},
   {
    id: "w5",
   title: "Landing Page IREK",
