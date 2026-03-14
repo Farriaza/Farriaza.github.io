@@ -28,12 +28,12 @@ const works = [
   },
   {
     id: "w4",
-    title: "Restaurante Chino Beifong",
+    title: "veloce",
     category: "Backend",
-    description: "El sistema incluye menú dinámico, carrito de compras, gestión de pedidos y panel administrativo para actualizar contenidos y administrar operaciones comerciales.",
-    tags: ["Python", "FastAPI", "JWT", "Docker", "API"],
-    link: "https://ferbeifong.pythonanywhere.com/",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/restBeifong.png"
+    description: "El sistema incluye de arriedno de vehiculo",
+    tags: ["Python", "Django", "RBAC", "PostgreSQL"],
+    link: "/card",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/veloce.png"
   },
   {
    id: "w5",
