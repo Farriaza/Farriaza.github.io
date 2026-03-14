@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>VELOCE — Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<div class="dash-layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <a href="index.html" class="logo"><span class="logo-text">VELOC<span style="color:var(--sky)">E</span></span></a>
+    <button id="sbToggle" class="sidebar-toggle" onclick="toggleSidebar()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-group-label">Principal</span>
+    <a href="#" class="nav-link active" onclick="navTo('overview',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+      <span class="nav-text">Resumen</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('catalog',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+      <span class="nav-text">Catálogo</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('rentals',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
+      <span class="nav-text">Arriendos</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('clients',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <span class="nav-text">Clientes</span>
+    </a>
+    <span class="nav-group-label" style="margin-top:8px">Gestión</span>
+    <a href="#" class="nav-link" onclick="navTo('staff',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span class="nav-text">Personal</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('branches',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+      <span class="nav-text">Sucursales</span>
+    </a>
+    <span class="nav-group-label" style="margin-top:8px">Análisis</span>
+    <a href="#" class="nav-link" onclick="navTo('reports',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+      <span class="nav-text">Reportes</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('revenue',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+      <span class="nav-text">Ingresos</span>
+    </a>
+    <span class="nav-group-label" style="margin-top:8px">Sistema</span>
+    <a href="#" class="nav-link" onclick="navTo('profile',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span class="nav-text">Mi Perfil</span>
+    </a>
+    <a href="#" class="nav-link" onclick="navTo('settings',this)">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+      <span class="nav-text">Configuración</span>
+    </a>
+    <a href="index.html" class="nav-link">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+      <span class="nav-text">Ver Sitio</span>
+    </a>
+    <a href="login.html" class="nav-link" style="color:#ef4444">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" stroke="#ef4444"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+      <span class="nav-text">Cerrar Sesión</span>
+    </a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="sidebar-user" onclick="navTo('profile',document.querySelector('.nav-link[onclick*=profile]'))" style="cursor:pointer">
+      <div class="s-avatar" id="sidebarAvatar">AD</div>
+      <div class="s-info"><strong id="sidebarName">Admin User</strong><span id="sidebarEmail">admin@veloce.cl</span></div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="dash-main" id="dashMain">
+  <header class="dash-topbar">
+    <div class="topbar-left">
+      <button class="mob-menu" onclick="toggleSidebar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="breadcrumb" id="breadcrumb">Dashboard / <strong>Resumen</strong></div>
+    </div>
+    <div class="topbar-right">
+      <div class="top-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Buscar vehículo, cliente…" />
+      </div>
+      <div class="top-notif" onclick="showNotifs()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge">3</span>
+      </div>
+      <div class="top-avatar" id="topAvatar" onclick="navTo('profile',document.querySelector('.nav-link[onclick*=profile]'))">AD</div>
+    </div>
+  </header>
+
+  <div class="dash-content">
+
+    <!-- OVERVIEW -->
+    <div class="dash-section active" id="sec-overview">
+      <div class="section-title">
+        <h1>Resumen General</h1>
+        <span style="font-size:.84rem;color:var(--ink3);background:var(--sky-bg);padding:6px 14px;border-radius:50px;border:1px solid var(--border-sky)">📅 Noviembre 2024</span>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-ico sky"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Disponibles</span><span class="kpi-val">87</span><span class="kpi-delta up">+5 esta semana</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico amber"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Arriendos activos</span><span class="kpi-val">34</span><span class="kpi-delta up">+12%</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico green"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Clientes</span><span class="kpi-val">1.248</span><span class="kpi-delta up">+89</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico rose"><svg class="icon-lg icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Ingresos Mes</span><span class="kpi-val">$48.3M</span><span class="kpi-delta up">+18%</span></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h3>Arriendos semanales</h3><span class="card-tag">Este mes</span></div>
+          <div class="bar-chart" id="chartBars"></div>
+          <div class="bar-labels" id="chartLabels"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Actividad reciente</h3><span class="card-tag">Últimas 24h</span></div>
+          <div class="activity-list">
+            <div class="activity-item"><div class="act-dot green"></div><div class="act-body"><strong>Carlos R.</strong> arrendó Ferrari 488 GTB<span class="act-time">hace 12 min</span></div></div>
+            <div class="activity-item"><div class="act-dot amber"></div><div class="act-body"><strong>BMW X3 M40i</strong> requiere revisión técnica<span class="act-time">hace 1h</span></div></div>
+            <div class="activity-item"><div class="act-dot sky"></div><div class="act-body"><strong>Ana M.</strong> renovó arriendo Rolls-Royce<span class="act-time">hace 2h</span></div></div>
+            <div class="activity-item"><div class="act-dot green"></div><div class="act-body"><strong>Nuevo cliente</strong> Pedro Silva registrado<span class="act-time">hace 3h</span></div></div>
+            <div class="activity-item"><div class="act-dot rose"></div><div class="act-body"><strong>Porsche 911 GT3</strong> devuelto con incidente<span class="act-time">hace 5h</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="stat-mini-card"><div class="sm-ico"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><strong>4.9</strong><small>Rating promedio</small></div></div>
+        <div class="stat-mini-card"><div class="sm-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><strong>6</strong><small>Sucursales activas</small></div></div>
+        <div class="stat-mini-card"><div class="sm-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><strong>28</strong><small>Personal activo</small></div></div>
+      </div>
+    </div>
+
+    <!-- CATÁLOGO -->
+    <div class="dash-section" id="sec-catalog">
+      <div class="section-title">
+        <h1>Catálogo de Vehículos</h1>
+        <button class="btn-primary" onclick="openDashModal('addCar')">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Agregar vehículo
+        </button>
+      </div>
+      <div class="table-toolbar">
+        <div class="filter-search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Buscar…" oninput="searchTable(this.value,'catalogTbl')" /></div>
+        <select class="tbl-select" onchange="filterTableCat(this.value,'catalogTbl')">
+          <option value="">Todas las categorías</option>
+          <option>ciudad</option><option>suv</option><option>pickup</option><option>sport</option><option>luxury</option><option>electric</option><option>van</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="catalogTbl">
+          <thead><tr><th>Vehículo</th><th>Categoría</th><th>Estado</th><th>HP</th><th>Precio/día</th><th>Sucursal</th><th>Acciones</th></tr></thead>
+          <tbody id="catalogTbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ARRIENDOS -->
+    <div class="dash-section" id="sec-rentals">
+      <div class="section-title">
+        <h1>Gestión de Arriendos</h1>
+        <button class="btn-primary" onclick="openDashModal('addRental')">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nuevo arriendo
+        </button>
+      </div>
+      <div class="kanban">
+        <div class="kb-col">
+          <div class="kb-col-head"><span class="kb-col-title">Pendientes</span><span class="kb-count">3</span></div>
+          <div class="kb-cards">
+            <div class="kb-card"><div class="kb-car">Ferrari 488 GTB</div><div class="kb-client">Carlos Rodríguez</div><div class="kb-dates">15 Nov → 18 Nov</div><div class="kb-price">$960.000</div><div class="kb-actions"><button class="kb-btn activate" onclick="moveKanban(this,'active')">Activar</button></div></div>
+            <div class="kb-card"><div class="kb-car">Tesla Model S Plaid</div><div class="kb-client">Valentina Mora</div><div class="kb-dates">16 Nov → 20 Nov</div><div class="kb-price">$1.120.000</div><div class="kb-actions"><button class="kb-btn activate" onclick="moveKanban(this,'active')">Activar</button></div></div>
+          </div>
+        </div>
+        <div class="kb-col">
+          <div class="kb-col-head"><span class="kb-col-title">Activos</span><span class="kb-count">4</span></div>
+          <div class="kb-cards">
+            <div class="kb-card active-c"><div class="kb-car">Rolls-Royce Ghost</div><div class="kb-client">Ana Martínez</div><div class="kb-dates">10 Nov → 17 Nov</div><div class="kb-price">$4.760.000</div><div class="kb-actions"><button class="kb-btn finish" onclick="moveKanban(this,'done')">Finalizar</button></div></div>
+            <div class="kb-card active-c"><div class="kb-car">Jeep Wrangler Rubicon</div><div class="kb-client">Marcos Pérez</div><div class="kb-dates">12 Nov → 16 Nov</div><div class="kb-price">$380.000</div><div class="kb-actions"><button class="kb-btn finish" onclick="moveKanban(this,'done')">Finalizar</button></div></div>
+          </div>
+        </div>
+        <div class="kb-col">
+          <div class="kb-col-head"><span class="kb-col-title">Finalizados</span><span class="kb-count">12</span></div>
+          <div class="kb-cards">
+            <div class="kb-card done-c"><div class="kb-car">Porsche 911 GT3</div><div class="kb-client">Sandra Torres</div><div class="kb-dates">5 Nov → 10 Nov</div><div class="kb-price">$1.400.000</div><div class="kb-actions"><div class="kb-rating">★★★★★</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIENTES -->
+    <div class="dash-section" id="sec-clients">
+      <div class="section-title">
+        <h1>Clientes</h1>
+        <button class="btn-primary" onclick="openDashModal('addClient')">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nuevo cliente
+        </button>
+      </div>
+      <div class="table-toolbar">
+        <div class="filter-search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Buscar cliente…" oninput="searchTable(this.value,'clientsTbl')" /></div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="clientsTbl">
+          <thead><tr><th>Cliente</th><th>Email</th><th>Teléfono</th><th>Arriendos</th><th>Total gastado</th><th>Tipo</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#2a9d8f">AM</div><strong>Ana Martínez</strong></div></td><td>ana@email.cl</td><td>+56 9 8765 4321</td><td>8</td><td>$6.200.000</td><td><span class="cat-pill cp-city">VIP</span></td><td><div class="tbl-actions"><button class="tbl-btn" onclick="editTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#457b9d">LG</div><strong>Luis González</strong></div></td><td>luis@email.cl</td><td>+56 9 5555 1234</td><td>3</td><td>$840.000</td><td><span class="cat-pill cp-suv">Regular</span></td><td><div class="tbl-actions"><button class="tbl-btn" onclick="editTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#e9c46a">ML</div><strong>María López</strong></div></td><td>maria@email.cl</td><td>+56 9 9876 5432</td><td>15</td><td>$18.400.000</td><td><span class="cat-pill cp-city">VIP</span></td><td><div class="tbl-actions"><button class="tbl-btn" onclick="editTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="dash-section" id="sec-staff">
+      <div class="section-title">
+        <h1>Gestión de Personal</h1>
+        <button class="btn-primary" onclick="openDashModal('addStaff')">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Agregar empleado
+        </button>
+      </div>
+      <div class="kpi-row" style="margin-bottom:24px">
+        <div class="kpi-card"><div class="kpi-ico sky"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Total empleados</span><span class="kpi-val">28</span><span class="kpi-delta up">+2 este mes</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico green"><svg class="icon-lg icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Activos hoy</span><span class="kpi-val">22</span><span class="kpi-delta">Turno diurno</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico amber"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Sucursales</span><span class="kpi-val">6</span><span class="kpi-delta">Todas operando</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico rose"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Vacaciones</span><span class="kpi-val">3</span><span class="kpi-delta">Esta semana</span></div></div>
+      </div>
+      <div class="table-toolbar">
+        <div class="filter-search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Buscar empleado…" oninput="searchTable(this.value,'staffTbl')" /></div>
+        <select class="tbl-select" onchange="filterTableCat(this.value,'staffTbl')">
+          <option value="">Todos los roles</option>
+          <option>Administrador</option><option>Agente</option><option>Mecánico</option><option>Limpieza</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="staffTbl">
+          <thead><tr><th>Empleado</th><th>Rol</th><th>Sucursal</th><th>Teléfono</th><th>Estado</th><th>Desde</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#3AAFCE">CR</div><div><strong>Carlos Riquelme</strong><small style="display:block;color:var(--ink4)">carlos@veloce.cl</small></div></div></td><td><span class="cat-pill cp-city">Administrador</span></td><td>Las Condes</td><td>+56 9 1234 5678</td><td><span class="status-dot"><span class="dot dot-green"></span>Activo</span></td><td style="color:var(--ink4);font-size:.82rem">Mar 2021</td><td><div class="tbl-actions"><button class="tbl-btn" onclick="openDashModal('editStaff')"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#2a9d8f">VP</div><div><strong>Valentina Pérez</strong><small style="display:block;color:var(--ink4)">valentina@veloce.cl</small></div></div></td><td><span class="cat-pill cp-suv">Agente</span></td><td>Providencia</td><td>+56 9 8765 0000</td><td><span class="status-dot"><span class="dot dot-green"></span>Activo</span></td><td style="color:var(--ink4);font-size:.82rem">Jun 2022</td><td><div class="tbl-actions"><button class="tbl-btn" onclick="openDashModal('editStaff')"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#e9c46a">JM</div><div><strong>Jorge Muñoz</strong><small style="display:block;color:var(--ink4)">jorge@veloce.cl</small></div></div></td><td><span class="cat-pill cp-pickup">Mecánico</span></td><td>Maipú</td><td>+56 9 5544 3322</td><td><span class="status-dot"><span class="dot dot-amber"></span>Vacaciones</span></td><td style="color:var(--ink4);font-size:.82rem">Ene 2020</td><td><div class="tbl-actions"><button class="tbl-btn" onclick="openDashModal('editStaff')"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+            <tr><td><div class="tbl-client"><div class="tbl-avatar" style="background:#457b9d">LC</div><div><strong>Laura Castillo</strong><small style="display:block;color:var(--ink4)">laura@veloce.cl</small></div></div></td><td><span class="cat-pill cp-sport">Agente</span></td><td>Vitacura</td><td>+56 9 9988 7766</td><td><span class="status-dot"><span class="dot dot-green"></span>Activo</span></td><td style="color:var(--ink4);font-size:.82rem">Sep 2023</td><td><div class="tbl-actions"><button class="tbl-btn" onclick="openDashModal('editStaff')"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tbl-btn danger" onclick="deleteTblRow(this)"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SUCURSALES -->
+    <div class="dash-section" id="sec-branches">
+      <div class="section-title">
+        <h1>Gestión de Sucursales</h1>
+        <button class="btn-primary" onclick="openDashModal('addBranch')">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nueva sucursal
+        </button>
+      </div>
+      <div class="branches-grid">
+        <div class="branch-card">
+          <div class="branch-header"><div class="branch-icon" style="background:var(--sky-bg);color:var(--sky-dark)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="branch-status-badge active-badge">Activa</div></div>
+          <h3>Las Condes</h3><p class="branch-addr">Av. Apoquindo 4501, Las Condes</p>
+          <div class="branch-stats"><div class="b-stat"><strong>18</strong><span>Vehículos</span></div><div class="b-stat"><strong>5</strong><span>Empleados</span></div><div class="b-stat"><strong>12</strong><span>Arriendos</span></div></div>
+          <div class="branch-manager"><span>Manager:</span><strong>Carlos Riquelme</strong></div>
+          <div class="branch-actions"><button class="btn-outline sm" onclick="openDashModal('editBranch')">Editar</button><button class="btn-primary sm" onclick="showToast('📊 Reporte generado','success')">Reporte</button></div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-header"><div class="branch-icon" style="background:#f0fdf4;color:#16a34a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="branch-status-badge active-badge">Activa</div></div>
+          <h3>Providencia</h3><p class="branch-addr">Av. Providencia 1234, Providencia</p>
+          <div class="branch-stats"><div class="b-stat"><strong>14</strong><span>Vehículos</span></div><div class="b-stat"><strong>4</strong><span>Empleados</span></div><div class="b-stat"><strong>8</strong><span>Arriendos</span></div></div>
+          <div class="branch-manager"><span>Manager:</span><strong>Valentina Pérez</strong></div>
+          <div class="branch-actions"><button class="btn-outline sm" onclick="openDashModal('editBranch')">Editar</button><button class="btn-primary sm" onclick="showToast('📊 Reporte generado','success')">Reporte</button></div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-header"><div class="branch-icon" style="background:#fffbeb;color:#d97706"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="branch-status-badge active-badge">Activa</div></div>
+          <h3>Vitacura</h3><p class="branch-addr">Av. Vitacura 2800, Vitacura</p>
+          <div class="branch-stats"><div class="b-stat"><strong>10</strong><span>Vehículos</span></div><div class="b-stat"><strong>3</strong><span>Empleados</span></div><div class="b-stat"><strong>6</strong><span>Arriendos</span></div></div>
+          <div class="branch-manager"><span>Manager:</span><strong>Laura Castillo</strong></div>
+          <div class="branch-actions"><button class="btn-outline sm" onclick="openDashModal('editBranch')">Editar</button><button class="btn-primary sm" onclick="showToast('📊 Reporte generado','success')">Reporte</button></div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-header"><div class="branch-icon" style="background:#f0f9ff;color:#0284c7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="branch-status-badge active-badge">Activa</div></div>
+          <h3>Aeropuerto SCL</h3><p class="branch-addr">Terminal 1, Pudahuel</p>
+          <div class="branch-stats"><div class="b-stat"><strong>20</strong><span>Vehículos</span></div><div class="b-stat"><strong>7</strong><span>Empleados</span></div><div class="b-stat"><strong>18</strong><span>Arriendos</span></div></div>
+          <div class="branch-manager"><span>Manager:</span><strong>Roberto Díaz</strong></div>
+          <div class="branch-actions"><button class="btn-outline sm" onclick="openDashModal('editBranch')">Editar</button><button class="btn-primary sm" onclick="showToast('📊 Reporte generado','success')">Reporte</button></div>
+        </div>
+        <div class="branch-card branch-card-new" onclick="openDashModal('addBranch')">
+          <div class="branch-new-icon">+</div>
+          <h3>Agregar Sucursal</h3>
+          <p>Haz clic para registrar una nueva ubicación</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORTES -->
+    <div class="dash-section" id="sec-reports">
+      <div class="section-title"><h1>Reportes</h1><button class="btn-outline" onclick="openDashModal('export')">Exportar</button></div>
+      <div class="report-grid">
+        <div class="report-card"><div class="rep-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Ventas Mensuales</h3><p>Comparativa últimos 6 meses</p><div class="rep-val">$48.3M <span class="up">↑18%</span></div><button class="btn-outline sm" onclick="showToast('📊 Reporte generado','success')">Ver reporte</button></div>
+        <div class="report-card"><div class="rep-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3>Flota Utilizada</h3><p>% de vehículos en uso</p><div class="rep-val">39% <span class="up">en uso</span></div><button class="btn-outline sm" onclick="showToast('📊 Reporte generado','success')">Ver reporte</button></div>
+        <div class="report-card"><div class="rep-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Retención</h3><p>Tasa de retorno clientes</p><div class="rep-val">74% <span class="up">↑5%</span></div><button class="btn-outline sm" onclick="showToast('📊 Reporte generado','success')">Ver reporte</button></div>
+        <div class="report-card"><div class="rep-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Satisfacción</h3><p>Promedio de valoraciones</p><div class="rep-val">4.9/5 <span class="up">★★★★★</span></div><button class="btn-outline sm" onclick="showToast('📊 Reporte generado','success')">Ver reporte</button></div>
+      </div>
+    </div>
+
+    <!-- INGRESOS -->
+    <div class="dash-section" id="sec-revenue">
+      <div class="section-title"><h1>Ingresos</h1></div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-ico green"><svg class="icon-lg icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Hoy</span><span class="kpi-val">$2.1M</span><span class="kpi-delta up">+8%</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico sky"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Esta semana</span><span class="kpi-val">$12.8M</span><span class="kpi-delta up">+15%</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico amber"><svg class="icon-lg icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Este mes</span><span class="kpi-val">$48.3M</span><span class="kpi-delta up">+18%</span></div></div>
+        <div class="kpi-card"><div class="kpi-ico rose"><svg class="icon-lg icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="kpi-data"><span class="kpi-lbl">Este año</span><span class="kpi-val">$420M</span><span class="kpi-delta up">+32%</span></div></div>
+      </div>
+      <div class="card mt">
+        <div class="card-head"><h3>Ingresos por categoría</h3></div>
+        <div class="dist-list">
+          <div class="dist-row"><span class="dist-lbl">Lujo</span><div class="dist-track"><div class="dist-fill f-gold" style="width:0" data-w="82"></div></div><span class="dist-pct">$18.4M</span></div>
+          <div class="dist-row"><span class="dist-lbl">Deportivos</span><div class="dist-track"><div class="dist-fill f-rose" style="width:0" data-w="65"></div></div><span class="dist-pct">$12.8M</span></div>
+          <div class="dist-row"><span class="dist-lbl">SUV</span><div class="dist-track"><div class="dist-fill f-sky" style="width:0" data-w="50"></div></div><span class="dist-pct">$9.6M</span></div>
+          <div class="dist-row"><span class="dist-lbl">Eléctricos</span><div class="dist-track"><div class="dist-fill f-green" style="width:0" data-w="35"></div></div><span class="dist-pct">$5.2M</span></div>
+          <div class="dist-row"><span class="dist-lbl">Otros</span><div class="dist-track"><div class="dist-fill f-ink" style="width:0" data-w="18"></div></div><span class="dist-pct">$2.3M</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERFIL -->
+    <div class="dash-section" id="sec-profile">
+      <div class="section-title"><h1>Mi Perfil</h1></div>
+      <div class="profile-layout">
+        <div class="profile-card card">
+          <div class="profile-cover"></div>
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="profileAvatarCircle">AD</div>
+            <button class="profile-avatar-edit" onclick="showToast('📸 Próximamente','info')">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </button>
+          </div>
+          <div class="profile-info-center">
+            <h2 id="profileDisplayName">Admin User</h2>
+            <span class="profile-role-badge">Administrador</span>
+            <p class="profile-email-disp" id="profileDisplayEmail">admin@veloce.cl</p>
+          </div>
+          <div class="profile-quick-stats">
+            <div class="pqs"><strong>3</strong><span>años en VELOCE</span></div>
+            <div class="pqs-div"></div>
+            <div class="pqs"><strong>6</strong><span>sucursales</span></div>
+            <div class="pqs-div"></div>
+            <div class="pqs"><strong>28</strong><span>a cargo</span></div>
+          </div>
+        </div>
+        <div class="profile-forms">
+          <div class="card">
+            <h3 style="margin-bottom:18px;font-family:var(--font-head)">Información Personal</h3>
+            <div class="form-row">
+              <div class="form-group"><label>Nombre</label><div class="input-wrap"><input type="text" id="pfName" value="Admin" oninput="liveUpdateProfile()" /></div></div>
+              <div class="form-group"><label>Apellido</label><div class="input-wrap"><input type="text" id="pfLastName" value="User" oninput="liveUpdateProfile()" /></div></div>
+            </div>
+            <div class="form-group"><label>Email</label><div class="input-wrap"><svg class="input-icon icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="pfEmail" value="admin@veloce.cl" oninput="liveUpdateProfile()" /></div></div>
+            <div class="form-row">
+              <div class="form-group"><label>Teléfono</label><div class="input-wrap"><input type="text" value="+56 9 0000 0000" /></div></div>
+              <div class="form-group"><label>Sucursal principal</label><div class="input-wrap"><select><option>Las Condes</option><option>Providencia</option><option>Vitacura</option><option>Aeropuerto SCL</option></select></div></div>
+            </div>
+            <button class="btn-primary" onclick="saveProfile()">Guardar cambios</button>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:18px;font-family:var(--font-head)">Seguridad</h3>
+            <div class="form-group"><label>Contraseña actual</label><div class="input-wrap"><svg class="input-icon icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" placeholder="••••••••" /></div></div>
+            <div class="form-row">
+              <div class="form-group"><label>Nueva contraseña</label><div class="input-wrap"><input type="password" placeholder="Mínimo 8 caracteres" /></div></div>
+              <div class="form-group"><label>Confirmar</label><div class="input-wrap"><input type="password" placeholder="Repetir contraseña" /></div></div>
+            </div>
+            <div class="toggle-row"><span>Autenticación de 2 factores</span><label class="toggle"><input type="checkbox"/><span class="t-slider"></span></label></div>
+            <button class="btn-outline" style="margin-top:14px" onclick="showToast('🔒 Contraseña actualizada','success')">Actualizar contraseña</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIGURACIÓN -->
+    <div class="dash-section" id="sec-settings">
+      <div class="section-title"><h1>Configuración</h1></div>
+      <div class="settings-grid">
+        <div class="card">
+          <h3 style="margin-bottom:18px">Notificaciones</h3>
+          <div class="toggle-row"><span>Nuevos arriendos</span><label class="toggle"><input type="checkbox" checked/><span class="t-slider"></span></label></div>
+          <div class="toggle-row"><span>Pagos recibidos</span><label class="toggle"><input type="checkbox" checked/><span class="t-slider"></span></label></div>
+          <div class="toggle-row"><span>Alertas de flota</span><label class="toggle"><input type="checkbox"/><span class="t-slider"></span></label></div>
+          <div class="toggle-row"><span>Reportes semanales</span><label class="toggle"><input type="checkbox" checked/><span class="t-slider"></span></label></div>
+          <div class="toggle-row"><span>Email</span><label class="toggle"><input type="checkbox" checked/><span class="t-slider"></span></label></div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:18px">Apariencia</h3>
+          <div class="form-group"><label>Idioma</label><div class="input-wrap"><select><option>Español (Chile)</option><option>Inglés</option></select></div></div>
+          <div class="form-group"><label>Zona horaria</label><div class="input-wrap"><select><option>America/Santiago (GMT-3)</option></select></div></div>
+          <div class="form-group"><label>Moneda</label><div class="input-wrap"><select><option>CLP — Peso Chileno</option><option>USD</option></select></div></div>
+          <button class="btn-primary" onclick="saveSettings()">Guardar configuración</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="modal-overlay" id="dashModal"><div class="modal" id="dashModalBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Build catalog table
+  var tbody = document.getElementById("catalogTbody");
+  if(!tbody || typeof CARS === 'undefined') return;
+  var catPill = { ciudad:"cp-city", suv:"cp-suv", pickup:"cp-pickup", sport:"cp-sport", luxury:"cp-luxury", electric:"cp-electric", van:"cp-van" };
+  var statusMap = { available:"<span class='dot dot-green'></span>Disponible", rented:"<span class='dot dot-amber'></span>Arrendado", new:"<span class='dot dot-green'></span>Nuevo", offer:"<span class='dot dot-amber'></span>Oferta" };
+  var branches = ["Las Condes","Providencia","Vitacura","Maipú","Aeropuerto SCL","Providencia"];
+  var editSVG = '<svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
+  var trashSVG = '<svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>';
+  CARS.forEach(function(car, i) {
+    var tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td><div class="tbl-car"><img class="tbl-car-img" src="'+car.img+'" onerror="this.style.display=\'none\'" /><div class="tbl-car-info"><strong>'+car.brand+' '+car.model+'</strong><small>'+car.year+'</small></div></div></td>'+
+      '<td><span class="cat-pill '+(catPill[car.cat]||'cp-city')+'">'+car.cat+'</span></td>'+
+      '<td><span class="status-dot">'+(statusMap[car.badge]||car.badge)+'</span></td>'+
+      '<td>'+car.hp+' HP</td>'+
+      '<td>$'+car.price.toLocaleString()+'</td>'+
+      '<td>'+branches[i%branches.length]+'</td>'+
+      '<td><div class="tbl-actions"><button class="tbl-btn" onclick="editTblRow(this)">'+editSVG+'</button><button class="tbl-btn danger" onclick="deleteTblRow(this)">'+trashSVG+'</button></div></td>';
+    tbody.appendChild(tr);
+  });
+});
+</script>
+</body>
+</html>

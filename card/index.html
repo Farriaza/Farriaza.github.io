@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>VELOCE — Renta de Autos Premium</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">VELOC<span>E</span></a>
+  <ul class="nav-links">
+    <li><a href="#modelos">Modelos</a></li>
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#ar-section">Vista 3D</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html" class="btn-outline">Iniciar Sesión</a>
+    <a href="login.html" class="btn-primary">Dashboard →</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Flota Premium 2024 — Chile</div>
+    <h1 class="hero-title">Conduce<br/><em>lo extraordinario</em></h1>
+    <p class="hero-sub">+60 modelos disponibles. Ciudad, SUV, pickup, eléctricos y lujo. Visualízalos en 3D antes de reservar.</p>
+    <div class="hero-cta">
+      <a href="#modelos" class="btn-primary lg">Explorar Flota</a>
+      <a href="#ar-section" class="btn-ghost lg">◈ Vista 3D</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>60+</strong><span>Modelos</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><strong>15</strong><span>Marcas</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><strong>7</strong><span>Categorías</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=85" alt="Auto de lujo" />
+    <div class="hero-img-overlay"></div>
+  </div>
+</section>
+
+
+
+<!-- MODELOS -->
+<section class="section" id="modelos">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Flota completa</span>
+      <h2>Todos los Modelos</h2>
+    </div>
+    <div class="filter-bar">
+      <div class="filter-pills">
+        <button class="pill active" data-cat="todos" onclick="filterCars('todos')">Todos</button>
+        <button class="pill" data-cat="ciudad" onclick="filterCars('ciudad')">🏙️ Ciudad</button>
+        <button class="pill" data-cat="suv" onclick="filterCars('suv')">🚙 SUV</button>
+        <button class="pill" data-cat="pickup" onclick="filterCars('pickup')">🛻 Pickup</button>
+        <button class="pill" data-cat="sport" onclick="filterCars('sport')">🏎️ Sport</button>
+        <button class="pill" data-cat="luxury" onclick="filterCars('luxury')">💎 Lujo</button>
+        <button class="pill" data-cat="electric" onclick="filterCars('electric')">⚡ Eléctrico</button>
+        <button class="pill" data-cat="van" onclick="filterCars('van')">🚐 Van</button>
+      </div>
+      <div class="filter-search">
+        <span>🔍</span>
+        <input type="text" placeholder="Buscar marca o modelo…" oninput="searchCars(this.value)" />
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      <span id="carCount" style="font-size:.84rem;color:var(--ink3);font-weight:500"></span>
+      <a href="login.html" style="font-size:.84rem;color:var(--sky-dark);font-weight:600">Ver todos en Dashboard →</a>
+    </div>
+    <div class="cars-grid" id="carsGrid"></div>
+  </div>
+</section>
+
+<!-- 3D MODEL VIEWER -->
+<section class="section model3d-section" id="ar-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Tecnología 3D interactiva</span>
+      <h2 style="color:#fff">Vista 3D en Tiempo Real</h2>
+      <p>Explora cada vehículo en 3D. Rota el modelo, cambia el color y examina cada detalle antes de reservar.</p>
+    </div>
+    <div class="model3d-wrap">
+      <div>
+        <canvas id="model3dCanvas"></canvas>
+        <p class="model3d-rotate-label">◈ Arrastra para rotar · Scroll para zoom</p>
+      </div>
+      <div class="model3d-info">
+        <h3 id="model3dTitle">Ferrari 488 GTB</h3>
+        <p>Modelo 3D interactivo en tiempo real. Arrastra el canvas para rotar 360° y usa el scroll para zoom. El color de la carrocería cambia instantáneamente.</p>
+        <div class="model3d-car-select">
+          <button class="model3d-sel-btn active" onclick="select3DCar(this,'Ferrari 488 GTB',['#CC0000','#FFD700','#1A1A1A','#003153'],'sport')">Ferrari 488</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Porsche 911 GT3',['#C0C0C0','#CC0000','#1A1A1A','#003153'],'sport')">Porsche 911</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Tesla Model S Plaid',['#CC0000','#1A1A1A','#DCDCDC','#003153'],'electric')">Tesla Model S</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'BMW M3 Competition',['#1A1A1A','#DCDCDC','#003153','#CC0000'],'sedan')">BMW M3</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Jeep Wrangler Rubicon',['#556B2F','#FF8C00','#1A1A1A','#BDC3C7'],'suv')">Jeep Wrangler</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Toyota RAV4 Hybrid',['#2C3E50','#BDC3C7','#CC0000','#FFFFFF'],'suv')">Toyota RAV4</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Ford F-150 Raptor',['#FF4500','#1A1A1A','#BDC3C7','#003153'],'pickup')">Ford F-150</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Toyota Hilux GR Sport',['#1A1A1A','#BDC3C7','#FFFFFF','#8B4513'],'pickup')">Toyota Hilux</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Rolls-Royce Ghost',['#DCDCDC','#1A1A1A','#8B6914','#003153'],'luxury')">Rolls-Royce</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Mercedes S 580 AMG',['#DCDCDC','#1A1A1A','#003153','#4B0082'],'luxury')">Mercedes S580</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Honda Civic Type R',['#CC0000','#1A1A1A','#FFFFFF','#0047AB'],'ciudad')">Honda Civic R</button>
+          <button class="model3d-sel-btn" onclick="select3DCar(this,'Mercedes Vito Tourer',['#1A1A1A','#DCDCDC','#FFFFFF','#003153'],'van')">Mercedes Vito</button>
+        </div>
+        <div class="model3d-color-section">
+          <h4>Color de carrocería</h4>
+          <div class="model3d-colors" id="model3dColors">
+            <div class="model3d-color-dot active" style="background:#CC0000" onclick="change3DColor('#CC0000','Rojo',this)"></div>
+            <div class="model3d-color-dot" style="background:#FFD700" onclick="change3DColor('#FFD700','Dorado',this)"></div>
+            <div class="model3d-color-dot" style="background:#1A1A1A" onclick="change3DColor('#1A1A1A','Negro',this)"></div>
+            <div class="model3d-color-dot" style="background:#003153" onclick="change3DColor('#003153','Azul marino',this)"></div>
+          </div>
+          <div class="model3d-selected-color" id="model3dColorName">Color: Rojo</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn-primary" onclick="reset3DCamera()">↺ Restablecer vista</button>
+          <button class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);background:transparent" onclick="toggle3DWireframe()">◫ Wireframe</button>
+        </div>
+        <div class="model3d-hint">◈ <strong>Interactivo:</strong> Arrastra para rotar · Scroll para zoom · Colores en tiempo real</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">VELOC<span style="color:var(--sky)">E</span></a>
+        <p>La plataforma de renta de autos premium más avanzada de Chile. Más de 60 modelos disponibles.</p>
+        <div class="footer-socials">
+          <a href="#">IG</a><a href="#">TW</a><a href="#">LI</a><a href="#">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <a href="#modelos">Catálogo</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#ar-section">Vista 3D</a>
+        <a href="login.html">Dashboard</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compañía</h4>
+        <a href="#">Nosotros</a><a href="#">Blog</a><a href="#">Prensa</a><a href="#">Socios</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="/cdn-cgi/l/email-protection#4e2621222f0e382b22212d2b602d22"><span class="__cf_email__" data-cfemail="4921262528093f2c25262a2c672a25">[email&#160;protected]</span></a>
+        <a href="#">+56 2 2345 6789</a>
+        <a href="#">Santiago, Chile</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 VELOCE. Todos los derechos reservados.</span>
+      <span>Hecho con ♥ en Chile 🇨🇱</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CAR DETAIL MODAL -->
+<div class="modal-overlay" id="carModal">
+  <div class="modal ar-detail-modal" id="carModalBody"></div>
+</div>
+
+<!-- RESERVE MODAL -->
+<div class="modal-overlay" id="reserveModal">
+  <div class="modal" id="reserveModalBody"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
