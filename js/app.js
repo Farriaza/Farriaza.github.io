@@ -28,7 +28,7 @@ const works = [
   },
   {
   id: "w4",
-  title: "Veloce",
+  title: "Sistema de rent a car",
   category: "Backend",
   description: "Veloce es un sistema backend desarrollado para la gestión de arriendo de vehículos. Permite administrar clientes, vehículos disponibles, contratos de arriendo y entre otros.",
   tags: ["Python", "Django", "RBAC", "PostgreSQL"],
