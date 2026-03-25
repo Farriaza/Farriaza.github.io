@@ -2,7 +2,7 @@ const works = [
   {
     id: "w1",
     title: "Intranet Institucional",
-    category: "Backend",
+    category: "backend",
     description: "El sistema centraliza proyectos, clientes, noticias y documentos, permitiendo trazabilidad, auditoría y administración eficiente de la información institucional.",
     tags: ["Python", "Django", "RBAC", "PostgreSQL", "Institucional"],
     link: "/mds",
@@ -11,7 +11,7 @@ const works = [
   {
     id: "w2",
     title: "ERP de Inventario y Ventas",
-    category: "Backend",
+    category: "backend",
     description: "Se implementó lógica de negocio para movimientos de productos, picking, control de existencias y registro histórico de operaciones.",
     tags: ["Laravel", "PHP", "ERP", "Inventario", "Mysql"],
     link: "/inventario",
@@ -20,68 +20,67 @@ const works = [
   {
     id: "w3",
     title: "Módulo Social de Recetas",
-    category: "Backend",
+    category: "backend",
     description: "Se implementaron funcionalidades como publicaciones, interacción entre usuarios, sistema de destacados y control administrativo.",
     tags: ["Laravel", "PHP", "ERP", "Inventario", "Mysql"],
     link: "/recetas",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/recetas1.png"
   },
   {
-  id: "w4",
-  title: "Sistema de rent a car",
-  category: "Backend",
-  description: "Veloce es un sistema backend desarrollado para la gestión de arriendo de vehículos. Permite administrar clientes, vehículos disponibles, contratos de arriendo y entre otros.",
-  tags: ["Python", "Django", "RBAC", "PostgreSQL"],
-  link: "/card",
-  cover: "https://raw.githubusercontent.com/Farriaza/img/main/veloce.png"
-},
+    id: "w4",
+    title: "Sistema de rent a car",
+    category: "backend",
+    description: "Veloce es un sistema backend desarrollado para la gestión de arriendo de vehículos. Permite administrar clientes, vehículos disponibles, contratos de arriendo y entre otros.",
+    tags: ["Python", "Django", "RBAC", "PostgreSQL"],
+    link: "/card",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/veloce.png"
+  },
   {
-   id: "w5",
-  title: "Landing Page IREK",
-  category: "Frontend",
-  description: "El proyecto permitió profundizar en diseño UI, jerarquía visual y optimización para dispositivos móviles.",
-  tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
-   link: "/irek",
-  cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek1.png"
-},
+    id: "w5",
+    title: "Landing Page IREK",
+    category: "frontend",
+    description: "El proyecto permitió profundizar en diseño UI, jerarquía visual y optimización para dispositivos móviles.",
+    tags: ["JavaScript", "HTML", "CSS", "Portfolio", "Responsive", "Landing Page"],
+    link: "/irek",
+    cover: "https://raw.githubusercontent.com/Farriaza/img/main/irek1.png"
+  },
   {
     id: "w6",
     title: "Rutina de gym en casa",
     category: "frontend",
     description: "El enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
     link: "/gym",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/reingeneria.png"
   },
-   {
+  {
     id: "w7",
     title: "Agencia de viajes",
     category: "frontend",
     description: "Landing page para una agencia de viajes, enfocada en diseño atractivo y experiencia de usuario, desarrollada con HTML, CSS y JavaScript y totalmente responsive.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
     link: "/viajes",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/viajes.png"
   },
-   {
+  {
     id: "w8",
     title: "Sistema de restaurante",
     category: "frontend",
     description: "Sistema completo de restaurante, reserva, toma de pedido, inventario entre otros.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
     link: "/restaurant",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/sakura.png"
   },
-   {
+  {
     id: "w9",
     title: "Poke API",
     category: "frontend",
     description: "Uso de una api en este caso la poke api, el enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive","Landing Page"],
+    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
     link: "/poke",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/poke.png"
   }
 ];
-
 
 // =========================
 // Helpers
@@ -89,11 +88,15 @@ const works = [
 const $ = (q, el = document) => el.querySelector(q);
 const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
 
+// ✅ FIX 3: categoryLabel ahora cubre Backend y Frontend
 const categoryLabel = (cat) => {
-  if (cat === "branding") return "Branding";
-  if (cat === "uiux") return "UI/UX";
-  if (cat === "editorial") return "Editorial";
-  return "Trabajo";
+  const c = (cat || "").toLowerCase();
+  if (c === "backend") return "Backend";
+  if (c === "frontend") return "Frontend";
+  if (c === "branding") return "Branding";
+  if (c === "uiux") return "UI/UX";
+  if (c === "editorial") return "Editorial";
+  return "Proyecto";
 };
 
 // =========================
@@ -105,9 +108,14 @@ let currentQuery = "";
 
 function renderWorks() {
   const filtered = works.filter(w => {
-    const matchCat = currentFilter === "all" ? true : w.category === currentFilter;
+    // ✅ FIX 4: comparación case-insensitive en el filtro
+    const matchCat = currentFilter === "all"
+      ? true
+      : w.category.toLowerCase() === currentFilter.toLowerCase();
     const q = currentQuery.trim().toLowerCase();
-    const matchQuery = !q ? true : (w.title.toLowerCase().includes(q) || w.description.toLowerCase().includes(q));
+    const matchQuery = !q
+      ? true
+      : (w.title.toLowerCase().includes(q) || w.description.toLowerCase().includes(q));
     return matchCat && matchQuery;
   });
 
@@ -270,42 +278,35 @@ $$(".nav-links a").forEach(a => {
 });
 
 // =========================
-// Form contacto (demo)
+// Form contacto
 // =========================
-// Usamos JavaScript puro para evitar dependencias innecesarias
 const contactForm = document.getElementById("contactForm");
 const statusMessage = document.getElementById("formStatus");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async function(e) {
-    e.preventDefault(); // Detiene el envío normal y el mensaje demo
-    
-    // 1. Preparamos los datos
+    e.preventDefault();
+
     const formData = new FormData(this);
-    
-    // 2. Feedback visual inmediato
+
     statusMessage.textContent = "Enviando mensaje...";
     statusMessage.style.color = "orange";
 
     try {
-      // 3. Petición real al servidor de Formspree
       const response = await fetch("https://formspree.io/f/maqowbwd", {
         method: "POST",
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { "Accept": "application/json" }
       });
 
-      // 4. Manejo de la respuesta
       if (response.ok) {
         statusMessage.textContent = "¡Mensaje enviado con éxito! Te responderé pronto.";
-        statusMessage.style.color = "#28a745"; // Verde éxito
-        contactForm.reset(); // Limpia el formulario
+        statusMessage.style.color = "#28a745";
+        contactForm.reset();
       } else {
         const data = await response.json();
         statusMessage.textContent = data.errors ? data.errors[0].message : "Error al enviar.";
-        statusMessage.style.color = "#dc3545"; // Rojo error
+        statusMessage.style.color = "#dc3545";
       }
     } catch (error) {
       statusMessage.textContent = "Error de red. Revisa tu conexión.";
@@ -315,34 +316,25 @@ if (contactForm) {
 }
 
 // =========================
-// Botón CV (demo)
-// =========================
-
-
-// =========================
 // Año footer
 // =========================
 $("#year").textContent = String(new Date().getFullYear());
 
 // Render inicial
 renderWorks();
-/* ===============================
-   TYPEWRITER PERFIL USUARIO
-================================ */
 
+/* ===============================
+   TYPEWRITER
+================================ */
 const codeLines = [
   "social/models.py\n\n",
-
   "class SocialPost(models.Model):\n",
   "    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n",
   "    titulo = models.CharField(max_length=300, blank=True)\n",
   "    aprobado = models.BooleanField(default=False)\n\n",
-
   "    def total_likes(self):\n",
   "        return self.likes.count()\n"
 ];
-
-
 
 const codeEl = document.getElementById("typingCode");
 let line = 0;
@@ -350,16 +342,13 @@ let char = 0;
 
 function typeCode() {
   if (line >= codeLines.length) return;
-
   const current = codeLines[line];
   codeEl.innerHTML += current.charAt(char);
   char++;
-
   if (char === current.length) {
     line++;
     char = 0;
   }
-
   setTimeout(typeCode, 22);
 }
 
