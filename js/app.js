@@ -71,15 +71,15 @@ const works = [
     link: "/restaurant",
     cover: "https://raw.githubusercontent.com/Farriaza/img/main/sakura.png"
   },
-  {
-    id: "w9",
-    title: "Poke API",
-    category: "frontend",
-    description: "Uso de una api en este caso la poke api, el enfoque estuvo en la experiencia del usuario, organización del contenido y adaptación responsive para distintos dispositivos.",
-    tags: ["JavaScript", "HTML", "CSS", "Diseño", "Responsive", "Landing Page"],
-    link: "/poke",
-    cover: "https://raw.githubusercontent.com/Farriaza/img/main/poke.png"
-  }
+{
+  id: "w9",
+  title: "Korenai",
+  category: "frontend",
+  description: "Portafolio moderno de desarrollo de software",
+  tags: ["JavaScript","HTML","CSS","UI/UX","Responsive","Portafolio"],
+  link: "/korenai",
+  cover: "https://raw.githubusercontent.com/Farriaza/img/main/korenai.png"
+},
 ];
 
 // =========================
