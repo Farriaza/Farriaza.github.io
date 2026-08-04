@@ -73,7 +73,7 @@ const works = [
   },
 {
   id: "w9",
-  title: "Korenai",
+  title: "Kodenari",
   category: "frontend",
   description: "Portafolio moderno de desarrollo de software",
   tags: ["JavaScript","HTML","CSS","UI/UX","Responsive","Portafolio"],
