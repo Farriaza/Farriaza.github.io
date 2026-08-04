@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korenai — Agencia informática </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/logo-korenai.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo" aria-label="Korenai - Inicio">
+        <img class="mark mark-image" src="assets/images/logo1.png" alt="Logo Korenai">
+        <span>Korenai Digital</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+      </ul>
+      <a href="#contacto" class="btn sm">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="contacto" style="padding-top:0;">
+    <div class="hero-glow"></div>
+    <svg class="hero-stars" width="100%" height="420" preserveAspectRatio="none" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#ffffff">
+        <circle cx="60" cy="40" r="1.4"/><circle cx="180" cy="90" r="1"/><circle cx="320" cy="30" r="1.6"/>
+        <circle cx="480" cy="70" r="1"/><circle cx="610" cy="20" r="1.3"/><circle cx="760" cy="60" r="1"/>
+        <circle cx="900" cy="35" r="1.5"/><circle cx="1040" cy="80" r="1"/><circle cx="1150" cy="25" r="1.3"/>
+        <circle cx="230" cy="150" r="1"/><circle cx="550" cy="130" r="1.2"/><circle cx="870" cy="140" r="1"/>
+        <circle cx="1100" cy="120" r="1.1"/><circle cx="40" cy="170" r="1"/>
+      </g>
+    </svg>
+    <svg class="hero-mountains" viewBox="0 0 1440 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,260 L0,150 L120,80 L230,160 L340,60 L430,140 L560,30 L650,120 L760,70 L860,150 L980,50 L1080,130 L1200,90 L1320,160 L1440,100 L1440,260 Z" fill="#120A38"/>
+      <path d="M0,260 L0,190 L150,130 L260,190 L400,110 L520,180 L640,100 L740,170 L880,120 L1000,190 L1140,140 L1280,200 L1440,160 L1440,260 Z" fill="#1a0f52" opacity=".9"/>
+    </svg>
+
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Desarrollo de software · Soluciones digitales para empresas</p>
+        <h1>Desarrollamos <span>software a medida</span> que impulsa el crecimiento de tu negocio</h1>
+        <div class="check-list">
+          <div class="check-item"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="#0093F7"/><path d="M6 11.3l3 3 7-7.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Ingeniería de software a la medida</div>
+          <div class="check-item"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="#0093F7"/><path d="M6 11.3l3 3 7-7.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Soluciones escalables para tu empresa</div>
+          <div class="check-item"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="#0093F7"/><path d="M6 11.3l3 3 7-7.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Tecnología que impulsa tu crecimiento</div>
+          <div class="check-item"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="#0093F7"/><path d="M6 11.3l3 3 7-7.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Acompañamiento técnico de principio a fin</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2>Cotiza con nosotros</h2>
+        <form onsubmit="return handleSubmit(event)">
+          <div class="form-row">
+            <div class="field"><input type="text" placeholder="Nombre" required></div>
+            <div class="field"><input type="text" placeholder="Apellido" required></div>
+          </div>
+          <div class="field"><input type="text" placeholder="Nombre de la empresa"></div>
+          <div class="field"><input type="email" placeholder="Email" required></div>
+          <div class="field">
+            <div class="phone-field">
+              <div class="code">🇨🇱 +56</div>
+              <input type="tel" placeholder="Tu número telefónico" style="flex:1;">
+            </div>
+          </div>
+          <div class="field"><textarea placeholder="¿Cómo podemos ayudarte?"></textarea></div>
+          <button type="submit" class="btn">Contáctanos</button>
+          <p class="form-note" id="formStatus">Te respondemos dentro de un día hábil.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+ 
+
+ <!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Servicios</p>
+      <h2>Soluciones tecnológicas para impulsar tu negocio</h2>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono Web -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="4" width="18" height="14" rx="2"/>
+            <path d="M3 8h18"/>
+            <path d="M8 20h8"/>
+          </svg>
+        </div>
+
+        <h3>Desarrollo Web</h3>
+
+        <p>
+          Diseñamos y desarrollamos sitios web modernos, rápidos y
+          totalmente adaptados a las necesidades de tu empresa.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono Automatización -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3v4"/>
+            <path d="M12 17v4"/>
+            <path d="M3 12h4"/>
+            <path d="M17 12h4"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+
+        <h3>Automatización de Procesos</h3>
+
+        <p>
+          Digitalizamos tareas repetitivas mediante software personalizado,
+          reduciendo tiempos, errores y costos operacionales.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono móvil -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="7" y="2" width="10" height="20" rx="2"/>
+            <circle cx="12" cy="18" r="0.8"/>
+          </svg>
+        </div>
+
+        <h3>Aplicaciones Móviles</h3>
+
+        <p>
+          Creamos aplicaciones Android y iOS con experiencias intuitivas,
+          alto rendimiento y tecnologías modernas.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono IA -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+            <path d="M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>
+          </svg>
+        </div>
+
+        <h3>Inteligencia Artificial</h3>
+
+        <p>
+          Implementamos asistentes inteligentes, chatbots y soluciones con IA
+          para optimizar la atención y los procesos de tu empresa.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono UX -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 5h16v10H4z"/>
+            <path d="M8 19h8"/>
+            <path d="M12 15v4"/>
+          </svg>
+        </div>
+
+        <h3>Diseño UX/UI</h3>
+
+        <p>
+          Diseñamos interfaces atractivas y centradas en el usuario para
+          mejorar la experiencia y aumentar las conversiones.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-badge">
+          <!-- Icono Consultoría -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2l3 6 6 .8-4.5 4.3 1.2 6-5.7-3-5.7 3 1.2-6L3 8.8 9 8z"/>
+          </svg>
+        </div>
+
+        <h3>Consultoría Tecnológica</h3>
+
+        <p>
+          Te ayudamos a definir la mejor estrategia tecnológica para hacer
+          crecer tu negocio de forma segura y escalable.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- POR QUE -->
+  <section class="bg-tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Nuestro diferencial</p>
+        <h2>¿Por qué trabajar con Korenai?</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
+          <h3>Diseño a la medida de tu marca</h3>
+          <p>Nuestros diseños son completamente personalizados y enfocados en tu público objetivo, para diferenciarte de tu competencia.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h3>Proceso de desarrollo eficiente</h3>
+          <p>Tenemos un método probado de planificación, diseño y desarrollo que permite entregar proyectos a tiempo sin perder calidad.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 20c0-3.3 2.7-6 6-6s2.6.6 3.7 1.6"/></svg></div>
+          <h3>Equipo multidisciplinario</h3>
+          <p>Contamos con especialistas en diseño, desarrollo, UX/UI y marketing digital trabajando en conjunto por un resultado integral.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUYE -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Todo incluido</p>
+        <h2>Nuestros sitios web incluyen</h2>
+      </div>
+      <div class="includes-grid">
+        <div class="includes-list">
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 8v8M8 12h8"/></svg></span> Analítica de visitas</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v10H4z"/><path d="M9 20h6M12 14v6"/></svg></span> Hosting gratis por 1 año</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/></svg></span> Correos corporativos</div>
+        </div>
+        <div class="includes-list">
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H8l-4 4z"/></svg></span> Chat en vivo</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span> Enlace a redes sociales</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/></svg></span> Certificado SSL</div>
+        </div>
+        <div class="includes-list">
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9h6M7 13h10"/></svg></span> Formulario de contacto</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></span> Sitio autoadministrable</div>
+          <div class="includes-item"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span> Documentación de uso</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section class="bg-tint" id="portafolio">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Portafolio</p>
+        <h2>Algunos proyectos que hemos construido</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#0A0223,#1c1067);">
+            <div class="chrome"><span></span><span></span><span></span></div>
+            <span class="label">Landing Page</span>
+          </div>
+          <div class="portfolio-body">
+            <div><span class="tag">Landing</span><span class="domain">metfa.cl</span></div>
+            <a href="#contacto" class="btn sm">Ver</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#0093F7,#00c2ff);">
+            <div class="chrome"><span></span><span></span><span></span></div>
+            <span class="label">Corporativa</span>
+          </div>
+          <div class="portfolio-body">
+            <div><span class="tag">Corporativa</span><span class="domain">pareti.cl</span></div>
+            <a href="#contacto" class="btn sm">Ver</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1c1067,#0093F7);">
+            <div class="chrome"><span></span><span></span><span></span></div>
+            <span class="label">E-commerce</span>
+          </div>
+          <div class="portfolio-body">
+            <div><span class="tag">E-commerce</span><span class="domain">bravera.cl</span></div>
+            <a href="#contacto" class="btn sm">Ver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Metodología</p>
+        <h2>Nuestro proceso para diseñar páginas web</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Definimos</h3>
+          <p>Nos reunimos para discutir cada detalle de tu proyecto y establecer objetivos claros.</p>
+        </div>
+        <div class="process-card">
+          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4Z"/></svg></div>
+          <h3>Diseñamos</h3>
+          <p>Diseñamos y maquetamos el sitio web hasta que quede aprobado por ti.</p>
+        </div>
+        <div class="process-card">
+          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3 4 7l4 4M16 3l4 4-4 4M14 3l-4 18"/></svg></div>
+          <h3>Implementamos</h3>
+          <p>Damos vida al diseño aprobado y le otorgamos toda su funcionalidad.</p>
+        </div>
+        <div class="process-card">
+          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+          <h3>Refinamos</h3>
+          <p>Ajustamos cada detalle de forma minuciosa hasta obtener un sitio web excelente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER 1: EJECUTIVO -->
+ <section class="bg-tint">
+  <div class="wrap banner">
+
+    <!-- Imagen -->
+    <div class="banner-art">
+      <img
+        src="assets/images/img01.png"
+        alt="Ejecutivo de cuentas Kodenari"
+        class="banner-image"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="banner-copy">
+      <p class="eyebrow">Acompañamiento</p>
+
+      <h2>Ejecutivo de cuentas dedicado</h2>
+
+      <p>
+        Te asignamos un ejecutivo de cuentas especializado en soluciones
+        tecnológicas, quien te acompañará durante todo el proceso para
+        garantizar el éxito de tu proyecto.
+      </p>
+
+      <a href="#contacto" class="btn dark">
+        Solicitar una cotización
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- BANNER 2: SEO -->
+  <section>
+    <div class="wrap banner reverse">
+      <div class="banner-copy">
+        <p class="eyebrow">Transformación Digital</p>
+        <h2>Convierte tus ideas en soluciones tecnológicas</h2>
+        <p> Desarrollamos software, aplicaciones web y herramientas personalizadas que
+          optimizan procesos, aumentan la productividad y ayudan a hacer crecer tu
+          empresa mediante tecnología diseñada para tus necesidades.</p>
+        <a href="#contacto" class="btn dark">Obtén una cotización</a>
+      </div>
+      <div class="banner-art">
+         <div class="banner-art">
+      <img
+        src="assets/images/img02.png"
+        alt="Ejecutivo de cuentas Kodenari"
+        class="banner-image"
+      />
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contacto-final">
+    <div class="cta-section">
+      <div>
+        <p class="eyebrow" style="color:#7fc7ff;">Empecemos</p>
+        <h2>¿Listo para comenzar tu proyecto?</h2>
+        <p>Tomamos un número limitado de proyectos de desarrollo web cada mes. Contáctanos para hablar sobre el tuyo.</p>
+        <a href="#top" class="btn">Contactar</a>
+      </div>
+      <div class="cta-art">
+        <img
+        src="assets/images/img03.png"
+        alt="Ejecutivo de cuentas Kodenari"
+        class="banner-image"
+      />
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#top" class="logo" style="color:#fff;" aria-label="Korenai - Inicio">
+      <img class="mark mark-image" src="assets/images/logo1.png" alt="Logo Korenai">
+      <span>Korenai</span>
+    </a>
+    <span>© <span id="year"></span> Korenai. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
