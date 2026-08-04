@@ -78,7 +78,7 @@ const works = [
   description: "Portafolio moderno de desarrollo de software",
   tags: ["JavaScript","HTML","CSS","UI/UX","Responsive","Portafolio"],
   link: "/kodenari/",
-  cover: "https://raw.githubusercontent.com/Farriaza/img/main/kodenai.png"
+  cover: "https://raw.githubusercontent.com/Farriaza/img/main/kodenari.png"
 },
 ];
 
