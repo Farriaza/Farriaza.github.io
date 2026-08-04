@@ -77,7 +77,7 @@ const works = [
   category: "frontend",
   description: "Portafolio moderno de desarrollo de software",
   tags: ["JavaScript","HTML","CSS","UI/UX","Responsive","Portafolio"],
-  link: "/korenai",
+  link: "/kodenari/",
   cover: "https://raw.githubusercontent.com/Farriaza/img/main/korenai.png"
 },
 ];
